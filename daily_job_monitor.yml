@@ -1,0 +1,48 @@
+name: Daily Job Monitor
+
+on:
+  schedule:
+    # Runs every day at 7:00 AM EST (12:00 UTC)
+    - cron: '0 12 * * *'
+  workflow_dispatch:   # allows manual trigger from GitHub UI
+
+jobs:
+  run-monitor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests gspread google-auth anthropic python-dotenv sendgrid
+
+      - name: Restore seen job IDs cache
+        uses: actions/cache@v4
+        with:
+          path: seen_job_ids.json
+          key: seen-job-ids-${{ github.run_id }}
+          restore-keys: |
+            seen-job-ids-
+
+      - name: Write Google credentials JSON
+        run: echo '${{ secrets.GOOGLE_CREDS_JSON }}' > creds.json
+
+      - name: Run job monitor
+        env:
+          ANTHROPIC_API_KEY:  ${{ secrets.ANTHROPIC_API_KEY }}
+          GOOGLE_SHEETS_ID:   ${{ secrets.GOOGLE_SHEETS_ID }}
+          GOOGLE_CREDS_JSON:  creds.json
+          ALERT_EMAIL:        ${{ secrets.ALERT_EMAIL }}
+          SENDGRID_API_KEY:   ${{ secrets.SENDGRID_API_KEY }}
+        run: python job_monitor/job_monitor.py
+
+      - name: Save seen job IDs
+        uses: actions/cache@v4
+        with:
+          path: seen_job_ids.json
+          key: seen-job-ids-${{ github.run_id }}
