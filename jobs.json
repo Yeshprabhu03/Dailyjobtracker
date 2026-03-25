@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T09:06:27.758568",
+    "last_updated": "2026-03-25T09:06:45.138870",
     "scanned_count": 6,
     "total_companies": 58,
     "matches_found": 1,
@@ -71,6 +71,22 @@
       "seniority": "mid",
       "location_type": "unknown",
       "fetch_date": "2026-03-25T09:04:11.116567"
+    },
+    {
+      "id": "link_4b1c30b5",
+      "title": "<Section Id=\"Search-Results\" Data-Keywords=\"Product Manager\" Data-Location=\"\" Data-Distance=\"50\" Data-Latitude=\"\" Data-Longitude=\"\" Data-Show-Radius=\"False\" Data-Total-Results=\"2353\" Data-Total-Job-Results=\"2353\" Data-Total-Pages=\"157\" Data-Current-Page=\"1\" Data-Records-Per-Page=\"15\" Data-Active-Facet-Id=\"0\" Data-Custom-Facet-Name=\"\" Data-Facet-Term=\"\" Data-Facet-Type=\"0\" Data-Search-Results-Module-Name=\"Search Results\" Data-Sort-Criteria=\"0\" Data-Sort-Direction=\"0\" Data-Search-Type=\"1\" Data-Ajax-Url=\"/Search-Jobs/Results\" Data-Ajax-Post-Url=\"/Search-Jobs/Resultspost\" Data-Server-Error-Message=\"There Was An Error Retrieving Your Results. Please Refresh And Try Again.\" Data-Keyword-Type=\"\" Data-Location-Type=\"\" Data-Location-Path=\"\" Data-Organization-Ids=\"\" Data-Selector-Name=\"Searchresults\" Data-Refined-Keywords=\"[]\" Data-Postal-Code=\"\" Data-Save-Jobs=\"True\" Data-Results-Type=\"0\" Data-Use-Noindex=\"True\">",
+      "location": "Check Portal",
+      "url": "https://jobs.citi.com/search-jobs/product%20manager/",
+      "department": "Various",
+      "description": "Found on Citigroup career landing page. Match quality estimated from title.",
+      "posted_date": "2026-03-25",
+      "company": "Citigroup",
+      "score": 65,
+      "match_reason": "The candidate's 4-5 years of product management experience, including a Senior Product Manager role and strong technical/analytical skills, aligns well with a general Product Manager position, despite the job posting's limited details regarding specific responsibilities or seniority.",
+      "apply_now": false,
+      "seniority": "mid",
+      "location_type": "unknown",
+      "fetch_date": "2026-03-25T09:06:45.138870"
     },
     {
       "id": "link_c3637aba",
