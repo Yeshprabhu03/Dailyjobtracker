@@ -18,7 +18,7 @@
     <header class="glass-header">
       <div class="header-left">
         <h1>HireScope <span class="accent">Radar</span></h1>
-        <p>AI-Scored Product Management Opportunities</p>
+        <p>AI-Scored Product Management Opportunities &bull; <span id="lastUpdated" style="color:var(--accent);font-weight:600;">Updating...</span></p>
       </div>
       <div class="header-right">
         <input type="text" id="searchBar" class="glass-input" placeholder="Search companies or titles..." />
@@ -48,6 +48,13 @@
         const response = await fetch('./jobs.json');
         if (!response.ok) throw new Error("Could not find jobs.json");
         allJobs = await response.json();
+        
+        if (allJobs.length > 0) {
+          const dates = allJobs.map(j => new Date(j.fetch_date || 0).getTime());
+          const lastDate = new Date(Math.max(...dates));
+          document.getElementById('lastUpdated').innerText = `Last Scanned: ${lastDate.toLocaleString(undefined, {month:'short', day:'numeric', hour:'numeric', minute:'2-digit'})}`;
+        }
+        
         renderCompanies(allJobs);
       } catch (error) {
         document.getElementById('companyList').innerHTML = `<div class="error-state"><h2>Welcome to HireScope</h2><p>The automated GitHub Actions scanner is currently running. Jobs will appear here once JSON is updated!</p></div>`;
