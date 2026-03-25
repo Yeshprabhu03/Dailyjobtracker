@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T09:07:48.239500",
+    "last_updated": "2026-03-25T09:08:00.574549",
     "scanned_count": 7,
     "total_companies": 58,
     "matches_found": 2,
@@ -55,6 +55,22 @@
       "seniority": "mid",
       "location_type": "unknown",
       "fetch_date": "2026-03-25T09:04:48.763632"
+    },
+    {
+      "id": "link_b7032be5",
+      "title": "Product Manager: Capital One Shopping (Remote-Eligible)",
+      "location": "Check Portal",
+      "url": "https://www.capitalonecareers.com/search-jobs/product%20manager",
+      "department": "Various",
+      "description": "Found on Capital One career landing page. Match quality estimated from title.",
+      "posted_date": "2026-03-25",
+      "company": "Capital One",
+      "score": 85,
+      "match_reason": "The candidate's nearly five years of product management experience, including a Senior Product Manager role with a focus on analytics and platform reliability, makes them a very strong fit for a Product Manager position at Capital One.",
+      "apply_now": true,
+      "seniority": "mid",
+      "location_type": "remote",
+      "fetch_date": "2026-03-25T09:08:00.574549"
     },
     {
       "id": "link_3c049e8f",
