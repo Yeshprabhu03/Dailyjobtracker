@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T09:09:23.580504",
+    "last_updated": "2026-03-25T09:09:39.149748",
     "scanned_count": 9,
     "total_companies": 58,
-    "matches_found": 2,
+    "matches_found": 3,
     "technical_failures": 2,
     "status": "running"
   },
@@ -87,6 +87,22 @@
       "seniority": "mid",
       "location_type": "unknown",
       "fetch_date": "2026-03-25T09:04:48.763632"
+    },
+    {
+      "id": "wd_pnc_R214864_755d5924",
+      "title": "Product Manager II - Investment Office Product Management",
+      "location": "PA - Philadelphia (19103)",
+      "url": "https://pnc.wd5.myworkdayjobs.com/External/job//job/PA---Philadelphia-19103/Product-Manager-II---Investment-Office-Product-Management_R214864-1",
+      "department": "",
+      "description": "",
+      "posted_date": "Posted 7 D",
+      "company": "PNC Financial",
+      "score": 85,
+      "match_reason": "The candidate's 4-5 years of product management experience, strong technical skills in analytics and platform reliability, and relevant MBA coursework align very well with a Product Manager II role in an investment office, despite a lack of direct prior investment product experience.",
+      "apply_now": true,
+      "seniority": "mid",
+      "location_type": "onsite",
+      "fetch_date": "2026-03-25T09:09:39.149748"
     },
     {
       "id": "link_dc49a57a",
