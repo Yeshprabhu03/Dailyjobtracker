@@ -82,9 +82,11 @@ COMPANIES = load_companies()
 
 
 PM_KEYWORDS = [
-    "product manager", "product management", "pm ", "associate pm",
-    "senior pm", "principal pm", "staff pm", "vp product", "director product",
-    "product lead", "group product manager", "head of product",
+    "product manager", "product management", " pm ", "associate pm",
+    "senior pm", "principal pm", "staff pm", "vp product", "director of product",
+    "director, product", "product lead", "group product manager", "head of product",
+    "product owner", "product associate", "product analyst", "digital product",
+    "vp, product", "product vice president", "chief product",
 ]
 
 # ─── SCRAPER FUNCTIONS ───────────────────────────────────────────────────────
@@ -136,44 +138,158 @@ def scrape_lever(token: str) -> list[dict]:
         raise e  # Propagate to failures counter
 
 
-def scrape_workday_search(token: str, query: str = "product manager") -> list[dict]:
+def scrape_workday_search(token: str, path: str = "External",
+                          query: str = "product manager") -> list[dict]:
     """
-    Workday doesn't have a public unified API. This uses the
-    search endpoint that many Workday career sites expose.
-    You may need to find the exact subdomain + path for each company.
-    Pattern: https://{token}.wd1.myworkdayjobs.com/wday/cxs/{token}/External/jobs
+    Try multiple Workday domain variants with the correct path per company.
+    Pattern: https://{token}.wd1.myworkdayjobs.com/wday/cxs/{token}/{path}/jobs
     """
-    # Common Workday API endpoint patterns rotated by major banks
-    for wd_domain in [f"{token}.wd1.myworkdayjobs.com", f"{token}.wd5.myworkdayjobs.com", f"{token}.wd3.myworkdayjobs.com", f"{token}.wd10.myworkdayjobs.com"]:
-        url = f"https://{wd_domain}/wday/cxs/{token}/External/jobs"
-        payload = {
-            "appliedFacets": {},
-            "limit": 20,
-            "offset": 0,
-            "searchText": query
-        }
-        try:
-            r = requests.post(url, json=payload, headers={**HEADERS, "Content-Type": "application/json"}, timeout=15)
-            if r.status_code == 200:
-                data = r.json()
-                jobs = data.get("jobPostings", [])
-                return [
-                    {
-                        "id":         f"wd_{token}_{j.get('bulletFields',[''])[0]}_{hashlib.md5(j.get('title','').encode()).hexdigest()[:8]}",
-                        "title":      j.get("title", ""),
-                        "location":   j.get("locationsText", ""),
-                        "url":        f"https://{wd_domain}/External/job/{j.get('externalPath','')}",
-                        "department": j.get("jobFamilyGroup", ""),
-                        "description": j.get("jobDescription", "")[:600] if "jobDescription" in j else "",
-                        "posted_date": j.get("postedOn", "")[:10] if "postedOn" in j else "",
-                    }
-                    for j in jobs
-                ]
-        except Exception:
-            pass  # try next domain variant
-    
-    # If we get here, all variants failed
+    # Try company-specific path first, then common fallbacks
+    paths_to_try = [path] if path else []
+    for p in ["External", "Careers", "Jobs", "external"]:
+        if p not in paths_to_try:
+            paths_to_try.append(p)
+
+    for wd_domain in [f"{token}.wd1.myworkdayjobs.com", f"{token}.wd5.myworkdayjobs.com",
+                      f"{token}.wd3.myworkdayjobs.com", f"{token}.wd10.myworkdayjobs.com"]:
+        for p in paths_to_try:
+            url = f"https://{wd_domain}/wday/cxs/{token}/{p}/jobs"
+            payload = {
+                "appliedFacets": {},
+                "limit": 20,
+                "offset": 0,
+                "searchText": query
+            }
+            try:
+                r = requests.post(url, json=payload,
+                                  headers={**HEADERS, "Content-Type": "application/json",
+                                           "Accept": "application/json"},
+                                  timeout=15)
+                if r.status_code == 200:
+                    data = r.json()
+                    jobs = data.get("jobPostings", [])
+                    return [
+                        {
+                            "id":         f"wd_{token}_{j.get('bulletFields',[''])[0]}_{hashlib.md5(j.get('title','').encode()).hexdigest()[:8]}",
+                            "title":      j.get("title", ""),
+                            "location":   j.get("locationsText", ""),
+                            "url":        f"https://{wd_domain}/{p}/job/{j.get('externalPath','')}",
+                            "department": j.get("jobFamilyGroup", ""),
+                            "description": j.get("jobDescription", "")[:600] if "jobDescription" in j else "",
+                            "posted_date": j.get("postedOn", "")[:10] if "postedOn" in j else "",
+                        }
+                        for j in jobs
+                    ]
+            except Exception:
+                pass  # try next combination
+
     raise ConnectionError(f"Could not connect to any Workday portal for {token}")
+
+
+def scrape_smartrecruiters(token: str, query: str = "product manager") -> list[dict]:
+    """SmartRecruiters public job search API. Used by Visa, Intuit, and others."""
+    url = f"https://api.smartrecruiters.com/v1/companies/{token}/postings"
+    params = {"q": query, "limit": 100, "offset": 0, "country": "us"}
+    try:
+        r = requests.get(url, params=params, headers=HEADERS, timeout=15)
+        r.raise_for_status()
+        jobs = r.json().get("content", [])
+        return [
+            {
+                "id":          f"sr_{j['id']}",
+                "title":       j.get("name", ""),
+                "location":    f"{j.get('location', {}).get('city', '')}, "
+                               f"{j.get('location', {}).get('region', '')}".strip(", "),
+                "url":         f"https://jobs.smartrecruiters.com/{token}/{j['id']}",
+                "department":  j.get("department", {}).get("label", "") if j.get("department") else "",
+                "description": j.get("jobAd", {}).get("sections", {}).get("jobDescription", {}).get("text", "")[:600]
+                               if j.get("jobAd") else "",
+                "posted_date": j.get("releasedDate", "")[:10],
+            }
+            for j in jobs
+        ]
+    except Exception as e:
+        print(f"  [smartrecruiters/{token}] error: {e}")
+        raise
+
+
+def scrape_eightfold(token: str, query: str = "product manager") -> list[dict]:
+    """Scraper for Eightfold AI (Amex, PayPal)."""
+    domain_map = {"aexp": "aexp.com", "paypal": "paypal.com"}
+    domain = domain_map.get(token, f"{token}.com")
+    url = f"https://{token}.eightfold.ai/api/apply/v2/jobs"
+    params = {"domain": domain, "query": query, "sort_by": "relevance"}
+    try:
+        r = requests.get(url, params=params, headers=HEADERS, timeout=15)
+        r.raise_for_status()
+        jobs = r.json().get("positions", [])
+        return [
+            {
+                "id":          f"ef_{token}_{j['id']}",
+                "title":       j.get("name", ""),
+                "location":    j.get("location", ""),
+                "url":         f"https://{token}.eightfold.ai/careers?jobId={j['id']}",
+                "department":  j.get("department", ""),
+                "description": j.get("department", ""),
+                "posted_date": datetime.datetime.now().strftime("%Y-%m-%d"),
+            }
+            for j in jobs
+        ]
+    except Exception as e:
+        print(f"  [eightfold/{token}] error: {e}")
+        raise
+
+
+def scrape_jpmorgan(query: str = "product manager") -> list[dict]:
+    """JPMorgan Chase careers JSON API."""
+    url = "https://careers.jpmorgan.com/api/jobs/search"
+    params = {"q": query, "location": "United States", "page": 1, "pageSize": 50, "lang": "en"}
+    try:
+        r = requests.get(url, params=params, headers=HEADERS, timeout=15)
+        r.raise_for_status()
+        data = r.json()
+        jobs = data.get("jobs", data.get("results", []))
+        return [
+            {
+                "id":          f"jpm_{j.get('jobId', hashlib.md5(j.get('title','').encode()).hexdigest()[:8])}",
+                "title":       j.get("title", ""),
+                "location":    j.get("location", {}).get("cityStateCountry", "") if isinstance(j.get("location"), dict) else j.get("location", ""),
+                "url":         f"https://careers.jpmorgan.com/us/en/jobs/{j.get('jobId', '')}",
+                "department":  j.get("businessArea", ""),
+                "description": j.get("jobDescription", "")[:600] if j.get("jobDescription") else "",
+                "posted_date": j.get("postDate", "")[:10],
+            }
+            for j in jobs
+        ]
+    except Exception as e:
+        print(f"  [jpmorgan] error: {e}")
+        raise
+
+
+def scrape_goldman(query: str = "product manager") -> list[dict]:
+    """Goldman Sachs careers at higher.gs.com."""
+    url = "https://higher.gs.com/api/jobs/search"
+    params = {"q": query, "page": 1, "pageSize": 50}
+    try:
+        r = requests.get(url, params=params, headers=HEADERS, timeout=15)
+        r.raise_for_status()
+        data = r.json()
+        jobs = data.get("roles", data.get("jobs", data.get("results", [])))
+        return [
+            {
+                "id":          f"gs_{j.get('id', hashlib.md5(j.get('title','').encode()).hexdigest()[:8])}",
+                "title":       j.get("title", j.get("name", "")),
+                "location":    j.get("location", {}).get("name", "") if isinstance(j.get("location"), dict) else j.get("location", ""),
+                "url":         f"https://higher.gs.com/roles/{j.get('id', '')}",
+                "department":  j.get("division", j.get("department", "")),
+                "description": j.get("description", "")[:600],
+                "posted_date": (j.get("datePosted") or j.get("posted_date", ""))[:10],
+            }
+            for j in jobs
+        ]
+    except Exception as e:
+        print(f"  [goldman] error: {e}")
+        raise
 
 
 def scrape_oracle_cloud(token: str, query: str = "product manager") -> list[dict]:
@@ -326,9 +442,10 @@ def filter_pm_jobs(jobs: list[dict]) -> list[dict]:
 
 
 def fetch_jobs_for_company(company: dict) -> list[dict]:
-    ats = company["ats"]
+    ats   = company["ats"]
     token = company["token"]
-    name = company["name"]
+    name  = company["name"]
+    path  = company.get("path", "External")
     print(f"  Fetching {name} ({ats})...")
 
     if ats == "greenhouse":
@@ -336,11 +453,19 @@ def fetch_jobs_for_company(company: dict) -> list[dict]:
     elif ats == "lever":
         jobs = scrape_lever(token)
     elif ats == "workday_search":
-        jobs = scrape_workday_search(token)
+        jobs = scrape_workday_search(token, path)
+    elif ats == "smartrecruiters":
+        jobs = scrape_smartrecruiters(token)
+    elif ats == "eightfold":
+        jobs = scrape_eightfold(token)
+    elif ats == "jpmorgan":
+        jobs = scrape_jpmorgan()
+    elif ats == "goldman":
+        jobs = scrape_goldman()
     elif ats == "oracle_cloud":
         jobs = scrape_oracle_cloud(token)
     elif ats == "career_link":
-        jobs = scrape_career_link(token, name) # token is the full URL here
+        jobs = scrape_career_link(token, name)
     else:
         jobs = []
 
