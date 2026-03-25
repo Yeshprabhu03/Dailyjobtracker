@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T08:33:14.016928",
+    "last_updated": "2026-03-25T08:33:29.130656",
     "scanned_count": 9,
     "total_companies": 58,
     "matches_found": 1,
@@ -8,6 +8,22 @@
     "status": "running"
   },
   "jobs": [
+    {
+      "id": "wd_pnc_R212368_61a46984",
+      "title": "Product Manager Senior- Credit Card Acquisitions",
+      "location": "4 Locations",
+      "url": "https://pnc.wd5.myworkdayjobs.com/External/job//job/PA---Philadelphia-19103/Product-Manager-Senior--Credit-Card-Acquisitions_R212368",
+      "department": "",
+      "description": "",
+      "posted_date": "Posted 23 ",
+      "company": "PNC Financial",
+      "score": 90,
+      "match_reason": "The candidate's 5 years of Senior Product Management experience in platform reliability and analytics, coupled with a strong technical skillset and MBA coursework in financial systems, aligns exceptionally well with a Senior Product Manager role at a financial institution like PNC, even without explicit credit card experience.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "onsite/hybrid",
+      "fetch_date": "2026-03-25T08:33:29.130656"
+    },
     {
       "id": "wd_pnc_R214726_3bba757c",
       "title": "Product Manager Senior - PNC Wealth Management",
