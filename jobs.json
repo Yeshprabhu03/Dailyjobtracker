@@ -1,11 +1,27 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T01:24:26.873966",
+    "last_updated": "2026-03-25T01:24:28.135711",
     "scanned_count": 23,
     "total_companies": 58,
     "status": "running"
   },
   "jobs": [
+    {
+      "id": "gh_7536920",
+      "title": "Product Manager, Crypto Trading",
+      "location": "Menlo Park, CA, New York, NY, Toronto, Canada",
+      "url": "https://boards.greenhouse.io/robinhood/jobs/7536920?t=gh_src=&gh_jid=7536920",
+      "department": "Crypto Product Management",
+      "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;h2&gt;Join us in building the future of finance.&lt;/h2&gt;\n&lt;p&gt;Our mission is to democratize finance for all. &lt;a href=&quot;https://www.cerulli.com/press-releases/cerulli-anticipates-124-trillion-in-wealth-will-transfer-through-2048&quot; target=&quot;_blank&quot;&gt;An estimated $124 trillion of assets&lt;/a&gt; will be inherited by younger generations in the next two decades. The largest transfer of wealth in human history. If you\u2019re ready to be at the epicenter of this historic cultural and financial shift, keep reading.&lt;/p&gt;&lt;/",
+      "posted_date": "2026-03-18",
+      "company": "Robinhood",
+      "score": 95,
+      "match_reason": "The candidate's strong experience in product management, platform reliability, analytics, and scaling, coupled with relevant technical skills and a clear interest in finance, makes them an excellent fit for this fintech Product Manager role at Robinhood, especially given their location in New York.",
+      "apply_now": true,
+      "seniority": "mid",
+      "location_type": "onsite",
+      "fetch_date": "2026-03-25T01:24:28.135711"
+    },
     {
       "id": "wd_pnc_R214864_755d5924",
       "title": "Product Manager II - Investment Office Product Management",
@@ -21,6 +37,22 @@
       "seniority": "mid",
       "location_type": "onsite",
       "fetch_date": "2026-03-25T01:23:36.028670"
+    },
+    {
+      "id": "gh_7736964",
+      "title": "Base Senior Product Manager, Trading Growth",
+      "location": "US - Remote Zone 1 (Job Requisitions Only)",
+      "url": "https://www.coinbase.com/careers/positions/7736964?gh_jid=7736964",
+      "department": "Product",
+      "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;Ready to be pushed beyond what you think you\u2019re capable of?&lt;/p&gt;\n&lt;p&gt;At Coinbase, our mission is to increase economic freedom in the world. It\u2019s a massive, ambitious opportunity that demands the best of us, every day, as we build the emerging onchain platform \u2014 and with it, the future global financial system.&lt;/p&gt;\n&lt;p&gt;To achieve our mission, we\u2019re seeking a very specific candidate. We want someone who is passionate about our mission and who believes in the power of crypto and blockchain technology to update the financial s",
+      "posted_date": "2026-03-24",
+      "company": "Coinbase",
+      "score": 85,
+      "match_reason": "The candidate's 4.8 years of product management experience, including 3.5 years as a Senior Product Manager, aligns perfectly with the seniority, and their strong background in analytics, platform reliability, and scaling strategies is highly relevant to a 'Trading Growth' role at Coinbase.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "remote",
+      "fetch_date": "2026-03-25T01:24:28.135711"
     }
   ]
 }
