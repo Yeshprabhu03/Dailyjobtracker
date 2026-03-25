@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T08:51:01.337925",
-    "scanned_count": 9,
+    "last_updated": "2026-03-25T08:51:11.305775",
+    "scanned_count": 22,
     "total_companies": 58,
-    "matches_found": 1,
-    "technical_failures": 8,
+    "matches_found": 3,
+    "technical_failures": 19,
     "status": "running"
   },
   "jobs": [
@@ -135,6 +135,22 @@
       "seniority": "senior",
       "location_type": "onsite",
       "fetch_date": "2026-03-25T08:48:19.106906"
+    },
+    {
+      "id": "gh_6855533",
+      "title": "Product Manager II, Payments & Trust Network",
+      "location": "US - Remote Zone 1 (Job Requisitions Only)",
+      "url": "https://www.coinbase.com/careers/positions/6855533?gh_jid=6855533",
+      "department": "Product",
+      "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;Ready to be pushed beyond what you think you\u2019re capable of?&lt;/p&gt;\n&lt;p&gt;At Coinbase, our mission is to increase economic freedom in the world. It\u2019s a massive, ambitious opportunity that demands the best of us, every day, as we build the emerging onchain platform \u2014 and with it, the future global financial system.&lt;/p&gt;\n&lt;p&gt;To achieve our mission, we\u2019re seeking a very specific candidate. We want someone who is passionate about our mission and who believes in the power of crypto and blockchain technology to update the financial s",
+      "posted_date": "2026-03-12",
+      "company": "Coinbase",
+      "score": 88,
+      "match_reason": "Yeshwanth's ~5 years of product management experience, including a Senior Product Manager role, strong background in platform reliability, high-volume systems, and analytical frameworks, aligns well with the Product Manager II title and the 'Payments & Trust Network' focus, despite not having direct crypto experience.",
+      "apply_now": true,
+      "seniority": "mid",
+      "location_type": "remote",
+      "fetch_date": "2026-03-25T08:51:11.305775"
     },
     {
       "id": "wd_pnc_R211623_b95b2343",
