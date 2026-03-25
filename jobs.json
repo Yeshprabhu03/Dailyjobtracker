@@ -1,29 +1,13 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T09:14:44.656211",
+    "last_updated": "2026-03-25T09:14:47.605410",
     "scanned_count": 9,
     "total_companies": 58,
-    "matches_found": 1,
-    "technical_failures": 8,
+    "matches_found": 3,
+    "technical_failures": 2,
     "status": "running"
   },
   "jobs": [
-    {
-      "id": "link_d4e61d18",
-      "title": "Product Manager (Productivity And Tooling) \u2013 (Belfast)",
-      "location": "Check Portal",
-      "url": "https://jobs.citi.com/search-jobs/product%20manager/",
-      "department": "Various",
-      "description": "Found on Citigroup career landing page. Match quality estimated from title.",
-      "posted_date": "2026-03-25",
-      "company": "Citigroup",
-      "score": 92,
-      "match_reason": "The candidate's extensive experience in platform reliability, automation, observability, and optimizing operational workflows aligns perfectly with a Product Manager role focused on Productivity and Tooling, and their 4 years 11 months of experience are a strong fit for a standard Product Manager level.",
-      "apply_now": true,
-      "seniority": "mid",
-      "location_type": "onsite",
-      "fetch_date": "2026-03-25T09:14:43.608367"
-    },
     {
       "id": "link_3e16b324",
       "title": "Senior Product Manager, Developer Experience",
@@ -38,7 +22,23 @@
       "apply_now": true,
       "seniority": "senior",
       "location_type": "unknown",
-      "fetch_date": "2026-03-25T09:13:57.471230"
+      "fetch_date": "2026-03-25T09:14:47.605410"
+    },
+    {
+      "id": "wd_pnc_R212662_b95b2343",
+      "title": "Digital Product Manager Lead",
+      "location": "2 Locations",
+      "url": "https://pnc.wd5.myworkdayjobs.com/External/job//job/PA---Pittsburgh-15222/Digital-Product-Manager-Lead_R212662-1",
+      "department": "",
+      "description": "",
+      "posted_date": "Posted 15 ",
+      "company": "PNC Financial",
+      "score": 92,
+      "match_reason": "Yeshwanth's 5 years of Senior Product Manager experience, strong leadership in platform reliability, analytics, and automation, and technical acumen make him an excellent fit for this Digital Product Manager Lead role.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "unknown",
+      "fetch_date": "2026-03-25T09:14:47.605410"
     },
     {
       "id": "link_8cfc6298",
@@ -54,39 +54,23 @@
       "apply_now": false,
       "seniority": "senior",
       "location_type": "onsite",
-      "fetch_date": "2026-03-25T09:13:57.471230"
+      "fetch_date": "2026-03-25T09:14:47.605410"
     },
     {
-      "id": "wd_pnc_R212662_b95b2343",
-      "title": "Digital Product Manager Lead",
-      "location": "2 Locations",
-      "url": "https://pnc.wd5.myworkdayjobs.com/External/job//job/PA---Pittsburgh-15222/Digital-Product-Manager-Lead_R212662-1",
+      "id": "wd_pnc_R211132_f67d6076",
+      "title": "Product Manager Sr",
+      "location": "CO - Lakewood (80215)",
+      "url": "https://pnc.wd5.myworkdayjobs.com/External/job//job/CO---Lakewood-80215/Product-Manager-Sr_R211132-1",
       "department": "",
       "description": "",
-      "posted_date": "Posted 15 ",
+      "posted_date": "Posted 30+",
       "company": "PNC Financial",
       "score": 90,
-      "match_reason": "The candidate's 5 years of robust product management experience, including 3.5 years as a Senior Product Manager with significant leadership and impact, makes them an excellent fit for a Digital Product Manager Lead role, aligning well with the typical experience range for such a position.",
+      "match_reason": "This 'Product Manager Sr' role is an excellent match for the candidate's 4.9 years of senior product management experience, particularly their strong background in analytics, platform reliability, and process automation within a high-growth environment.",
       "apply_now": true,
       "seniority": "senior",
       "location_type": "onsite",
-      "fetch_date": "2026-03-25T09:13:57.075437"
-    },
-    {
-      "id": "wd_pnc_R214726_3bba757c",
-      "title": "Product Manager Senior - PNC Wealth Management",
-      "location": "PA - Pittsburgh (15222)",
-      "url": "https://pnc.wd5.myworkdayjobs.com/External/job//job/PA---Pittsburgh-15222/Product-Manager-Senior---PNC-Wealth-Management_R214726",
-      "department": "",
-      "description": "",
-      "posted_date": "Posted 2 D",
-      "company": "PNC Financial",
-      "score": 88,
-      "match_reason": "The candidate's 5 years of product management experience, including a Senior Product Manager role, strong analytical and platform reliability skills, and relevant MBA coursework, align exceptionally well with this Senior Product Manager position in Wealth Management, despite the location difference.",
-      "apply_now": true,
-      "seniority": "senior",
-      "location_type": "onsite",
-      "fetch_date": "2026-03-25T09:14:26.573912"
+      "fetch_date": "2026-03-25T09:14:47.605410"
     },
     {
       "id": "link_a45f3a13",
@@ -102,7 +86,7 @@
       "apply_now": true,
       "seniority": "mid",
       "location_type": "unknown",
-      "fetch_date": "2026-03-25T09:13:57.471230"
+      "fetch_date": "2026-03-25T09:14:47.605410"
     },
     {
       "id": "link_e935ce11",
@@ -118,7 +102,7 @@
       "apply_now": true,
       "seniority": "senior",
       "location_type": "unknown",
-      "fetch_date": "2026-03-25T09:13:57.471230"
+      "fetch_date": "2026-03-25T09:14:47.605410"
     },
     {
       "id": "link_d41da8f7",
@@ -134,39 +118,39 @@
       "apply_now": true,
       "seniority": "senior",
       "location_type": "unknown",
-      "fetch_date": "2026-03-25T09:13:57.471230"
+      "fetch_date": "2026-03-25T09:14:47.605410"
     },
     {
-      "id": "wd_pnc_R191603_b95b2343",
+      "id": "wd_pnc_R211175_b95b2343",
       "title": "Digital Product Manager Lead",
-      "location": "8 Locations",
-      "url": "https://pnc.wd5.myworkdayjobs.com/External/job//job/PA---Pittsburgh-15222/Digital-Product-Manager-Lead_R191603",
+      "location": "6 Locations",
+      "url": "https://pnc.wd5.myworkdayjobs.com/External/job//job/PA---Pittsburgh-15222/Digital-Product-Manager-Lead_R211175-1",
       "department": "",
       "description": "",
-      "posted_date": "Posted 9 D",
+      "posted_date": "Posted 30+",
       "company": "PNC Financial",
       "score": 88,
-      "match_reason": "The candidate's 5 years of product management experience, strong background in analytics, reliability, and demonstrated leadership skills, make them an excellent match for a Digital Product Manager Lead role.",
+      "match_reason": "The candidate's nearly 5 years of product management experience, including a Senior PM role focused on analytics and reliability, along with a strong technical background and quantifiable achievements, aligns very well with a Digital Product Manager Lead role, especially within a financial services context.",
       "apply_now": true,
       "seniority": "senior",
-      "location_type": "unknown",
-      "fetch_date": "2026-03-25T09:13:57.075437"
+      "location_type": "onsite",
+      "fetch_date": "2026-03-25T09:14:47.605410"
     },
     {
-      "id": "link_138227d5",
-      "title": "2353 Results Found For \"Product Manager\" Jobs",
-      "location": "Check Portal",
-      "url": "https://jobs.citi.com/search-jobs/product%20manager/",
-      "department": "Various",
-      "description": "Found on Citigroup career landing page. Match quality estimated from title.",
-      "posted_date": "2026-03-25",
-      "company": "Citigroup",
-      "score": 85,
-      "match_reason": "The candidate's nearly 5 years of progressive product management experience, including a senior role and strong skills in analytics, platform reliability, and governance, are highly relevant and make them a strong candidate for a general Product Manager role at Citigroup.",
+      "id": "wd_pnc_R214726_3bba757c",
+      "title": "Product Manager Senior - PNC Wealth Management",
+      "location": "PA - Pittsburgh (15222)",
+      "url": "https://pnc.wd5.myworkdayjobs.com/External/job//job/PA---Pittsburgh-15222/Product-Manager-Senior---PNC-Wealth-Management_R214726",
+      "department": "",
+      "description": "",
+      "posted_date": "Posted 2 D",
+      "company": "PNC Financial",
+      "score": 88,
+      "match_reason": "The candidate's 5 years of product management experience, including a Senior Product Manager role, strong analytical and platform reliability skills, and relevant MBA coursework, align exceptionally well with this Senior Product Manager position in Wealth Management, despite the location difference.",
       "apply_now": true,
-      "seniority": "mid",
-      "location_type": "unknown",
-      "fetch_date": "2026-03-25T09:14:04.992608"
+      "seniority": "senior",
+      "location_type": "onsite",
+      "fetch_date": "2026-03-25T09:14:47.605410"
     },
     {
       "id": "link_a147da59",
@@ -182,7 +166,7 @@
       "apply_now": true,
       "seniority": "senior",
       "location_type": "unknown",
-      "fetch_date": "2026-03-25T09:13:57.471230"
+      "fetch_date": "2026-03-25T09:14:47.605410"
     },
     {
       "id": "link_3c049e8f",
@@ -198,7 +182,7 @@
       "apply_now": true,
       "seniority": "senior",
       "location_type": "unknown",
-      "fetch_date": "2026-03-25T09:13:57.471230"
+      "fetch_date": "2026-03-25T09:14:47.605410"
     },
     {
       "id": "link_b7032be5",
@@ -214,7 +198,7 @@
       "apply_now": true,
       "seniority": "mid",
       "location_type": "remote",
-      "fetch_date": "2026-03-25T09:13:57.471230"
+      "fetch_date": "2026-03-25T09:14:47.605410"
     },
     {
       "id": "link_dc49a57a",
@@ -230,7 +214,23 @@
       "apply_now": true,
       "seniority": "mid",
       "location_type": "unknown",
-      "fetch_date": "2026-03-25T09:13:57.471230"
+      "fetch_date": "2026-03-25T09:14:47.605410"
+    },
+    {
+      "id": "wd_pnc_R214864_755d5924",
+      "title": "Product Manager II - Investment Office Product Management",
+      "location": "PA - Philadelphia (19103)",
+      "url": "https://pnc.wd5.myworkdayjobs.com/External/job//job/PA---Philadelphia-19103/Product-Manager-II---Investment-Office-Product-Management_R214864-1",
+      "department": "",
+      "description": "",
+      "posted_date": "Posted 7 D",
+      "company": "PNC Financial",
+      "score": 85,
+      "match_reason": "The candidate's 4-5 years of product management experience, strong technical skills in analytics and platform reliability, and relevant MBA coursework align very well with a Product Manager II role in an investment office, despite a lack of direct prior investment product experience.",
+      "apply_now": true,
+      "seniority": "mid",
+      "location_type": "onsite",
+      "fetch_date": "2026-03-25T09:14:47.605410"
     },
     {
       "id": "wd_pnc_R203748_a08da31d",
@@ -246,7 +246,7 @@
       "apply_now": true,
       "seniority": "senior",
       "location_type": "onsite",
-      "fetch_date": "2026-03-25T09:13:57.471230"
+      "fetch_date": "2026-03-25T09:14:47.605410"
     },
     {
       "id": "wd_pnc_R215523_a08da31d",
@@ -262,7 +262,7 @@
       "apply_now": true,
       "seniority": "senior",
       "location_type": "onsite",
-      "fetch_date": "2026-03-25T09:13:57.471230"
+      "fetch_date": "2026-03-25T09:14:47.605410"
     },
     {
       "id": "wd_pnc_R212965_e83d5b6c",
@@ -278,39 +278,39 @@
       "apply_now": true,
       "seniority": "senior",
       "location_type": "onsite",
-      "fetch_date": "2026-03-25T09:13:57.471230"
+      "fetch_date": "2026-03-25T09:14:47.605410"
     },
     {
-      "id": "wd_pnc_R211132_f67d6076",
-      "title": "Product Manager Sr",
+      "id": "wd_pnc_R214582_02a77be0",
+      "title": "Product Manager Lead",
       "location": "CO - Lakewood (80215)",
-      "url": "https://pnc.wd5.myworkdayjobs.com/External/job//job/CO---Lakewood-80215/Product-Manager-Sr_R211132-1",
+      "url": "https://pnc.wd5.myworkdayjobs.com/External/job//job/CO---Lakewood-80215/Product-Manager-Lead_R214582-1",
       "department": "",
       "description": "",
-      "posted_date": "Posted 30+",
+      "posted_date": "Posted 14 ",
       "company": "PNC Financial",
-      "score": 85,
-      "match_reason": "The candidate's 4.10 years of product management experience, including strong analytics, reliability, platform management, and governance, aligns exceptionally well with a Senior Product Manager role at a financial institution like PNC, complemented by relevant MBA coursework.",
+      "score": 80,
+      "match_reason": "The candidate's 5+ years of experience in product management, particularly in analytics, reliability, and automation, along with an MBA in financial systems, align well with the responsibilities expected for a Product Manager Lead role at a financial institution.",
       "apply_now": true,
       "seniority": "senior",
       "location_type": "onsite",
-      "fetch_date": "2026-03-25T09:13:57.075437"
+      "fetch_date": "2026-03-25T09:14:47.605410"
     },
     {
-      "id": "wd_pnc_R203207_7c228f52",
-      "title": "Credit Product Manager",
-      "location": "FL - Tampa (33602)",
-      "url": "https://pnc.wd5.myworkdayjobs.com/External/job//job/FL---Tampa-33602/Credit-Product-Manager_R203207-2",
+      "id": "wd_pnc_R191603_b95b2343",
+      "title": "Digital Product Manager Lead",
+      "location": "8 Locations",
+      "url": "https://pnc.wd5.myworkdayjobs.com/External/job//job/PA---Pittsburgh-15222/Digital-Product-Manager-Lead_R191603",
       "department": "",
       "description": "",
-      "posted_date": "Posted 30+",
+      "posted_date": "Posted 9 D",
       "company": "PNC Financial",
-      "score": 82,
-      "match_reason": "The candidate's extensive product management experience, strong analytical and technical skills, and relevant MBA coursework in financial systems make them a highly suitable candidate for a Credit Product Manager role, despite the domain shift from manufacturing/EdTech to finance.",
+      "score": 80,
+      "match_reason": "The candidate's 5+ years of product management experience, including leadership in analytics, reliability, and platform scaling, aligns well with the responsibilities expected of a Digital Product Manager Lead, especially with their strong technical and analytical skills and relevant MBA coursework.",
       "apply_now": true,
-      "seniority": "mid",
-      "location_type": "onsite",
-      "fetch_date": "2026-03-25T09:13:57.075437"
+      "seniority": "senior",
+      "location_type": "unknown",
+      "fetch_date": "2026-03-25T09:14:47.605410"
     },
     {
       "id": "wd_pnc_R211623_b95b2343",
@@ -321,12 +321,12 @@
       "description": "",
       "posted_date": "Posted 30+",
       "company": "PNC Financial",
-      "score": 82,
-      "match_reason": "The candidate's 5 years of product management experience, including a Senior Product Manager role and strong platform reliability/analytics skills, aligns very well with the Digital Product Manager Lead title, especially given their financial systems exposure and digital innovation background.",
+      "score": 80,
+      "match_reason": "The candidate's nearly 5 years of experience as a Senior Product Manager, strong track record in analytics, reliability, and strategic product leadership, along with relevant technical skills and financial systems coursework, make them a strong match for a Digital Product Manager Lead role.",
       "apply_now": true,
       "seniority": "senior",
       "location_type": "onsite",
-      "fetch_date": "2026-03-25T09:13:57.075437"
+      "fetch_date": "2026-03-25T09:14:47.605410"
     },
     {
       "id": "wd_pnc_R214725_3bba757c",
@@ -342,39 +342,23 @@
       "apply_now": true,
       "seniority": "senior",
       "location_type": "onsite",
-      "fetch_date": "2026-03-25T09:14:13.408178"
+      "fetch_date": "2026-03-25T09:14:47.605410"
     },
     {
-      "id": "wd_pnc_R212678_8dbe5647",
-      "title": "Product Manager Lead-2",
-      "location": "7 Locations",
-      "url": "https://pnc.wd5.myworkdayjobs.com/External/job//job/PA---Pittsburgh-15222/Product-Manager-Lead-2_R212678-1",
-      "department": "",
-      "description": "",
-      "posted_date": "Posted 6 D",
-      "company": "PNC Financial",
-      "score": 80,
-      "match_reason": "The candidate's nearly 5 years of high-impact product management experience, including a Senior Product Manager role with significant achievements in platform reliability, analytics, and strategic leadership, makes them a strong contender for a Product Manager Lead position, despite being on the lower end of the typical experience range for such a title.",
-      "apply_now": true,
-      "seniority": "senior",
-      "location_type": "onsite",
-      "fetch_date": "2026-03-25T09:13:57.075437"
-    },
-    {
-      "id": "wd_pnc_R211175_b95b2343",
+      "id": "wd_pnc_R208071_b95b2343",
       "title": "Digital Product Manager Lead",
-      "location": "6 Locations",
-      "url": "https://pnc.wd5.myworkdayjobs.com/External/job//job/PA---Pittsburgh-15222/Digital-Product-Manager-Lead_R211175-1",
+      "location": "8 Locations",
+      "url": "https://pnc.wd5.myworkdayjobs.com/External/job//job/PA---Pittsburgh-15222/Digital-Product-Manager-Lead_R208071-1",
       "department": "",
       "description": "",
-      "posted_date": "Posted 30+",
+      "posted_date": "Posted Yes",
       "company": "PNC Financial",
       "score": 78,
-      "match_reason": "The candidate's extensive product management experience, including leading initiatives, optimizing platforms, and driving analytics, strongly aligns with the responsibilities expected of a Digital Product Manager Lead.",
+      "match_reason": "The candidate's nearly 5 years of strong product management experience with a focus on analytics, reliability, and automation, coupled with demonstrated leadership and technical skills, aligns well with a Digital Product Manager Lead role, despite the full job description being unavailable.",
       "apply_now": true,
       "seniority": "senior",
       "location_type": "onsite",
-      "fetch_date": "2026-03-25T09:13:57.075437"
+      "fetch_date": "2026-03-25T09:14:47.605410"
     },
     {
       "id": "link_0e8f3221",
@@ -390,23 +374,23 @@
       "apply_now": true,
       "seniority": "mid",
       "location_type": "unknown",
-      "fetch_date": "2026-03-25T09:13:57.471230"
+      "fetch_date": "2026-03-25T09:14:47.605410"
     },
     {
-      "id": "wd_pnc_R208071_b95b2343",
-      "title": "Digital Product Manager Lead",
-      "location": "8 Locations",
-      "url": "https://pnc.wd5.myworkdayjobs.com/External/job//job/PA---Pittsburgh-15222/Digital-Product-Manager-Lead_R208071-1",
+      "id": "wd_pnc_R203207_7c228f52",
+      "title": "Credit Product Manager",
+      "location": "FL - Tampa (33602)",
+      "url": "https://pnc.wd5.myworkdayjobs.com/External/job//job/FL---Tampa-33602/Credit-Product-Manager_R203207-2",
       "department": "",
       "description": "",
-      "posted_date": "Posted Yes",
+      "posted_date": "Posted 30+",
       "company": "PNC Financial",
       "score": 72,
-      "match_reason": "The candidate's 5 years of experience and strong track record in analytics, reliability, and governance make them a strong fit for a Digital Product Manager Lead role in the financial industry, although the missing job description prevents a full assessment of explicit experience requirements and detailed responsibilities.",
+      "match_reason": "The candidate's 4-5 years of experience in analytics platforms, reliability, and risk/governance aligns well with a Product Manager role at a financial institution, and their strong technical skills and MBA with finance-related coursework make them a compelling fit for PNC, despite lacking explicit 'credit product' domain experience in the job title.",
       "apply_now": true,
-      "seniority": "senior",
+      "seniority": "mid",
       "location_type": "onsite",
-      "fetch_date": "2026-03-25T09:13:57.075437"
+      "fetch_date": "2026-03-25T09:14:47.605410"
     },
     {
       "id": "link_c3637aba",
@@ -422,7 +406,7 @@
       "apply_now": false,
       "seniority": "mid-senior",
       "location_type": "unknown",
-      "fetch_date": "2026-03-25T09:13:57.471230"
+      "fetch_date": "2026-03-25T09:14:47.605410"
     },
     {
       "id": "link_4b1c30b5",
@@ -438,7 +422,7 @@
       "apply_now": false,
       "seniority": "mid",
       "location_type": "unknown",
-      "fetch_date": "2026-03-25T09:13:57.471230"
+      "fetch_date": "2026-03-25T09:14:47.605410"
     },
     {
       "id": "link_c6ce9747",
@@ -454,7 +438,7 @@
       "apply_now": false,
       "seniority": "mid",
       "location_type": "onsite",
-      "fetch_date": "2026-03-25T09:13:57.471230"
+      "fetch_date": "2026-03-25T09:14:47.605410"
     },
     {
       "id": "link_62e9c9a3",
@@ -470,23 +454,7 @@
       "apply_now": false,
       "seniority": "mid",
       "location_type": "unknown",
-      "fetch_date": "2026-03-25T09:13:57.471230"
-    },
-    {
-      "id": "wd_pnc_R214864_755d5924",
-      "title": "Product Manager II - Investment Office Product Management",
-      "location": "PA - Philadelphia (19103)",
-      "url": "https://pnc.wd5.myworkdayjobs.com/External/job//job/PA---Philadelphia-19103/Product-Manager-II---Investment-Office-Product-Management_R214864-1",
-      "department": "",
-      "description": "",
-      "posted_date": "Posted 7 D",
-      "company": "PNC Financial",
-      "score": 65,
-      "match_reason": "The candidate's 4-5 years of product management experience, strong analytical and platform reliability background, and technical skills align well with a Product Manager II role, but direct experience in investment office products is not evident, despite relevant MBA coursework.",
-      "apply_now": false,
-      "seniority": "mid",
-      "location_type": "onsite",
-      "fetch_date": "2026-03-25T09:13:57.075437"
+      "fetch_date": "2026-03-25T09:14:47.605410"
     },
     {
       "id": "link_090c40b7",
@@ -502,23 +470,23 @@
       "apply_now": false,
       "seniority": "mid",
       "location_type": "unknown",
-      "fetch_date": "2026-03-25T09:13:57.471230"
+      "fetch_date": "2026-03-25T09:14:47.605410"
     },
     {
-      "id": "wd_pnc_R214582_02a77be0",
-      "title": "Product Manager Lead",
-      "location": "CO - Lakewood (80215)",
-      "url": "https://pnc.wd5.myworkdayjobs.com/External/job//job/CO---Lakewood-80215/Product-Manager-Lead_R214582-1",
+      "id": "wd_pnc_R206860_b961cbd5",
+      "title": "Digital Product Manager Lead Sr - MarTech",
+      "location": "4 Locations",
+      "url": "https://pnc.wd5.myworkdayjobs.com/External/job//job/PA---Pittsburgh-15222/Digital-Product-Manager-Lead-Sr---MarTech_R206860-2",
       "department": "",
       "description": "",
-      "posted_date": "Posted 14 ",
+      "posted_date": "Posted 30+",
       "company": "PNC Financial",
-      "score": 60,
-      "match_reason": "The candidate's 5 years of experience, including significant leadership as a Senior Product Manager in analytics and reliability, aligns well with the 'Product Manager Lead' title; however, the lack of a job description makes a precise skill match impossible, and the location is a clear mismatch.",
+      "score": 55,
+      "match_reason": "The candidate possesses strong general product management and analytical skills, but lacks explicit experience in the specialized MarTech domain required for this role, making it a moderate fit.",
       "apply_now": false,
       "seniority": "senior",
-      "location_type": "onsite",
-      "fetch_date": "2026-03-25T09:13:57.075437"
+      "location_type": "unknown",
+      "fetch_date": "2026-03-25T09:14:47.605410"
     }
   ]
 }
