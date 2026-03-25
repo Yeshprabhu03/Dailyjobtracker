@@ -350,12 +350,12 @@ def write_to_sheets(jobs: list[dict]):
         ws     = sh.sheet1
 
         # Write header if sheet is empty
-        if ws.row_count < 2 or not ws.cell(1,1).value:
-            ws.append_row([
+        if ws.row_count < 1 or not ws.cell(1,1).value:
+            ws.insert_row([
                 "Date Found", "Posted Date", "Company", "Title", "Location", "Score",
                 "Match Reason", "Seniority", "Location Type",
                 "Apply Now?", "URL", "Department"
-            ])
+            ], index=1)
 
         today = datetime.date.today().isoformat()
         rows  = []
@@ -375,7 +375,7 @@ def write_to_sheets(jobs: list[dict]):
                 j.get("department",""),
             ])
 
-        ws.append_rows(rows, value_input_option="RAW")
+        ws.insert_rows(rows, row=2, value_input_option="RAW")
         print(f"✓ Wrote {len(rows)} rows to Google Sheets")
     except Exception as e:
         print(f"[Sheets error] {e}")
@@ -427,14 +427,24 @@ def main():
                 continue
 
             print(f"  Scoring {len(new_jobs)} new jobs for {company['name']}...")
+            company_high_score_jobs = []
             for job in new_jobs:
                 scored = score_job_with_ai(job)
                 seen_ids.add(job["id"])
                 if scored.get("score", 0) >= MATCH_THRESHOLD:
+                    company_high_score_jobs.append(scored)
                     all_new.append(scored)
                 if scored.get("apply_now"):
                     apply_now.append(scored)
                 time.sleep(0.5)  # gentle rate limiting
+
+            # Save progress iteratively per company
+            if company_high_score_jobs:
+                company_high_score_jobs.sort(key=lambda x: x.get("score", 0), reverse=True)
+                write_to_sheets(company_high_score_jobs)
+            
+            # Persist seen IDs progressively to avoid rescrapes
+            save_seen_ids(seen_ids)
 
         except Exception as e:
             print(f"  [Error processing {company['name']}] {e}")
@@ -455,12 +465,9 @@ def main():
         print(f"        {j['url']}\n")
 
     # Write to Google Sheets and send alert
-    write_to_sheets(all_new)
     send_email_alert(apply_now)
 
-    # Persist seen IDs so we don't re-score same jobs tomorrow
-    save_seen_ids(seen_ids)
-    print("✓ Seen IDs saved")
+    print("✓ Run fully complete and securely synchronized")
 
 
 if __name__ == "__main__":
