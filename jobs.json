@@ -1,13 +1,29 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T09:14:42.290124",
-    "scanned_count": 8,
+    "last_updated": "2026-03-25T09:14:43.608367",
+    "scanned_count": 6,
     "total_companies": 58,
-    "matches_found": 2,
+    "matches_found": 1,
     "technical_failures": 2,
     "status": "running"
   },
   "jobs": [
+    {
+      "id": "link_d4e61d18",
+      "title": "Product Manager (Productivity And Tooling) \u2013 (Belfast)",
+      "location": "Check Portal",
+      "url": "https://jobs.citi.com/search-jobs/product%20manager/",
+      "department": "Various",
+      "description": "Found on Citigroup career landing page. Match quality estimated from title.",
+      "posted_date": "2026-03-25",
+      "company": "Citigroup",
+      "score": 92,
+      "match_reason": "The candidate's extensive experience in platform reliability, automation, observability, and optimizing operational workflows aligns perfectly with a Product Manager role focused on Productivity and Tooling, and their 4 years 11 months of experience are a strong fit for a standard Product Manager level.",
+      "apply_now": true,
+      "seniority": "mid",
+      "location_type": "onsite",
+      "fetch_date": "2026-03-25T09:14:43.608367"
+    },
     {
       "id": "link_3e16b324",
       "title": "Senior Product Manager, Developer Experience",
