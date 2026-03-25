@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
   
@@ -28,12 +28,11 @@
           <option value="80">Match ≥ 80</option>
           <option value="90">Match ≥ 90</option>
         </select>
-        <button id="filterApply" class="glass-btn">🔥 Apply Now Only</button>
+        <button id="filterApply" class="glass-btn">🔥 Apply Now</button>
       </div>
     </header>
 
     <main id="companyList" class="company-list">
-      <!-- Companies will be injected here via JS -->
       <div class="loading-state">
         <div class="spinner"></div>
         <p>Syncing Latest Jobs...</p>
@@ -63,14 +62,12 @@
         return;
       }
       
-      // Group jobs by company
       const grouped = {};
       jobsToRender.forEach(job => {
         if (!grouped[job.company]) grouped[job.company] = [];
         grouped[job.company].push(job);
       });
 
-      // Sort companies by the highest scoring job they have
       const sortedCompanies = Object.keys(grouped).sort((a, b) => {
           const maxScoreA = Math.max(...grouped[a].map(j => j.score || 0));
           const maxScoreB = Math.max(...grouped[b].map(j => j.score || 0));
@@ -83,7 +80,6 @@
         const companyEl = document.createElement('div');
         companyEl.className = 'company-section glass-panel';
         
-        // Calculate max score to feature on the header
         const maxScore = Math.max(...companyJobs.map(j => j.score || 0));
         let scoreColor = maxScore >= 80 ? 'text-green' : (maxScore >= 60 ? 'text-yellow' : 'text-red');
         const hasApplyNow = companyJobs.some(j => j.apply_now);
@@ -92,7 +88,7 @@
         const headerHTML = `
           <div class="company-header" onclick="this.parentElement.classList.toggle('expanded')">
             <div class="company-info">
-              <h2>${companyName} <span class="badge" style="font-size:1rem;background:none;border:none;">${applyBadge}</span></h2>
+              <h2>${companyName} <span style="font-size:1rem;">${applyBadge}</span></h2>
               <span class="job-count">${companyJobs.length} match${companyJobs.length !== 1 ? 'es' : ''}</span>
             </div>
             <div class="company-actions">
@@ -102,33 +98,45 @@
           </div>
         `;
         
-        let jobsHTML = '<div class="jobs-container">';
+        let jobsHTML = `
+          <div class="jobs-container">
+            <table class="jobs-table">
+              <thead>
+                <tr>
+                  <th width="70">Score</th>
+                  <th width="28%">Role & Location</th>
+                  <th width="52%">AI Rationale</th>
+                  <th width="100" style="text-align:right;">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+        `;
+        
         companyJobs.forEach(job => {
            let jColor = job.score >= 80 ? 'text-green' : (job.score >= 60 ? 'text-yellow' : 'text-red');
            jobsHTML += `
-            <div class="job-row">
-              <div class="job-primary">
-                <span class="job-score ${jColor}">${job.score}</span>
-                <div style="display:flex; flex-direction:column;">
-                  <span class="job-title">${job.title}</span>
-                  <span class="job-meta">${job.location || 'Remote'} &bull; ${job.posted_date || 'Recent'}</span>
-                </div>
-              </div>
-              <div class="job-reason">${job.match_reason}</div>
-              <a href="${job.url}" target="_blank" class="glow-btn small-btn">Apply →</a>
-            </div>
+                <tr>
+                  <td class="job-score ${jColor}">${job.score}</td>
+                  <td>
+                    <div class="job-title">${job.title}</div>
+                    <div class="job-meta">${job.location || 'Remote'} &bull; ${job.posted_date || 'Recent'}</div>
+                  </td>
+                  <td class="job-reason">${job.match_reason}</td>
+                  <td style="text-align:right;">
+                    <a href="${job.url}" target="_blank" class="glow-btn small-btn">Apply →</a>
+                  </td>
+                </tr>
            `;
         });
-        jobsHTML += '</div>';
+        
+        jobsHTML += '</tbody></table></div>';
         
         companyEl.innerHTML = headerHTML + jobsHTML;
         container.appendChild(companyEl);
       });
     }
 
-    // Filter Logic
     let isApplyNowFilter = false;
-    
     document.getElementById('searchBar').addEventListener('input', applyFilters);
     document.getElementById('filterScore').addEventListener('change', applyFilters);
     document.getElementById('filterApply').addEventListener('click', (e) => {
@@ -150,7 +158,6 @@
       renderCompanies(filtered);
     }
 
-    // Init
     loadJobs();
   </script>
 </body>

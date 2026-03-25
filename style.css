@@ -63,7 +63,7 @@ body {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--glass-border);
-  border-radius: 16px;
+  border-radius: 12px;
   padding: 1.5rem 2rem;
   display: flex;
   justify-content: space-between;
@@ -106,8 +106,6 @@ body {
   box-shadow: 0 0 0 3px var(--accent-glow);
 }
 
-.glass-input { width: 250px; }
-
 .glass-select option { background: var(--bg-dark); }
 
 .glass-btn {
@@ -122,7 +120,7 @@ body {
   color: white;
 }
 
-/* Company List Accordion Layout */
+/* Company List Accordion */
 .company-list {
   display: flex;
   flex-direction: column;
@@ -134,13 +132,13 @@ body {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
-  border-radius: 16px;
+  border-radius: 12px;
   padding: 1.5rem;
   transition: box-shadow 0.3s ease;
 }
 
 .glass-panel:hover {
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
   border-color: rgba(255,255,255,0.2);
 }
 
@@ -152,7 +150,7 @@ body {
 }
 
 .company-info h2 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -161,11 +159,11 @@ body {
 
 .job-count {
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text-muted);
   background: rgba(255,255,255,0.05);
   padding: 0.3rem 0.8rem;
-  border-radius: 12px;
+  border-radius: 6px;
   border: 1px solid var(--glass-border);
   margin-top: 0.5rem;
   display: inline-block;
@@ -178,17 +176,16 @@ body {
 }
 
 .score-ring {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 800;
   display: flex;
   align-items: baseline;
   gap: 2px;
 }
-.score-ring small { font-size: 0.7rem; font-weight: 600; opacity: 0.7; }
-
-.text-green { color: var(--green); text-shadow: 0 0 10px rgba(16, 185, 129, 0.4); }
-.text-yellow { color: var(--yellow); text-shadow: 0 0 10px rgba(245, 158, 11, 0.4); }
-.text-red { color: var(--red); text-shadow: 0 0 10px rgba(239, 68, 68, 0.4); }
+.score-ring small { font-size: 0.65rem; font-weight: 500; opacity: 0.7; }
+.text-green { color: var(--green); text-shadow: 0 0 10px rgba(16, 185, 129, 0.3); }
+.text-yellow { color: var(--yellow); text-shadow: 0 0 10px rgba(245, 158, 11, 0.3); }
+.text-red { color: var(--red); text-shadow: 0 0 10px rgba(239, 68, 68, 0.3); }
 
 .chevron {
   transition: transform 0.3s ease;
@@ -199,70 +196,75 @@ body {
   color: var(--text-main);
 }
 
-/* Expanded Jobs Container */
+/* Stable Table Container */
 .jobs-container {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.4s ease, opacity 0.4s ease, margin-top 0.4s ease;
+  display: none;
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--glass-border);
+  padding-top: 1rem;
+  animation: fadeIn 0.3s ease;
+  overflow-x: auto;
 }
 
 .expanded .jobs-container {
-  max-height: 5000px;
-  opacity: 1;
-  margin-top: 1.5rem;
-  border-top: 1px solid var(--glass-border);
-  padding-top: 1.5rem;
-}
-
-/* Individual Job Rows */
-.job-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.2rem;
-  background: rgba(0,0,0,0.25);
-  border: 1px solid rgba(255,255,255,0.05);
-  border-radius: 12px;
-  margin-bottom: 0.8rem;
-  gap: 2rem;
-  transition: background 0.2s ease;
-}
-
-.job-row:hover {
-  background: rgba(0,0,0,0.4);
-}
-
-.job-primary {
-  display: flex;
-  align-items: flex-start;
-  gap: 1.2rem;
-  flex: 1;
-  min-width: 0;
-}
-
-.job-score {
-  font-size: 1.4rem;
-  font-weight: 800;
-  min-width: 35px;
-  margin-top: -2px;
-}
-
-.job-title {
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--text-main);
-  margin-bottom: 0.3rem;
-}
-
-.job-meta {
-  font-size: 0.85rem;
-  color: var(--text-muted);
   display: block;
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Robust Table Styles */
+.jobs-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.jobs-table th {
+  padding: 0.8rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--glass-border);
+  font-weight: 600;
+}
+
+.jobs-table td {
+  padding: 1.2rem 0.8rem;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  vertical-align: top;
+}
+
+.jobs-table tr:last-child td {
+  border-bottom: none;
+}
+
+.jobs-table tr:hover td {
+  background: rgba(255,255,255,0.03);
+}
+
+.job-score {
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.job-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-main);
+  margin-bottom: 0.3rem;
+  line-height: 1.2;
+}
+
+.job-meta {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
 .job-reason {
-  flex: 2;
   font-size: 0.9rem;
   color: #cbd5e1;
   line-height: 1.5;
@@ -273,22 +275,20 @@ body {
   background: var(--accent);
   color: white;
   padding: 0.6rem 1.2rem;
-  border-radius: 8px;
+  border-radius: 6px;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px var(--accent-glow);
+  display: inline-block;
 }
 .glow-btn:hover {
   background: #2563eb;
   box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
   transform: translateY(-2px);
 }
-
 .small-btn {
-  padding: 0.5rem 1.2rem;
-  font-size: 0.85rem;
-  white-space: nowrap;
+  padding: 0.5rem 1rem;
 }
 
 /* States */
@@ -297,7 +297,6 @@ body {
   padding: 4rem;
   color: var(--text-muted);
 }
-
 .spinner {
   width: 40px; height: 40px;
   border: 4px solid var(--glass-border);
@@ -308,14 +307,14 @@ body {
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* Responsive */
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .glass-header { flex-direction: column; align-items: stretch; gap: 1rem; }
   .header-right { flex-direction: column; }
   .glass-input { width: 100%; }
-  .job-row {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 1rem;
+  
+  .jobs-table th:nth-child(3), 
+  .jobs-table td:nth-child(3) {
+    display: none; /* Hide AI Rationale on mobile to save space */
   }
 }
