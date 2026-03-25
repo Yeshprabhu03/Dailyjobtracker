@@ -334,51 +334,42 @@ def save_seen_ids(seen: set):
     SEEN_IDS_FILE.write_text(json.dumps(list(seen)))
 
 
-# ─── GOOGLE SHEETS ───────────────────────────────────────────────────────────
+# ─── LOCAL JSON DATABASE ─────────────────────────────────────────────────────
 
-def write_to_sheets(jobs: list[dict]):
-    """Appends new job rows to Google Sheet."""
+def write_to_json(jobs: list[dict]):
+    """Appends new job rows to jobs.json for the frontend dashboard."""
     if not jobs:
         return
     try:
-        import gspread
-        from google.oauth2.service_account import Credentials
-        scopes = ["https://www.googleapis.com/auth/spreadsheets"]
-        creds  = Credentials.from_service_account_file(CREDS_PATH, scopes=scopes)
-        gc     = gspread.authorize(creds)
-        sh     = gc.open_by_key(SHEETS_ID)
-        ws     = sh.sheet1
-
-        # Write header if sheet is empty
-        if ws.row_count < 1 or not ws.cell(1,1).value:
-            ws.insert_row([
-                "Date Found", "Posted Date", "Company", "Title", "Location", "Score",
-                "Match Reason", "Seniority", "Location Type",
-                "Apply Now?", "URL", "Department"
-            ], index=1)
-
-        today = datetime.date.today().isoformat()
-        rows  = []
+        from pathlib import Path
+        import datetime
+        data_file = Path("jobs.json")
+        
+        if data_file.exists():
+            try:
+                existing_jobs = json.loads(data_file.read_text())
+            except:
+                existing_jobs = []
+        else:
+            existing_jobs = []
+            
+        existing_ids = {j["id"] for j in existing_jobs}
+        today = datetime.datetime.now().isoformat()
+        
+        added = 0
         for j in jobs:
-            rows.append([
-                today,
-                j.get("posted_date", ""),
-                j.get("company",""),
-                j.get("title",""),
-                j.get("location",""),
-                j.get("score", 0),
-                j.get("match_reason",""),
-                j.get("seniority",""),
-                j.get("location_type",""),
-                "YES" if j.get("apply_now") else "No",
-                j.get("url",""),
-                j.get("department",""),
-            ])
-
-        ws.insert_rows(rows, row=2, value_input_option="RAW")
-        print(f"✓ Wrote {len(rows)} rows to Google Sheets")
+            if j["id"] not in existing_ids:
+                j["fetch_date"] = today
+                existing_jobs.append(j)
+                added += 1
+                
+        # Sort so highest score & newest are at the top
+        existing_jobs.sort(key=lambda x: (x.get("score", 0), x.get("fetch_date", "")), reverse=True)
+        
+        data_file.write_text(json.dumps(existing_jobs, indent=2))
+        print(f"✓ Appended {added} new jobs to jobs.json")
     except Exception as e:
-        print(f"[Sheets error] {e}")
+        print(f"[JSON error] {e}")
 
 
 # ─── EMAIL ALERT ─────────────────────────────────────────────────────────────
@@ -441,7 +432,7 @@ def main():
             # Save progress iteratively per company
             if company_high_score_jobs:
                 company_high_score_jobs.sort(key=lambda x: x.get("score", 0), reverse=True)
-                write_to_sheets(company_high_score_jobs)
+                write_to_json(company_high_score_jobs)
             
             # Persist seen IDs progressively to avoid rescrapes
             save_seen_ids(seen_ids)

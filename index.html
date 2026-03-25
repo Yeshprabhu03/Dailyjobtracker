@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HireScope // Executive Job Radar</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+  <div class="blob-bg"></div>
+  <div class="blob-bg blob-2"></div>
+
+  <div class="app-container">
+    <header class="glass-header">
+      <div class="header-left">
+        <h1>HireScope <span class="accent">Radar</span></h1>
+        <p>AI-Scored Product Management Opportunities</p>
+      </div>
+      <div class="header-right">
+        <input type="text" id="searchBar" class="glass-input" placeholder="Search companies or titles..." />
+        <select id="filterScore" class="glass-select">
+          <option value="all">All Scores</option>
+          <option value="70">Match ≥ 70</option>
+          <option value="80">Match ≥ 80</option>
+          <option value="90">Match ≥ 90</option>
+        </select>
+        <button id="filterApply" class="glass-btn">🔥 Apply Now Only</button>
+      </div>
+    </header>
+
+    <main id="jobGrid" class="job-grid">
+      <!-- Jobs will be injected here via JS -->
+      <div class="loading-state">
+        <div class="spinner"></div>
+        <p>Syncing Latest Jobs...</p>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    let allJobs = [];
+
+    async function loadJobs() {
+      try {
+        const response = await fetch('./jobs.json');
+        if (!response.ok) throw new Error("Could not find jobs.json");
+        allJobs = await response.json();
+        renderJobs(allJobs);
+      } catch (error) {
+        document.getElementById('jobGrid').innerHTML = `<div class="error-state"><h2>Welcome to HireScope</h2><p>The automated GitHub Actions scanner is currently running its first sweep. Jobs will appear here exactly at 7:00 AM once the action finishes!</p></div>`;
+      }
+    }
+
+    function renderJobs(jobsToRender) {
+      const grid = document.getElementById('jobGrid');
+      grid.innerHTML = '';
+      if (jobsToRender.length === 0) {
+        grid.innerHTML = `<div class="error-state"><p>No jobs match your current filters.</p></div>`;
+        return;
+      }
+      
+      jobsToRender.forEach(job => {
+        const card = document.createElement('div');
+        card.className = 'job-card glass-panel';
+        
+        let scoreColor = job.score >= 80 ? 'text-green' : (job.score >= 60 ? 'text-yellow' : 'text-red');
+        let applyBadge = job.apply_now ? `<span class="badge badge-fire">🔥 Apply Now</span>` : `<span class="badge badge-neutral">Archived</span>`;
+        
+        card.innerHTML = `
+          <div class="card-header">
+            <div class="company-badge">${job.company}</div>
+            <div class="score-ring ${scoreColor}">${job.score}<small>AI</small></div>
+          </div>
+          <h2 class="job-title">${job.title}</h2>
+          <div class="job-meta">
+            <span>📍 ${job.location || 'Remote'} (${job.location_type || 'Unknown'})</span>
+            <span>📅 Scraped: ${job.fetch_date ? new Date(job.fetch_date).toLocaleDateString() : 'Today'}</span>
+            ${job.posted_date ? `<span>📅 Posted: ${job.posted_date}</span>` : ''}
+          </div>
+          <div class="ai-rationale">
+            <strong>🤖 AI Rationale:</strong> ${job.match_reason}
+          </div>
+          <div class="card-footer">
+            ${applyBadge}
+            <a href="${job.url}" target="_blank" class="glow-btn">View Full Posting →</a>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // Filter Logic
+    let isApplyNowFilter = false;
+    
+    document.getElementById('searchBar').addEventListener('input', applyFilters);
+    document.getElementById('filterScore').addEventListener('change', applyFilters);
+    document.getElementById('filterApply').addEventListener('click', (e) => {
+      isApplyNowFilter = !isApplyNowFilter;
+      e.target.classList.toggle('active', isApplyNowFilter);
+      applyFilters();
+    });
+
+    function applyFilters() {
+      const query = document.getElementById('searchBar').value.toLowerCase();
+      const scoreThresh = parseInt(document.getElementById('filterScore').value) || 0;
+      
+      const filtered = allJobs.filter(job => {
+        const matchesQuery = job.company.toLowerCase().includes(query) || job.title.toLowerCase().includes(query);
+        const matchesScore = job.score >= scoreThresh;
+        const matchesApply = isApplyNowFilter ? job.apply_now === true : true;
+        return matchesQuery && matchesScore && matchesApply;
+      });
+      renderJobs(filtered);
+    }
+
+    // Init
+    loadJobs();
+  </script>
+</body>
+</html>

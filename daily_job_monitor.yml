@@ -9,6 +9,8 @@ on:
 jobs:
   run-monitor:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -19,7 +21,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install requests gspread google-auth google-generativeai python-dotenv sendgrid
+        run: pip install requests google-generativeai python-dotenv sendgrid
 
       - name: Restore seen job IDs cache
         uses: actions/cache@v4
@@ -29,17 +31,20 @@ jobs:
           restore-keys: |
             seen-job-ids-
 
-      - name: Write Google credentials JSON
-        run: echo '${{ secrets.GOOGLE_CREDS_JSON }}' > creds.json
-
       - name: Run job monitor
         env:
           GEMINI_API_KEY:  ${{ secrets.GEMINI_API_KEY }}
-          GOOGLE_SHEETS_ID:   15ijkCUdXizBrd5Ux7Y2J497aUu3yktCIRHuxPyxdeC0
-          GOOGLE_CREDS_JSON:  creds.json
           ALERT_EMAIL:        ${{ secrets.ALERT_EMAIL }}
           SENDGRID_API_KEY:   ${{ secrets.SENDGRID_API_KEY }}
         run: python job_monitor.py
+
+      - name: Commit updated jobs.json to repo
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add jobs.json
+          git commit -m "Automated job scrape update" || echo "No changes to commit"
+          git push
 
       - name: Save seen job IDs
         uses: actions/cache@v4
