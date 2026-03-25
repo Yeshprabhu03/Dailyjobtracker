@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T09:09:57.522826",
+    "last_updated": "2026-03-25T09:10:12.175739",
     "scanned_count": 9,
     "total_companies": 58,
     "matches_found": 3,
@@ -23,6 +23,22 @@
       "seniority": "senior",
       "location_type": "unknown",
       "fetch_date": "2026-03-25T09:07:48.239500"
+    },
+    {
+      "id": "wd_pnc_R211132_f67d6076",
+      "title": "Product Manager Sr",
+      "location": "CO - Lakewood (80215)",
+      "url": "https://pnc.wd5.myworkdayjobs.com/External/job//job/CO---Lakewood-80215/Product-Manager-Sr_R211132-1",
+      "department": "",
+      "description": "",
+      "posted_date": "Posted 30+",
+      "company": "PNC Financial",
+      "score": 90,
+      "match_reason": "This 'Product Manager Sr' role is an excellent match for the candidate's 4.9 years of senior product management experience, particularly their strong background in analytics, platform reliability, and process automation within a high-growth environment.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "onsite",
+      "fetch_date": "2026-03-25T09:10:12.175739"
     },
     {
       "id": "link_8cfc6298",
