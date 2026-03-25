@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T08:51:52.076245",
+    "last_updated": "2026-03-25T08:52:14.423120",
     "scanned_count": 22,
     "total_companies": 58,
     "matches_found": 3,
@@ -87,6 +87,22 @@
       "seniority": "senior",
       "location_type": "onsite",
       "fetch_date": "2026-03-25T08:48:19.106906"
+    },
+    {
+      "id": "gh_7558041",
+      "title": "Product Manager II - Retail Tax, Transactions, and Performance",
+      "location": "US - Remote Zone 1 (Job Requisitions Only)",
+      "url": "https://www.coinbase.com/careers/positions/7558041?gh_jid=7558041",
+      "department": "Product",
+      "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;Ready to be pushed beyond what you think you\u2019re capable of?&lt;/p&gt;\n&lt;p&gt;At Coinbase, our mission is to increase economic freedom in the world. It\u2019s a massive, ambitious opportunity that demands the best of us, every day, as we build the emerging onchain platform \u2014 and with it, the future global financial system.&lt;/p&gt;\n&lt;p&gt;To achieve our mission, we\u2019re seeking a very specific candidate. We want someone who is passionate about our mission and who believes in the power of crypto and blockchain technology to update the financial s",
+      "posted_date": "2026-03-06",
+      "company": "Coinbase",
+      "score": 90,
+      "match_reason": "The candidate's ~5 years of experience aligns perfectly with a Product Manager II role, demonstrating exceptional relevant skills in platform scaling, transaction reliability, performance optimization, and data-driven observability, with a solid financial background from their MBA.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "remote",
+      "fetch_date": "2026-03-25T08:52:14.423120"
     },
     {
       "id": "gh_7558883",
