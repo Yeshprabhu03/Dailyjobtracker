@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T08:47:47.096709",
+    "last_updated": "2026-03-25T08:48:03.079091",
     "scanned_count": 21,
     "total_companies": 58,
     "matches_found": 2,
@@ -39,6 +39,22 @@
       "seniority": "senior",
       "location_type": "hybrid",
       "fetch_date": "2026-03-25T08:43:07.246827"
+    },
+    {
+      "id": "gh_7707158",
+      "title": "Senior Product Manager, Security AI",
+      "location": "Bellevue, WA",
+      "url": "https://boards.greenhouse.io/robinhood/jobs/7707158?t=gh_src=&gh_jid=7707158",
+      "department": "Security Division",
+      "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;h2&gt;Join us in building the future of finance.&lt;/h2&gt;\n&lt;p&gt;Our mission is to democratize finance for all. &lt;a href=&quot;https://www.cerulli.com/press-releases/cerulli-anticipates-124-trillion-in-wealth-will-transfer-through-2048&quot; target=&quot;_blank&quot;&gt;An estimated $124 trillion of assets&lt;/a&gt; will be inherited by younger generations in the next two decades. The largest transfer of wealth in human history. If you\u2019re ready to be at the epicenter of this historic cultural and financial shift, keep reading.&lt;/p&gt;&lt;/",
+      "posted_date": "2026-03-20",
+      "company": "Robinhood",
+      "score": 90,
+      "match_reason": "Yeshwanth's 5 years of experience, including significant time as a Senior Product Manager, combined with strong AI governance, ML validation, and platform reliability skills, is an excellent fit for this Senior Product Manager, Security AI role.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "onsite",
+      "fetch_date": "2026-03-25T08:48:03.079091"
     },
     {
       "id": "gh_7592180",
