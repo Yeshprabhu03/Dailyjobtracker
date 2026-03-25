@@ -465,7 +465,7 @@ def write_to_json(jobs: list[dict], scanned: int = 0, total: int = 0, status: st
                 "last_updated": today,
                 "scanned_count": scanned,
                 "total_companies": total,
-                "matches_found": matches,
+                "matches_found": len(existing_jobs),
                 "technical_failures": failures,
                 "status": status
             },
@@ -474,17 +474,9 @@ def write_to_json(jobs: list[dict], scanned: int = 0, total: int = 0, status: st
         
         data_file.write_text(json.dumps(output, indent=2))
         
-        # Incremental Git Push to update the dashboard "live"
-        if os.getenv("GITHUB_ACTIONS"):
-            try:
-                subprocess.run(["git", "add", "jobs.json", "seen_job_ids.json"], check=True, capture_output=True)
-                commit_msg = f"Live Update: {scanned}/{total} companies scanned"
-                subprocess.run(["git", "commit", "-m", commit_msg], check=True, capture_output=True)
-                subprocess.run(["git", "push"], check=True, capture_output=True)
-                print(f"  Live update pushed to GitHub ({scanned}/{total})")
-            except Exception as git_err:
-                pass # Silent failure if git is busy, results will sync on next loop
-
+        # Dashboard is updated locally via write_text above. 
+        # Consolidating Git Push to the end of the run to reduce "git noise" and emails.
+        
         if added > 0:
             print(f"✓ Appended {added} new jobs to jobs.json ({scanned}/{total})")
         else:
@@ -497,6 +489,9 @@ def write_to_json(jobs: list[dict], scanned: int = 0, total: int = 0, status: st
 
 def send_email_alert(top_jobs: list[dict]):
     """Send email via SendGrid for apply_now=True jobs."""
+    # Only send if ENABLE_EMAIL_ALERTS is set to "true" to avoid "git run" noise
+    if os.getenv("ENABLE_EMAIL_ALERTS", "false").lower() != "true":
+        return
     if not top_jobs or not SENDGRID_KEY or not ALERT_EMAIL:
         return
     try:
@@ -590,9 +585,19 @@ def main():
         print(f"        {j['match_reason']}")
         print(f"        {j['url']}\n")
 
-    # Final signal that run is done
+    # Final signal that run is done and sync results to GitHub
     write_to_json([], scanned=total_companies, total=total_companies, status="complete")
     send_email_alert(apply_now)
+    
+    if os.getenv("GITHUB_ACTIONS"):
+        try:
+            print("\n  Syncing final results to GitHub...")
+            subprocess.run(["git", "add", "jobs.json", "seen_job_ids.json"], check=True, capture_output=True)
+            subprocess.run(["git", "commit", "-m", f"Daily Update: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M')}"], check=True, capture_output=True)
+            subprocess.run(["git", "push"], check=True, capture_output=True)
+            print("  ✓ Final results pushed to GitHub")
+        except Exception as git_err:
+            print(f"  [Git Sync] Warning: {git_err}")
 
     print("✓ Run fully complete and securely synchronized")
 
