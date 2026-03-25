@@ -35,11 +35,11 @@ jobs:
       - name: Run job monitor
         env:
           ANTHROPIC_API_KEY:  ${{ secrets.ANTHROPIC_API_KEY }}
-          GOOGLE_SHEETS_ID:   ${{ secrets.GOOGLE_SHEETS_ID }}
+          GOOGLE_SHEETS_ID:   15ijkCUdXizBrd5Ux7Y2J497aUu3yktCIRHuxPyxdeC0
           GOOGLE_CREDS_JSON:  creds.json
           ALERT_EMAIL:        ${{ secrets.ALERT_EMAIL }}
           SENDGRID_API_KEY:   ${{ secrets.SENDGRID_API_KEY }}
-        run: python job_monitor/job_monitor.py
+        run: python job_monitor.py
 
       - name: Save seen job IDs
         uses: actions/cache@v4

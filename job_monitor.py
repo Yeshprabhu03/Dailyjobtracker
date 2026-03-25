@@ -25,7 +25,7 @@ load_dotenv()
 # ─── CONFIG ──────────────────────────────────────────────────────────────────
 
 ANTHROPIC_API_KEY  = os.getenv("ANTHROPIC_API_KEY")
-SHEETS_ID          = os.getenv("GOOGLE_SHEETS_ID")
+SHEETS_ID          = os.getenv("GOOGLE_SHEETS_ID", "15ijkCUdXizBrd5Ux7Y2J497aUu3yktCIRHuxPyxdeC0")
 CREDS_PATH         = os.getenv("GOOGLE_CREDS_JSON", "creds.json")
 ALERT_EMAIL        = os.getenv("ALERT_EMAIL", "")
 SENDGRID_KEY       = os.getenv("SENDGRID_API_KEY", "")
