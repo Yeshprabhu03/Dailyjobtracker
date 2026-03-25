@@ -282,7 +282,7 @@ def save_seen_ids(seen: set):
 
 # ─── LOCAL JSON DATABASE ─────────────────────────────────────────────────────
 
-def write_to_json(jobs: list[dict], scanned: int = 0, total: int = 0, status: str = "running"):
+def write_to_json(jobs: list[dict], scanned: int = 0, total: int = 0, status: str = "running", matches: int = 0, failures: int = 0):
     """Saves jobs and scan progress metadata to jobs.json."""
     try:
         from pathlib import Path
@@ -319,6 +319,8 @@ def write_to_json(jobs: list[dict], scanned: int = 0, total: int = 0, status: st
                 "last_updated": today,
                 "scanned_count": scanned,
                 "total_companies": total,
+                "matches_found": matches,
+                "technical_failures": failures,
                 "status": status
             },
             "jobs": existing_jobs
@@ -381,35 +383,50 @@ def main():
     all_new   = []
     apply_now = []
     total_companies = len(COMPANIES)
+    matches_found = 0
+    technical_failures = 0
 
-    for i, company in enumerate(COMPANIES):
-        scanned_count = i + 1
+    for i, company in enumerate(COMPANIES, 1):
+        print(f"  Scanning {company['name']} ({i}/{total_companies})...")
+        
+        # Immediate Progress Pulse
+        write_to_json([], scanned=i, total=total_companies, matches=matches_found, failures=technical_failures)
+        
         try:
             jobs = fetch_jobs_for_company(company)
             new_jobs = [j for j in jobs if j["id"] not in seen_ids]
-
-            company_high_score_jobs = []
+            
+            company_has_match = False
             if new_jobs:
                 print(f"  Scoring {len(new_jobs)} new jobs for {company['name']}...")
                 for job in new_jobs:
                     scored = score_job_with_ai(job)
                     seen_ids.add(job["id"])
                     if scored.get("score", 0) >= MATCH_THRESHOLD:
-                        company_high_score_jobs.append(scored)
                         all_new.append(scored)
-                    if scored.get("apply_now"):
-                        apply_now.append(scored)
-                    time.sleep(5.0)  # Safe buffer (15 RPM limit = 4s per request)
+                        company_has_match = True
+                        if scored.get("apply_now"):
+                            apply_now.append(scored)
+                        
+                        # Streaming Update
+                        write_to_json(all_new, scanned=i, total=total_companies, matches=matches_found + (1 if company_has_match else 0), failures=technical_failures)
+                        
+                    time.sleep(5.0) 
 
-            # Progress update (always save even if 0 jobs found for telemetry)
-            company_high_score_jobs.sort(key=lambda x: x.get("score", 0), reverse=True)
-            write_to_json(company_high_score_jobs, scanned=scanned_count, total=total_companies)
+            if company_has_match:
+                matches_found += 1
+
+            # Final company update
+            write_to_json(all_new, scanned=i, total=total_companies, matches=matches_found, failures=technical_failures)
             
             # Persist seen IDs progressively to avoid rescrapes
             save_seen_ids(seen_ids)
 
         except Exception as e:
             print(f"  [Error processing {company['name']}] {e}")
+            technical_failures += 1
+            write_to_json(all_new, scanned=i, total=total_companies, matches=matches_found, failures=technical_failures)
+
 
     # Sort by score descending
     all_new.sort(key=lambda x: x.get("score", 0), reverse=True)

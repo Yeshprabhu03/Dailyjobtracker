@@ -18,11 +18,12 @@
     <header class="glass-header">
       <div class="header-left">
         <h1>HireScope <span class="accent">Radar</span></h1>
-        <p>AI-Scored Product Management Opportunities &bull; <span id="lastUpdated" style="color:var(--accent);font-weight:600;">Updating...</span></p>
+        <p>AI-Scored Product Management Opportunities &bull; <span id="matchStats" style="color:var(--accent);font-weight:600;">Initializing Radar...</span></p>
       </div>
       <div class="header-right">
         <input type="text" id="searchBar" class="glass-input" placeholder="Search companies or titles..." />
         <button id="viewRegistry" class="glass-btn secondary">🏢 Registry</button>
+        <button id="manualPulse" class="glass-btn secondary">📡 Manual Pulse</button>
         <button id="filterApply" class="glass-btn">🔥 Apply Now</button>
       </div>
     </header>
@@ -86,7 +87,10 @@
             const meta = jobData.metadata;
             const statusText = meta.status === 'running' ? `Scanning Progress: ${meta.scanned_count}/${meta.total_companies} companies` : `Scan Complete: ${meta.total_companies}/${meta.total_companies}`;
             const lastDate = new Date(meta.last_updated);
-            document.getElementById('lastUpdated').innerText = `${statusText} &bull; Updated ${lastDate.toLocaleTimeString([], {hour:'numeric', minute:'2-digit'})}`;
+            const matches = meta.matches_found || 0;
+            const failures = meta.technical_failures || 0;
+            const statsText = `${statusText} &bull; ${matches} Matches &bull; ${failures} Failed &bull; Updated ${lastDate.toLocaleTimeString([], {hour:'numeric', minute:'2-digit'})}`;
+            document.getElementById('matchStats').innerHTML = statsText;
           }
           allJobs = jobData.jobs || jobData;
           renderJobs(allJobs);
@@ -175,6 +179,12 @@
     // Modal Events
     document.getElementById('viewRegistry').onclick = () => document.getElementById('registryModal').classList.add('visible');
     document.getElementById('closeRegistry').onclick = () => document.getElementById('registryModal').classList.remove('visible');
+    
+    document.getElementById('manualPulse').onclick = () => {
+      if(confirm("Trigger a manual scan on GitHub? This will take ~20 mins and push live updates.")) {
+        window.open('https://github.com/Yeshprabhu03/Dailyjobtracker/actions/workflows/daily_job_monitor.yml', '_blank');
+      }
+    };
 
     // Add Helper Logic
     const updatePreview = () => {
