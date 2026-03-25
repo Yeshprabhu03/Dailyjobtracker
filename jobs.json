@@ -1,13 +1,29 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T09:07:39.684081",
+    "last_updated": "2026-03-25T09:07:48.239500",
     "scanned_count": 7,
     "total_companies": 58,
-    "matches_found": 1,
+    "matches_found": 2,
     "technical_failures": 2,
     "status": "running"
   },
   "jobs": [
+    {
+      "id": "link_3e16b324",
+      "title": "Senior Product Manager, Developer Experience",
+      "location": "Check Portal",
+      "url": "https://www.capitalonecareers.com/search-jobs/product%20manager",
+      "department": "Various",
+      "description": "Found on Capital One career landing page. Match quality estimated from title.",
+      "posted_date": "2026-03-25",
+      "company": "Capital One",
+      "score": 92,
+      "match_reason": "The candidate's nearly five years of experience as a Product Manager and Senior Product Manager in platform reliability, automation, and observability aligns exceptionally well with a Senior Product Manager role focused on Developer Experience.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "unknown",
+      "fetch_date": "2026-03-25T09:07:48.239500"
+    },
     {
       "id": "link_8cfc6298",
       "title": "Product Manager (Productivity And Tooling) &#X2013; (Belfast)",
