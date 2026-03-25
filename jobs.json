@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T08:33:48.689067",
+    "last_updated": "2026-03-25T08:34:04.507483",
     "scanned_count": 9,
     "total_companies": 58,
     "matches_found": 1,
@@ -135,6 +135,22 @@
       "seniority": "senior",
       "location_type": "onsite",
       "fetch_date": "2026-03-25T08:29:27.218907"
+    },
+    {
+      "id": "wd_pnc_R214766_b441daf8",
+      "title": "Product Manager II- Business Credit Card",
+      "location": "6 Locations",
+      "url": "https://pnc.wd5.myworkdayjobs.com/External/job//job/PA---Pittsburgh-15222/Product-Manager-II--Business-Credit-Card_R214766-1",
+      "department": "",
+      "description": "",
+      "posted_date": "Posted 2 D",
+      "company": "PNC Financial",
+      "score": 80,
+      "match_reason": "The candidate's 5+ years of product management experience, including a Senior PM role and an MBA with relevant financial coursework, aligns well with a Product Manager II position, despite the shift to a new financial domain.",
+      "apply_now": true,
+      "seniority": "mid",
+      "location_type": "hybrid",
+      "fetch_date": "2026-03-25T08:34:04.507483"
     },
     {
       "id": "wd_pnc_R203748_a08da31d",
