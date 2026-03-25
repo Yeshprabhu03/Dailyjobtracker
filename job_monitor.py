@@ -16,9 +16,11 @@ Environment variables (.env):
   SENDGRID_API_KEY=...         # for email alerts (optional)
 """
 
-import os, json, time, hashlib, datetime, requests, subprocess
+import os, json, time, re, hashlib, datetime, requests, subprocess
 from pathlib import Path
+from urllib.parse import urljoin
 from dotenv import load_dotenv
+from bs4 import BeautifulSoup
 
 load_dotenv()
 
@@ -174,14 +176,152 @@ def scrape_workday_search(token: str, query: str = "product manager") -> list[di
     raise ConnectionError(f"Could not connect to any Workday portal for {token}")
 
 
+def scrape_oracle_cloud(token: str, query: str = "product manager") -> list[dict]:
+    """Specialized scraper for Oracle Cloud Recruiting (used by JPM)."""
+    # Pattern: https://{token}.fa.oraclecloud.com/hcmRestApi/resources/latest/recruitingJobPostings
+    # For JPM: jpmc
+    url = f"https://{token}.fa.oraclecloud.com/hcmRestApi/resources/latest/recruitingJobPostings"
+    params = {
+        "limit": 50,
+        "q": f"title LIKE '%{query}%' OR unformattedDescription LIKE '%{query}%'",
+        "expand": "externalJobPostings"
+    }
+    try:
+        r = requests.get(url, params=params, headers=HEADERS, timeout=15)
+        r.raise_for_status()
+        items = r.json().get("items", [])
+        return [
+            {
+                "id":         f"oc_{j['Id']}",
+                "title":      j.get("Title", ""),
+                "location":   j.get("PrimaryLocation", ""),
+                "url":        f"https://{token}.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/{j['Id']}",
+                "department": j.get("Organization", ""),
+                "description": j.get("unformattedDescription", "")[:800],
+                "posted_date": j.get("PostedDate", "")[:10],
+            }
+            for j in items
+        ]
+    except Exception as e:
+        print(f"  [oracle/{token}] error: {e}")
+        raise e
+
+
+def scrape_career_link(url: str, name: str) -> list[dict]:
+    """Fallback: Scrape titles and direct links using BeautifulSoup."""
+    try:
+        r = requests.get(url, headers=HEADERS, timeout=15)
+        r.raise_for_status()
+        soup = BeautifulSoup(r.text, 'html.parser')
+        
+        jobs = []
+        seen_titles = set()
+        
+        # Priority: Find specialized "job link" classes (Citi, etc.)
+        priority_links = soup.find_all('a', class_=re.compile(r"job|title|link"))
+        potential_elements = priority_links + soup.find_all(['h2', 'h3', 'h4', 'span'])
+        
+        for el in potential_elements:
+            text = el.get_text().strip()
+            
+            # Junk filters:
+            low_text = text.lower()
+            if "product manager" not in low_text: continue
+            if len(text) > 80 or len(text) < 5: continue
+            if any(x in text for x in ["{", "}", "<", ">", "=", "_", "\\", "/", "[", "]"]): continue
+            
+            # Site noise:
+            noise = ["results", "found", "search", "all jobs", "sign in", "apply", "career", "result"]
+            if any(x in low_text for x in noise) and low_text != "product manager":
+                continue
+            
+            # Extract direct link
+            job_url = url
+            if el.name == 'a' and el.get('href'):
+                job_url = urljoin(url, el.get('href'))
+            else:
+                p_anchor = el.find_parent('a')
+                if p_anchor and p_anchor.get('href'):
+                    job_url = urljoin(url, p_anchor.get('href'))
+            
+            # If no direct link found, skip this noise
+            if job_url == url or "search-jobs" in job_url:
+                continue
+            
+            # Try to find location
+            location = "Unknown"
+            parent = el.find_parent(['div', 'li', 'section', 'tr'])
+            if parent:
+                loc_el = parent.find(class_=re.compile(r"location|city|state|country|place"))
+                if loc_el:
+                    location = loc_el.get_text().strip()
+                else:
+                    for sibling in parent.find_all(['span', 'p']):
+                        s_text = sibling.get_text().strip()
+                        if "," in s_text and len(s_text) < 50:
+                            location = s_text
+                            break
+            
+            final_title = text.title()
+            if final_title not in seen_titles:
+                jobs.append({
+                    "id":         f"link_{hashlib.md5(final_title.encode()).hexdigest()[:8]}",
+                    "title":      final_title,
+                    "location":   location,
+                    "url":        job_url,
+                    "department": "Various",
+                    "description": f"Found on {name} career landing page. Match quality estimated from title.",
+                    "posted_date": datetime.datetime.now().strftime("%Y-%m-%d"),
+                })
+                seen_titles.add(final_title)
+        
+        return jobs[:10]
+    except Exception as e:
+        print(f"  [career_link/{name}] error: {e}")
+        raise e
+
+
+def is_us_location(location: str) -> bool:
+    """Filter to ensure we only look for USA-based roles."""
+    if not location: return False 
+    loc = location.lower()
+    
+    # 1. Ignore international clear-outs
+    international = ["india", "china", "london", "uk", "germany", "poland", "ireland", "mexico", "hong kong", "singapore", "belfast", "manila", "mumbai", "bangalore"]
+    if any(x in loc for x in international):
+        return False
+
+    # 2. Positive US indicators
+    us_indicators = ["usa", "united states", "remote", "remote-eligible", "onsite", "us - ", "u.s."]
+    if any(x in loc for x in us_indicators):
+        return True
+    
+    # 3. Common US State codes (look for abbreviations after commas)
+    states = ["al", "ak", "az", "ar", "ca", "co", "ct", "de", "fl", "ga", "hi", "id", "il", "in", "ia", "ks", "ky", "la", "me", "md", "ma", "mi", "mn", "ms", "mo", "mt", "ne", "nv", "nh", "nj", "nm", "ny", "nc", "nd", "oh", "ok", "or", "pa", "ri", "sc", "sd", "tn", "tx", "ut", "vt", "va", "wa", "wv", "wi", "wy"]
+    if any(f", {s}" in loc or f" {s} " in loc or loc.endswith(f" {s}") or f"- {s}" in loc for s in states):
+        return True
+        
+    # If the search was targeted at US, and we have a city but no state, it might still be US.
+    # But to be safe for "USA Only", we require a clear indicator.
+    return False
+
 
 def filter_pm_jobs(jobs: list[dict]) -> list[dict]:
-    """Keep only jobs with PM-related keywords in the title."""
+    """Keep only Product Manager jobs based in the USA."""
     results = []
     for j in jobs:
-        title_lower = j["title"].lower()
-        if any(kw in title_lower for kw in PM_KEYWORDS):
+        title_lower = j.get("title", "").lower()
+        location = j.get("location", "")
+        
+        # 1. Check if it's a PM role
+        is_pm = any(kw in title_lower for kw in PM_KEYWORDS)
+        
+        # 2. Check if it's in the USA
+        is_us = is_us_location(location)
+        
+        if is_pm and is_us:
             results.append(j)
+            
     return results
 
 
@@ -197,6 +337,10 @@ def fetch_jobs_for_company(company: dict) -> list[dict]:
         jobs = scrape_lever(token)
     elif ats == "workday_search":
         jobs = scrape_workday_search(token)
+    elif ats == "oracle_cloud":
+        jobs = scrape_oracle_cloud(token)
+    elif ats == "career_link":
+        jobs = scrape_career_link(token, name) # token is the full URL here
     else:
         jobs = []
 
@@ -331,14 +475,15 @@ def write_to_json(jobs: list[dict], scanned: int = 0, total: int = 0, status: st
         data_file.write_text(json.dumps(output, indent=2))
         
         # Incremental Git Push to update the dashboard "live"
-        try:
-            subprocess.run(["git", "add", "jobs.json", "seen_job_ids.json"], check=True, capture_output=True)
-            commit_msg = f"Live Update: {scanned}/{total} companies scanned"
-            subprocess.run(["git", "commit", "-m", commit_msg], check=True, capture_output=True)
-            subprocess.run(["git", "push"], check=True, capture_output=True)
-            print(f"  Live update pushed to GitHub ({scanned}/{total})")
-        except Exception as git_err:
-            pass # Silent failure if git is busy, results will sync on next loop
+        if os.getenv("GITHUB_ACTIONS"):
+            try:
+                subprocess.run(["git", "add", "jobs.json", "seen_job_ids.json"], check=True, capture_output=True)
+                commit_msg = f"Live Update: {scanned}/{total} companies scanned"
+                subprocess.run(["git", "commit", "-m", commit_msg], check=True, capture_output=True)
+                subprocess.run(["git", "push"], check=True, capture_output=True)
+                print(f"  Live update pushed to GitHub ({scanned}/{total})")
+            except Exception as git_err:
+                pass # Silent failure if git is busy, results will sync on next loop
 
         if added > 0:
             print(f"✓ Appended {added} new jobs to jobs.json ({scanned}/{total})")
