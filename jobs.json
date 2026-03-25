@@ -1,13 +1,29 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T09:15:04.955898",
-    "scanned_count": 9,
+    "last_updated": "2026-03-25T09:15:08.153257",
+    "scanned_count": 6,
     "total_companies": 58,
-    "matches_found": 3,
+    "matches_found": 1,
     "technical_failures": 2,
     "status": "running"
   },
   "jobs": [
+    {
+      "id": "link_d4e61d18",
+      "title": "Product Manager (Productivity And Tooling) \u2013 (Belfast)",
+      "location": "Check Portal",
+      "url": "https://jobs.citi.com/search-jobs/product%20manager/",
+      "department": "Various",
+      "description": "Found on Citigroup career landing page. Match quality estimated from title.",
+      "posted_date": "2026-03-25",
+      "company": "Citigroup",
+      "score": 92,
+      "match_reason": "The candidate's extensive experience in platform reliability, automation, observability, and optimizing operational workflows aligns perfectly with a Product Manager role focused on Productivity and Tooling, and their 4 years 11 months of experience are a strong fit for a standard Product Manager level.",
+      "apply_now": true,
+      "seniority": "mid",
+      "location_type": "onsite",
+      "fetch_date": "2026-03-25T09:15:08.153257"
+    },
     {
       "id": "link_3e16b324",
       "title": "Senior Product Manager, Developer Experience",
@@ -151,6 +167,22 @@
       "seniority": "senior",
       "location_type": "onsite",
       "fetch_date": "2026-03-25T09:14:47.605410"
+    },
+    {
+      "id": "link_138227d5",
+      "title": "2353 Results Found For \"Product Manager\" Jobs",
+      "location": "Check Portal",
+      "url": "https://jobs.citi.com/search-jobs/product%20manager/",
+      "department": "Various",
+      "description": "Found on Citigroup career landing page. Match quality estimated from title.",
+      "posted_date": "2026-03-25",
+      "company": "Citigroup",
+      "score": 85,
+      "match_reason": "The candidate's nearly 5 years of progressive product management experience, including a senior role and strong skills in analytics, platform reliability, and governance, are highly relevant and make them a strong candidate for a general Product Manager role at Citigroup.",
+      "apply_now": true,
+      "seniority": "mid",
+      "location_type": "unknown",
+      "fetch_date": "2026-03-25T09:15:08.153257"
     },
     {
       "id": "wd_pnc_R212368_61a46984",
@@ -407,6 +439,22 @@
       "seniority": "mid",
       "location_type": "onsite",
       "fetch_date": "2026-03-25T09:14:47.605410"
+    },
+    {
+      "id": "link_a2114a91",
+      "title": "\uc218\ucd9c\uc2e0\uc6a9\uae30\uad00\uae08\uc735 (Eaf Product Manager)",
+      "location": "Check Portal",
+      "url": "https://jobs.citi.com/search-jobs/product%20manager/",
+      "department": "Various",
+      "description": "Found on Citigroup career landing page. Match quality estimated from title.",
+      "posted_date": "2026-03-25",
+      "company": "Citigroup",
+      "score": 68,
+      "match_reason": "This is a good match due to the candidate's strong 5 years of Product Management experience, an MBA with relevant financial coursework, and transferable skills in reliability and analytics, despite the lack of direct experience in the highly specialized 'Export Credit Agency Finance' domain.",
+      "apply_now": false,
+      "seniority": "mid",
+      "location_type": "unknown",
+      "fetch_date": "2026-03-25T09:15:08.153257"
     },
     {
       "id": "link_c3637aba",
