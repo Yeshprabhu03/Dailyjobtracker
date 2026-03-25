@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T09:09:39.149748",
+    "last_updated": "2026-03-25T09:09:57.522826",
     "scanned_count": 9,
     "total_companies": 58,
     "matches_found": 3,
@@ -183,6 +183,22 @@
       "seniority": "mid",
       "location_type": "unknown",
       "fetch_date": "2026-03-25T09:04:11.116567"
+    },
+    {
+      "id": "wd_pnc_R203207_7c228f52",
+      "title": "Credit Product Manager",
+      "location": "FL - Tampa (33602)",
+      "url": "https://pnc.wd5.myworkdayjobs.com/External/job//job/FL---Tampa-33602/Credit-Product-Manager_R203207-2",
+      "department": "",
+      "description": "",
+      "posted_date": "Posted 30+",
+      "company": "PNC Financial",
+      "score": 72,
+      "match_reason": "The candidate's 4-5 years of experience in analytics platforms, reliability, and risk/governance aligns well with a Product Manager role at a financial institution, and their strong technical skills and MBA with finance-related coursework make them a compelling fit for PNC, despite lacking explicit 'credit product' domain experience in the job title.",
+      "apply_now": true,
+      "seniority": "mid",
+      "location_type": "onsite",
+      "fetch_date": "2026-03-25T09:09:57.522826"
     },
     {
       "id": "link_62e9c9a3",
