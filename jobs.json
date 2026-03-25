@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T08:28:22.273961",
+    "last_updated": "2026-03-25T08:28:40.838454",
     "scanned_count": 9,
     "total_companies": 58,
     "matches_found": 1,
@@ -23,6 +23,22 @@
       "seniority": "senior",
       "location_type": "onsite",
       "fetch_date": "2026-03-25T08:28:22.273961"
+    },
+    {
+      "id": "wd_pnc_R214582_02a77be0",
+      "title": "Product Manager Lead",
+      "location": "CO - Lakewood (80215)",
+      "url": "https://pnc.wd5.myworkdayjobs.com/External/job//job/CO---Lakewood-80215/Product-Manager-Lead_R214582-1",
+      "department": "",
+      "description": "",
+      "posted_date": "Posted 14 ",
+      "company": "PNC Financial",
+      "score": 75,
+      "match_reason": "The candidate's robust experience in product reliability, analytics platforms, and end-to-end product lifecycle management, coupled with strong technical skills and an MBA, presents a very strong skill match for a Product Manager Lead role, though their 5 years of experience position them at the early end of this seniority level.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "onsite",
+      "fetch_date": "2026-03-25T08:28:40.838454"
     },
     {
       "id": "wd_pnc_R214864_755d5924",
