@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T09:15:17.684596",
+    "last_updated": "2026-03-25T09:15:18.443893",
     "scanned_count": 9,
     "total_companies": 58,
-    "matches_found": 3,
-    "technical_failures": 2,
+    "matches_found": 1,
+    "technical_failures": 8,
     "status": "running"
   },
   "jobs": [
@@ -327,6 +327,22 @@
       "seniority": "senior",
       "location_type": "onsite",
       "fetch_date": "2026-03-25T09:14:47.605410"
+    },
+    {
+      "id": "wd_pnc_R212678_8dbe5647",
+      "title": "Product Manager Lead-2",
+      "location": "7 Locations",
+      "url": "https://pnc.wd5.myworkdayjobs.com/External/job//job/PA---Pittsburgh-15222/Product-Manager-Lead-2_R212678-1",
+      "department": "",
+      "description": "",
+      "posted_date": "Posted 6 D",
+      "company": "PNC Financial",
+      "score": 80,
+      "match_reason": "The candidate's nearly 5 years of high-impact product management experience, including a Senior Product Manager role with significant achievements in platform reliability, analytics, and strategic leadership, makes them a strong contender for a Product Manager Lead position, despite being on the lower end of the typical experience range for such a title.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "onsite",
+      "fetch_date": "2026-03-25T09:15:18.443893"
     },
     {
       "id": "wd_pnc_R214582_02a77be0",
