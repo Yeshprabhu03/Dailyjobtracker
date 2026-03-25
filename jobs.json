@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T08:28:02.995853",
+    "last_updated": "2026-03-25T08:28:22.273961",
     "scanned_count": 9,
     "total_companies": 58,
     "matches_found": 1,
@@ -8,6 +8,22 @@
     "status": "running"
   },
   "jobs": [
+    {
+      "id": "wd_pnc_R211132_f67d6076",
+      "title": "Product Manager Sr",
+      "location": "CO - Lakewood (80215)",
+      "url": "https://pnc.wd5.myworkdayjobs.com/External/job//job/CO---Lakewood-80215/Product-Manager-Sr_R211132-1",
+      "department": "",
+      "description": "",
+      "posted_date": "Posted 30+",
+      "company": "PNC Financial",
+      "score": 78,
+      "match_reason": "The candidate's 4-5 years of experience as a Senior Product Manager, coupled with strong skills in product lifecycle management, analytics, reliability, and governance, aligns exceptionally well with a 'Product Manager Sr' role at an enterprise company like PNC.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "onsite",
+      "fetch_date": "2026-03-25T08:28:22.273961"
+    },
     {
       "id": "wd_pnc_R214864_755d5924",
       "title": "Product Manager II - Investment Office Product Management",
