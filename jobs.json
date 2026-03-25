@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T08:51:32.504778",
-    "scanned_count": 9,
+    "last_updated": "2026-03-25T08:51:52.076245",
+    "scanned_count": 22,
     "total_companies": 58,
-    "matches_found": 1,
-    "technical_failures": 8,
+    "matches_found": 3,
+    "technical_failures": 19,
     "status": "running"
   },
   "jobs": [
@@ -23,6 +23,22 @@
       "seniority": "mid",
       "location_type": "remote",
       "fetch_date": "2026-03-25T08:50:18.976524"
+    },
+    {
+      "id": "gh_7592113",
+      "title": "Product Manager II - Protocol Integrations",
+      "location": "US - Remote Zone 1 (Job Requisitions Only)",
+      "url": "https://www.coinbase.com/careers/positions/7592113?gh_jid=7592113",
+      "department": "Product",
+      "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;Ready to be pushed beyond what you think you\u2019re capable of?&lt;/p&gt;\n&lt;p&gt;At Coinbase, our mission is to increase economic freedom in the world. It\u2019s a massive, ambitious opportunity that demands the best of us, every day, as we build the emerging onchain platform \u2014 and with it, the future global financial system.&lt;/p&gt;\n&lt;p&gt;To achieve our mission, we\u2019re seeking a very specific candidate. We want someone who is passionate about our mission and who believes in the power of crypto and blockchain technology to update the financial s",
+      "posted_date": "2026-03-06",
+      "company": "Coinbase",
+      "score": 92,
+      "match_reason": "The candidate's nearly 5 years of experience in product management, with a strong focus on platform reliability, automation, analytics, and governance, directly aligns with the technical nature of a Product Manager II role focused on protocol integrations, and their quantified impact demonstrates readiness for a high-impact role at Coinbase.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "remote",
+      "fetch_date": "2026-03-25T08:51:52.076245"
     },
     {
       "id": "gh_7736964",
