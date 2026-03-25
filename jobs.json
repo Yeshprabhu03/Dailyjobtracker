@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T08:32:40.715127",
+    "last_updated": "2026-03-25T08:32:54.516435",
     "scanned_count": 9,
     "total_companies": 58,
     "matches_found": 1,
@@ -8,6 +8,22 @@
     "status": "running"
   },
   "jobs": [
+    {
+      "id": "wd_pnc_R214726_3bba757c",
+      "title": "Product Manager Senior - PNC Wealth Management",
+      "location": "PA - Pittsburgh (15222)",
+      "url": "https://pnc.wd5.myworkdayjobs.com/External/job//job/PA---Pittsburgh-15222/Product-Manager-Senior---PNC-Wealth-Management_R214726",
+      "department": "",
+      "description": "",
+      "posted_date": "Posted 2 D",
+      "company": "PNC Financial",
+      "score": 90,
+      "match_reason": "The candidate's nearly 5 years of product management experience, including a senior role, and strong skills in analytics, reliability, and governance, align exceptionally well with a Senior Product Manager position in financial services.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "onsite",
+      "fetch_date": "2026-03-25T08:32:54.516435"
+    },
     {
       "id": "wd_pnc_R214725_3bba757c",
       "title": "Product Manager Senior - PNC Wealth Management",
