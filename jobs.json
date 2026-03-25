@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T09:04:33.083767",
+    "last_updated": "2026-03-25T09:04:48.763632",
     "scanned_count": 6,
     "total_companies": 58,
     "matches_found": 1,
@@ -8,6 +8,22 @@
     "status": "running"
   },
   "jobs": [
+    {
+      "id": "link_a45f3a13",
+      "title": "<Link Rel=\"Canonical\" Href=\"Https://Jobs.Citi.Com/Search-Jobs/Product Manager/\">",
+      "location": "Check Portal",
+      "url": "https://jobs.citi.com/search-jobs/product%20manager/",
+      "department": "Various",
+      "description": "Found on Citigroup career landing page. Match quality estimated from title.",
+      "posted_date": "2026-03-25",
+      "company": "Citigroup",
+      "score": 88,
+      "match_reason": "The candidate's nearly 5 years of experience, including senior-level product management and strong skills in analytics, reliability, and automation, align very well with a general Product Manager role, especially given their technical skills and specific project accomplishments.",
+      "apply_now": true,
+      "seniority": "mid",
+      "location_type": "unknown",
+      "fetch_date": "2026-03-25T09:04:48.763632"
+    },
     {
       "id": "link_a147da59",
       "title": "Product Manager",
