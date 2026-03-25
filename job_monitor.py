@@ -285,6 +285,8 @@ def score_job_with_ai(job: dict) -> dict:
 
     prompt = f"""You are a career advisor. Score how well this job posting matches the candidate's profile.
 
+CRITICAL RULE: The candidate operates strictly at the 0–5 years of experience level. You MUST heavily penalize (score < 50) and immediately reject (apply_now: false) ANY job that explicitly requires 6+ years of experience, or is explicitly a Director/VP/Group/Lead level role, REGARDLESS of how perfectly their skills match.
+
 CANDIDATE PROFILE:
 {RESUME_SUMMARY}
 
