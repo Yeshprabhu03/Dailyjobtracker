@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T01:58:00.820882",
+    "last_updated": "2026-03-25T01:58:12.166552",
     "scanned_count": 52,
     "total_companies": 58,
     "status": "running"
@@ -53,6 +53,22 @@
       "seniority": "senior",
       "location_type": "remote",
       "fetch_date": "2026-03-25T01:24:28.135711"
+    },
+    {
+      "id": "wd_equifax_J00175472_a147da59",
+      "title": "Product Manager",
+      "location": "2 Locations",
+      "url": "https://equifax.wd5.myworkdayjobs.com/External/job//job/USA---Atlanta---One-Atlantic-Center/Product-Manager_J00175472",
+      "department": "",
+      "description": "",
+      "posted_date": "Posted 8 D",
+      "company": "Equifax",
+      "score": 65,
+      "match_reason": "The candidate's 5 years of product management experience, including a Senior Product Manager role and strong background in analytics platforms and reliability, aligns well with a Product Manager title; however, the absence of a detailed job description prevents a thorough assessment of specific skill and domain alignment.",
+      "apply_now": false,
+      "seniority": "mid",
+      "location_type": "onsite",
+      "fetch_date": "2026-03-25T01:58:12.166552"
     },
     {
       "id": "gh_7670800003",
