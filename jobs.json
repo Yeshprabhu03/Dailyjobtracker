@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T08:34:40.261199",
+    "last_updated": "2026-03-25T08:34:50.946581",
     "scanned_count": 21,
     "total_companies": 58,
-    "matches_found": 1,
+    "matches_found": 2,
     "technical_failures": 0,
     "status": "running"
   },
@@ -279,6 +279,22 @@
       "seniority": "senior",
       "location_type": "onsite",
       "fetch_date": "2026-03-25T08:30:14.235761"
+    },
+    {
+      "id": "gh_7536920",
+      "title": "Product Manager, Crypto Trading",
+      "location": "Menlo Park, CA, New York, NY, Toronto, Canada",
+      "url": "https://boards.greenhouse.io/robinhood/jobs/7536920?t=gh_src=&gh_jid=7536920",
+      "department": "Crypto Product Management",
+      "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;h2&gt;Join us in building the future of finance.&lt;/h2&gt;\n&lt;p&gt;Our mission is to democratize finance for all. &lt;a href=&quot;https://www.cerulli.com/press-releases/cerulli-anticipates-124-trillion-in-wealth-will-transfer-through-2048&quot; target=&quot;_blank&quot;&gt;An estimated $124 trillion of assets&lt;/a&gt; will be inherited by younger generations in the next two decades. The largest transfer of wealth in human history. If you\u2019re ready to be at the epicenter of this historic cultural and financial shift, keep reading.&lt;/p&gt;&lt;/",
+      "posted_date": "2026-03-18",
+      "company": "Robinhood",
+      "score": 70,
+      "match_reason": "The candidate's 5 years of product management experience, strong technical background in analytics and platform reliability, and foundational knowledge of financial systems align very well with a Product Manager role in fintech, despite a lack of explicit crypto experience.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "onsite",
+      "fetch_date": "2026-03-25T08:34:50.946581"
     },
     {
       "id": "wd_pnc_R203207_7c228f52",
