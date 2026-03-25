@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T08:32:03.549319",
+    "last_updated": "2026-03-25T08:32:26.321781",
     "scanned_count": 9,
     "total_companies": 58,
     "matches_found": 1,
@@ -8,6 +8,22 @@
     "status": "running"
   },
   "jobs": [
+    {
+      "id": "wd_pnc_R212965_e83d5b6c",
+      "title": "Senior Product Manager - Strategic Priority Management",
+      "location": "2 Locations",
+      "url": "https://pnc.wd5.myworkdayjobs.com/External/job//job/PA---Pittsburgh-15222/Senior-Product-Manager---Strategic-Priority-Management_R212965-1",
+      "department": "",
+      "description": "",
+      "posted_date": "Posted 15 ",
+      "company": "PNC Financial",
+      "score": 90,
+      "match_reason": "The candidate's nearly five years of experience as a Product Manager and Senior Product Manager, with strong achievements in strategic execution, analytics, and stakeholder alignment, is an excellent fit for a Senior Product Manager role focused on strategic priority management.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "onsite",
+      "fetch_date": "2026-03-25T08:32:26.321781"
+    },
     {
       "id": "wd_pnc_R191603_b95b2343",
       "title": "Digital Product Manager Lead",
