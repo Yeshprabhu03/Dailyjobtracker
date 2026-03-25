@@ -32,8 +32,8 @@
       </div>
     </header>
 
-    <main id="jobGrid" class="job-grid">
-      <!-- Jobs will be injected here via JS -->
+    <main id="companyList" class="company-list">
+      <!-- Companies will be injected here via JS -->
       <div class="loading-state">
         <div class="spinner"></div>
         <p>Syncing Latest Jobs...</p>
@@ -49,47 +49,80 @@
         const response = await fetch('./jobs.json');
         if (!response.ok) throw new Error("Could not find jobs.json");
         allJobs = await response.json();
-        renderJobs(allJobs);
+        renderCompanies(allJobs);
       } catch (error) {
-        document.getElementById('jobGrid').innerHTML = `<div class="error-state"><h2>Welcome to HireScope</h2><p>The automated GitHub Actions scanner is currently running its first sweep. Jobs will appear here exactly at 7:00 AM once the action finishes!</p></div>`;
+        document.getElementById('companyList').innerHTML = `<div class="error-state"><h2>Welcome to HireScope</h2><p>The automated GitHub Actions scanner is currently running. Jobs will appear here once JSON is updated!</p></div>`;
       }
     }
 
-    function renderJobs(jobsToRender) {
-      const grid = document.getElementById('jobGrid');
-      grid.innerHTML = '';
+    function renderCompanies(jobsToRender) {
+      const container = document.getElementById('companyList');
+      container.innerHTML = '';
       if (jobsToRender.length === 0) {
-        grid.innerHTML = `<div class="error-state"><p>No jobs match your current filters.</p></div>`;
+        container.innerHTML = `<div class="error-state"><p>No jobs match your current filters.</p></div>`;
         return;
       }
       
+      // Group jobs by company
+      const grouped = {};
       jobsToRender.forEach(job => {
-        const card = document.createElement('div');
-        card.className = 'job-card glass-panel';
+        if (!grouped[job.company]) grouped[job.company] = [];
+        grouped[job.company].push(job);
+      });
+
+      // Sort companies by the highest scoring job they have
+      const sortedCompanies = Object.keys(grouped).sort((a, b) => {
+          const maxScoreA = Math.max(...grouped[a].map(j => j.score || 0));
+          const maxScoreB = Math.max(...grouped[b].map(j => j.score || 0));
+          return maxScoreB - maxScoreA;
+      });
+
+      sortedCompanies.forEach(companyName => {
+        const companyJobs = grouped[companyName];
         
-        let scoreColor = job.score >= 80 ? 'text-green' : (job.score >= 60 ? 'text-yellow' : 'text-red');
-        let applyBadge = job.apply_now ? `<span class="badge badge-fire">🔥 Apply Now</span>` : `<span class="badge badge-neutral">Archived</span>`;
+        const companyEl = document.createElement('div');
+        companyEl.className = 'company-section glass-panel';
         
-        card.innerHTML = `
-          <div class="card-header">
-            <div class="company-badge">${job.company}</div>
-            <div class="score-ring ${scoreColor}">${job.score}<small>AI</small></div>
-          </div>
-          <h2 class="job-title">${job.title}</h2>
-          <div class="job-meta">
-            <span>📍 ${job.location || 'Remote'} (${job.location_type || 'Unknown'})</span>
-            <span>📅 Scraped: ${job.fetch_date ? new Date(job.fetch_date).toLocaleDateString() : 'Today'}</span>
-            ${job.posted_date ? `<span>📅 Posted: ${job.posted_date}</span>` : ''}
-          </div>
-          <div class="ai-rationale">
-            <strong>🤖 AI Rationale:</strong> ${job.match_reason}
-          </div>
-          <div class="card-footer">
-            ${applyBadge}
-            <a href="${job.url}" target="_blank" class="glow-btn">View Full Posting →</a>
+        // Calculate max score to feature on the header
+        const maxScore = Math.max(...companyJobs.map(j => j.score || 0));
+        let scoreColor = maxScore >= 80 ? 'text-green' : (maxScore >= 60 ? 'text-yellow' : 'text-red');
+        const hasApplyNow = companyJobs.some(j => j.apply_now);
+        const applyBadge = hasApplyNow ? '🔥' : '';
+        
+        const headerHTML = `
+          <div class="company-header" onclick="this.parentElement.classList.toggle('expanded')">
+            <div class="company-info">
+              <h2>${companyName} <span class="badge" style="font-size:1rem;background:none;border:none;">${applyBadge}</span></h2>
+              <span class="job-count">${companyJobs.length} match${companyJobs.length !== 1 ? 'es' : ''}</span>
+            </div>
+            <div class="company-actions">
+              <div class="score-ring ${scoreColor}">${maxScore}<small>Max</small></div>
+              <svg class="chevron" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
           </div>
         `;
-        grid.appendChild(card);
+        
+        let jobsHTML = '<div class="jobs-container">';
+        companyJobs.forEach(job => {
+           let jColor = job.score >= 80 ? 'text-green' : (job.score >= 60 ? 'text-yellow' : 'text-red');
+           jobsHTML += `
+            <div class="job-row">
+              <div class="job-primary">
+                <span class="job-score ${jColor}">${job.score}</span>
+                <div style="display:flex; flex-direction:column;">
+                  <span class="job-title">${job.title}</span>
+                  <span class="job-meta">${job.location || 'Remote'} &bull; ${job.posted_date || 'Recent'}</span>
+                </div>
+              </div>
+              <div class="job-reason">${job.match_reason}</div>
+              <a href="${job.url}" target="_blank" class="glow-btn small-btn">Apply →</a>
+            </div>
+           `;
+        });
+        jobsHTML += '</div>';
+        
+        companyEl.innerHTML = headerHTML + jobsHTML;
+        container.appendChild(companyEl);
       });
     }
 
@@ -114,7 +147,7 @@
         const matchesApply = isApplyNowFilter ? job.apply_now === true : true;
         return matchesQuery && matchesScore && matchesApply;
       });
-      renderJobs(filtered);
+      renderCompanies(filtered);
     }
 
     // Init
