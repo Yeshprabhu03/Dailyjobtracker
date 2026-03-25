@@ -161,6 +161,7 @@ def scrape_greenhouse(token: str) -> list[dict]:
                 "url":        j.get("absolute_url", ""),
                 "department": ", ".join(d.get("name","") for d in j.get("departments",[])),
                 "description": j.get("content", "")[:600],
+                "posted_date": j.get("updated_at", "")[:10],
             }
             for j in jobs
         ]
@@ -183,6 +184,7 @@ def scrape_lever(token: str) -> list[dict]:
                 "url":        j.get("hostedUrl", ""),
                 "department": j.get("categories", {}).get("department", ""),
                 "description": j.get("descriptionPlain", "")[:600],
+                "posted_date": str(datetime.datetime.fromtimestamp(j.get("createdAt", 0)/1000).date()) if j.get("createdAt") else "",
             }
             for j in jobs
         ]
@@ -220,6 +222,7 @@ def scrape_workday_search(token: str, query: str = "product manager") -> list[di
                         "url":        f"https://{wd_domain}/External/job/{j.get('externalPath','')}",
                         "department": j.get("jobFamilyGroup", ""),
                         "description": j.get("jobDescription", "")[:600] if "jobDescription" in j else "",
+                        "posted_date": j.get("postedOn", "")[:10] if "postedOn" in j else "",
                     }
                     for j in jobs
                 ]
@@ -277,8 +280,8 @@ def score_job_with_ai(job: dict) -> dict:
         return job
 
     genai.configure(api_key=GEMINI_API_KEY)
-    # Using gemini-pro
-    model = genai.GenerativeModel('gemini-pro')
+    # Using gemini-2.5-flash
+    model = genai.GenerativeModel('gemini-2.5-flash')
 
     prompt = f"""You are a career advisor. Score how well this job posting matches the candidate's profile.
 
@@ -349,7 +352,7 @@ def write_to_sheets(jobs: list[dict]):
         # Write header if sheet is empty
         if ws.row_count < 2 or not ws.cell(1,1).value:
             ws.append_row([
-                "Date Found", "Company", "Title", "Location", "Score",
+                "Date Found", "Posted Date", "Company", "Title", "Location", "Score",
                 "Match Reason", "Seniority", "Location Type",
                 "Apply Now?", "URL", "Department"
             ])
@@ -359,6 +362,7 @@ def write_to_sheets(jobs: list[dict]):
         for j in jobs:
             rows.append([
                 today,
+                j.get("posted_date", ""),
                 j.get("company",""),
                 j.get("title",""),
                 j.get("location",""),
