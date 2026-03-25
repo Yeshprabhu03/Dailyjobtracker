@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T01:25:36.680125",
+    "last_updated": "2026-03-25T01:25:46.537100",
     "scanned_count": 29,
     "total_companies": 58,
     "status": "running"
@@ -53,6 +53,22 @@
       "seniority": "senior",
       "location_type": "remote",
       "fetch_date": "2026-03-25T01:24:28.135711"
+    },
+    {
+      "id": "gh_7670800003",
+      "title": "Principal Product Manager, AI Features",
+      "location": "CA - San Francisco",
+      "url": "https://sofi.com/careers/job/7670800003?gh_jid=7670800003",
+      "department": "Product Management",
+      "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;a href=&quot;https://www.sofi.com/sofi-employee-applicant-privacy-notice/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Employee Applicant Privacy Notice&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Who we are:&lt;/strong&gt;&lt;/p&gt;\n&lt;div&gt;\n&lt;p&gt;Shape a brighter financial future with us.&lt;/p&gt;\n&lt;p&gt;Together with our members, we\u2019re changing the way people think about and interact with personal finance.&lt;/p&gt;\n&lt;p&gt;We\u2019re a next-generation financial services company and national bank using innovative",
+      "posted_date": "2026-03-20",
+      "company": "SoFi",
+      "score": 65,
+      "match_reason": "The candidate's strong product management expertise, extensive AI/ML project experience, technical skills, and background in platform reliability align well with the 'AI Features' focus of this role; however, the 'Principal' title likely signifies a higher seniority level (typically 7+ years) than the candidate's ~5 years of experience, and the job is onsite in a different city.",
+      "apply_now": false,
+      "seniority": "senior",
+      "location_type": "onsite",
+      "fetch_date": "2026-03-25T01:25:46.537100"
     }
   ]
 }
