@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T09:08:34.638979",
+    "last_updated": "2026-03-25T09:08:50.532049",
     "scanned_count": 7,
     "total_companies": 58,
     "matches_found": 2,
@@ -87,6 +87,22 @@
       "seniority": "mid",
       "location_type": "unknown",
       "fetch_date": "2026-03-25T09:04:48.763632"
+    },
+    {
+      "id": "link_dc49a57a",
+      "title": "<Input Type=\"Search\" Id=\"Search-Keyword-45C37835F5\" Class=\"Search-Keyword\" Placeholder=\"Search Job Title, Category Or Skills\" Autocomplete=\"Off\" Required Aria-Required=\"True\" Name=\"K\" Value=\"Product Manager\" Maxlength=\"150\">",
+      "location": "Check Portal",
+      "url": "https://www.capitalonecareers.com/search-jobs/product%20manager",
+      "department": "Various",
+      "description": "Found on Capital One career landing page. Match quality estimated from title.",
+      "posted_date": "2026-03-25",
+      "company": "Capital One",
+      "score": 85,
+      "match_reason": "The candidate's nearly 5 years of robust product management experience, including a Senior Product Manager role, and strong technical and strategic skills align exceptionally well with a standard Product Manager position at Capital One.",
+      "apply_now": true,
+      "seniority": "mid",
+      "location_type": "unknown",
+      "fetch_date": "2026-03-25T09:08:50.532049"
     },
     {
       "id": "link_b7032be5",
