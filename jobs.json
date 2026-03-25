@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T08:46:56.739730",
+    "last_updated": "2026-03-25T08:47:11.070289",
     "scanned_count": 21,
     "total_companies": 58,
-    "matches_found": 1,
+    "matches_found": 2,
     "technical_failures": 19,
     "status": "running"
   },
@@ -55,6 +55,22 @@
       "seniority": "senior",
       "location_type": "onsite",
       "fetch_date": "2026-03-25T08:44:22.494786"
+    },
+    {
+      "id": "gh_7536920",
+      "title": "Product Manager, Crypto Trading",
+      "location": "Menlo Park, CA, New York, NY, Toronto, Canada",
+      "url": "https://boards.greenhouse.io/robinhood/jobs/7536920?t=gh_src=&gh_jid=7536920",
+      "department": "Crypto Product Management",
+      "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;h2&gt;Join us in building the future of finance.&lt;/h2&gt;\n&lt;p&gt;Our mission is to democratize finance for all. &lt;a href=&quot;https://www.cerulli.com/press-releases/cerulli-anticipates-124-trillion-in-wealth-will-transfer-through-2048&quot; target=&quot;_blank&quot;&gt;An estimated $124 trillion of assets&lt;/a&gt; will be inherited by younger generations in the next two decades. The largest transfer of wealth in human history. If you\u2019re ready to be at the epicenter of this historic cultural and financial shift, keep reading.&lt;/p&gt;&lt;/",
+      "posted_date": "2026-03-18",
+      "company": "Robinhood",
+      "score": 85,
+      "match_reason": "The candidate's 4.9 years of product management experience, including a senior PM role, strong technical skills (SQL, Python, BI tools), and demonstrated impact in platform reliability and analytics, coupled with an MBA in Management & Information Systems with finance coursework, make them a very strong fit for a Product Manager role at Robinhood, despite the lack of direct crypto experience.",
+      "apply_now": true,
+      "seniority": "mid",
+      "location_type": "onsite",
+      "fetch_date": "2026-03-25T08:47:11.070289"
     },
     {
       "id": "wd_pnc_R203748_a08da31d",
