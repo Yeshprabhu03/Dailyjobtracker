@@ -338,18 +338,19 @@ def save_seen_ids(seen: set):
 
 # ─── LOCAL JSON DATABASE ─────────────────────────────────────────────────────
 
-def write_to_json(jobs: list[dict]):
-    """Appends new job rows to jobs.json for the frontend dashboard."""
-    if not jobs:
-        return
+def write_to_json(jobs: list[dict], scanned: int = 0, total: int = 0, status: str = "running"):
+    """Saves jobs and scan progress metadata to jobs.json."""
     try:
         from pathlib import Path
         import datetime
         data_file = Path("jobs.json")
         
+        # Load existing data to maintain the full list
         if data_file.exists():
             try:
-                existing_jobs = json.loads(data_file.read_text())
+                raw = json.loads(data_file.read_text())
+                # Handle both old list format and new dict format
+                existing_jobs = raw.get("jobs", []) if isinstance(raw, dict) else raw
             except:
                 existing_jobs = []
         else:
@@ -368,8 +369,22 @@ def write_to_json(jobs: list[dict]):
         # Sort so highest score & newest are at the top
         existing_jobs.sort(key=lambda x: (x.get("score", 0), x.get("fetch_date", "")), reverse=True)
         
-        data_file.write_text(json.dumps(existing_jobs, indent=2))
-        print(f"✓ Appended {added} new jobs to jobs.json")
+        # Construct the new structured object
+        output = {
+            "metadata": {
+                "last_updated": today,
+                "scanned_count": scanned,
+                "total_companies": total,
+                "status": status
+            },
+            "jobs": existing_jobs
+        }
+        
+        data_file.write_text(json.dumps(output, indent=2))
+        if added > 0:
+            print(f"✓ Appended {added} new jobs to jobs.json ({scanned}/{total})")
+        else:
+            print(f"  Progress update: {scanned}/{total} companies scanned")
     except Exception as e:
         print(f"[JSON error] {e}")
 
@@ -410,31 +425,30 @@ def main():
     seen_ids  = load_seen_ids()
     all_new   = []
     apply_now = []
+    total_companies = len(COMPANIES)
 
-    for company in COMPANIES:
+    for i, company in enumerate(COMPANIES):
+        scanned_count = i + 1
         try:
             jobs = fetch_jobs_for_company(company)
             new_jobs = [j for j in jobs if j["id"] not in seen_ids]
 
-            if not new_jobs:
-                continue
-
-            print(f"  Scoring {len(new_jobs)} new jobs for {company['name']}...")
             company_high_score_jobs = []
-            for job in new_jobs:
-                scored = score_job_with_ai(job)
-                seen_ids.add(job["id"])
-                if scored.get("score", 0) >= MATCH_THRESHOLD:
-                    company_high_score_jobs.append(scored)
-                    all_new.append(scored)
-                if scored.get("apply_now"):
-                    apply_now.append(scored)
-                time.sleep(0.5)  # gentle rate limiting
+            if new_jobs:
+                print(f"  Scoring {len(new_jobs)} new jobs for {company['name']}...")
+                for job in new_jobs:
+                    scored = score_job_with_ai(job)
+                    seen_ids.add(job["id"])
+                    if scored.get("score", 0) >= MATCH_THRESHOLD:
+                        company_high_score_jobs.append(scored)
+                        all_new.append(scored)
+                    if scored.get("apply_now"):
+                        apply_now.append(scored)
+                    time.sleep(0.5)  # gentle rate limiting
 
-            # Save progress iteratively per company
-            if company_high_score_jobs:
-                company_high_score_jobs.sort(key=lambda x: x.get("score", 0), reverse=True)
-                write_to_json(company_high_score_jobs)
+            # Progress update (always save even if 0 jobs found for telemetry)
+            company_high_score_jobs.sort(key=lambda x: x.get("score", 0), reverse=True)
+            write_to_json(company_high_score_jobs, scanned=scanned_count, total=total_companies)
             
             # Persist seen IDs progressively to avoid rescrapes
             save_seen_ids(seen_ids)
@@ -457,7 +471,8 @@ def main():
         print(f"        {j['match_reason']}")
         print(f"        {j['url']}\n")
 
-    # Write to Google Sheets and send alert
+    # Final signal that run is done
+    write_to_json([], scanned=total_companies, total=total_companies, status="complete")
     send_email_alert(apply_now)
 
     print("✓ Run fully complete and securely synchronized")

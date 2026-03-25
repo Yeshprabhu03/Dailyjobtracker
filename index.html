@@ -47,14 +47,17 @@
       try {
         const response = await fetch('./jobs.json');
         if (!response.ok) throw new Error("Could not find jobs.json");
-        allJobs = await response.json();
+        const data = await response.json();
         
-        if (allJobs.length > 0) {
-          const dates = allJobs.map(j => new Date(j.fetch_date || 0).getTime());
-          const lastDate = new Date(Math.max(...dates));
-          document.getElementById('lastUpdated').innerText = `Last Scanned: ${lastDate.toLocaleString(undefined, {month:'short', day:'numeric', hour:'numeric', minute:'2-digit'})}`;
+        // Handle metadata telemetry
+        if (data.metadata) {
+          const meta = data.metadata;
+          const statusText = meta.status === 'running' ? `Scanning Progress: ${meta.scanned_count}/${meta.total_companies} companies` : `Scan Complete: ${meta.total_companies}/${meta.total_companies}`;
+          const lastDate = new Date(meta.last_updated);
+          document.getElementById('lastUpdated').innerText = `${statusText} &bull; Updated ${lastDate.toLocaleTimeString([], {hour:'numeric', minute:'2-digit'})}`;
         }
         
+        allJobs = data.jobs || data;
         renderCompanies(allJobs);
       } catch (error) {
         document.getElementById('companyList').innerHTML = `<div class="error-state"><h2>Welcome to HireScope</h2><p>The automated GitHub Actions scanner is currently running. Jobs will appear here once JSON is updated!</p></div>`;
