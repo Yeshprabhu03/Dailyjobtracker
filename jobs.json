@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T09:07:04.568590",
+    "last_updated": "2026-03-25T09:07:23.636009",
     "scanned_count": 6,
     "total_companies": 58,
     "matches_found": 1,
@@ -8,6 +8,22 @@
     "status": "running"
   },
   "jobs": [
+    {
+      "id": "link_8cfc6298",
+      "title": "Product Manager (Productivity And Tooling) &#X2013; (Belfast)",
+      "location": "Check Portal",
+      "url": "https://jobs.citi.com/search-jobs/product%20manager/",
+      "department": "Various",
+      "description": "Found on Citigroup career landing page. Match quality estimated from title.",
+      "posted_date": "2026-03-25",
+      "company": "Citigroup",
+      "score": 90,
+      "match_reason": "The candidate's extensive experience in platform reliability, automation, incident response, and observability, including leading initiatives to improve release pipelines and system stability, aligns exceptionally well with the 'Productivity and Tooling' focus of this Product Manager role.",
+      "apply_now": false,
+      "seniority": "senior",
+      "location_type": "onsite",
+      "fetch_date": "2026-03-25T09:07:23.636009"
+    },
     {
       "id": "link_a45f3a13",
       "title": "<Link Rel=\"Canonical\" Href=\"Https://Jobs.Citi.Com/Search-Jobs/Product Manager/\">",
