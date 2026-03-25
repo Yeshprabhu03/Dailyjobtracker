@@ -1,11 +1,28 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T09:03:56.474145",
+    "last_updated": "2026-03-25T09:04:11.116567",
     "scanned_count": 6,
     "total_companies": 58,
-    "matches_found": 0,
+    "matches_found": 1,
     "technical_failures": 2,
     "status": "running"
   },
-  "jobs": []
+  "jobs": [
+    {
+      "id": "link_0e8f3221",
+      "title": "&#Xc218;&#Xcd9C;&#Xc2E0;&#Xc6A9;&#Xae30;&#Xad00;&#Xae08;&#Xc735; (Eaf Product Manager)",
+      "location": "Check Portal",
+      "url": "https://jobs.citi.com/search-jobs/product%20manager/",
+      "department": "Various",
+      "description": "Found on Citigroup career landing page. Match quality estimated from title.",
+      "posted_date": "2026-03-25",
+      "company": "Citigroup",
+      "score": 75,
+      "match_reason": "The 'Product Manager' role directly aligns with the candidate's extensive product management experience in analytics and platform reliability, and their 4+ years of professional experience including a Senior Product Manager role is a strong fit for a general Product Manager position at a major institution like Citigroup.",
+      "apply_now": true,
+      "seniority": "mid",
+      "location_type": "unknown",
+      "fetch_date": "2026-03-25T09:04:11.116567"
+    }
+  ]
 }
