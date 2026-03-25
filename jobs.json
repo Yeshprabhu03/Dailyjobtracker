@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T09:44:44.745146",
-    "scanned_count": 22,
+    "last_updated": "2026-03-25T14:02:31.603122",
+    "scanned_count": 58,
     "total_companies": 58,
-    "matches_found": 5,
-    "technical_failures": 13,
-    "status": "running"
+    "matches_found": 0,
+    "technical_failures": 0,
+    "status": "complete"
   },
   "jobs": [
     {
