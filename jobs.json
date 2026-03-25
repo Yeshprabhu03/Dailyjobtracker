@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T08:55:50.796635",
-    "scanned_count": 21,
+    "last_updated": "2026-03-25T08:55:53.102444",
+    "scanned_count": 28,
     "total_companies": 58,
-    "matches_found": 2,
-    "technical_failures": 19,
+    "matches_found": 4,
+    "technical_failures": 23,
     "status": "running"
   },
   "jobs": [
@@ -695,6 +695,22 @@
       "seniority": "senior",
       "location_type": "onsite",
       "fetch_date": "2026-03-25T08:48:19.106906"
+    },
+    {
+      "id": "gh_7670794003",
+      "title": "Principal Product Manager, Digital Support Experience",
+      "location": "CA - San Francisco",
+      "url": "https://sofi.com/careers/job/7670794003?gh_jid=7670794003",
+      "department": "Product Management",
+      "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;a href=&quot;https://www.sofi.com/sofi-employee-applicant-privacy-notice/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Employee Applicant Privacy Notice&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Who we are:&lt;/strong&gt;&lt;/p&gt;\n&lt;div&gt;\n&lt;p&gt;Shape a brighter financial future with us.&lt;/p&gt;\n&lt;p&gt;Together with our members, we\u2019re changing the way people think about and interact with personal finance.&lt;/p&gt;\n&lt;p&gt;We\u2019re a next-generation financial services company and national bank using innovative",
+      "posted_date": "2026-03-20",
+      "company": "SoFi",
+      "score": 55,
+      "match_reason": "The candidate's strong background in product reliability, automation, and analytics aligns well with improving a digital support experience, but the 'Principal Product Manager' title suggests a higher level of experience than the candidate's 5 years, and the location requires relocation.",
+      "apply_now": false,
+      "seniority": "director",
+      "location_type": "onsite",
+      "fetch_date": "2026-03-25T08:55:53.102444"
     },
     {
       "id": "gh_7570377003",
