@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T19:38:36.575947",
+    "last_updated": "2026-03-25T23:02:18.114261",
     "scanned_count": 58,
     "total_companies": 58,
-    "matches_found": 17,
+    "matches_found": 19,
     "technical_failures": 0,
     "status": "complete"
   },
@@ -121,6 +121,22 @@
       "fetch_date": "2026-03-25T09:40:59.769015"
     },
     {
+      "id": "ef_aexp_40665541",
+      "title": "Senior Manager-Digital Product Management",
+      "location": "Phoenix, Arizona, United States",
+      "url": "https://aexp.eightfold.ai/careers?jobId=40665541",
+      "department": "A756914 - Network & Acquirer Solutions",
+      "description": "A756914 - Network & Acquirer Solutions",
+      "posted_date": "2026-03-25",
+      "company": "American Express",
+      "score": 90,
+      "match_reason": "This role at American Express in Network & Acquirer Solutions is an excellent fit for Yeshwanth's target of fintech/payments, B2B banking, and enterprise B2B, with the Senior Manager title being an appropriate next step given his 4.5 years as a Senior PM.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "onsite",
+      "fetch_date": "2026-03-25T23:00:02.849731"
+    },
+    {
       "id": "gh_7558883",
       "title": "Product Manager, Enterprise Productivity",
       "location": "US - Remote Zone 1 (Job Requisitions Only)",
@@ -183,6 +199,22 @@
       "seniority": "senior",
       "location_type": "onsite",
       "fetch_date": "2026-03-25T09:42:07.919989"
+    },
+    {
+      "id": "ef_aexp_39633281",
+      "title": "Senior Manager-Digital Product Management",
+      "location": "New York, New York, United States",
+      "url": "https://aexp.eightfold.ai/careers?jobId=39633281",
+      "department": "A756818 - Network Product Development",
+      "description": "A756818 - Network Product Development",
+      "posted_date": "2026-03-25",
+      "company": "American Express",
+      "score": 85,
+      "match_reason": "This role at American Express aligns exceptionally well with the candidate's target industry (fintech/payments) and location, and the 'Senior Manager-Digital Product Management' title is a strong fit for a post-MBA candidate with 4.5 years of experience and relevant product strategy, data, and AI/ML skills.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "onsite",
+      "fetch_date": "2026-03-25T23:00:20.149522"
     },
     {
       "id": "gh_7484189",
