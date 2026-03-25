@@ -2,8 +2,8 @@ name: Daily Job Monitor
 
 on:
   schedule:
-    # Runs every day at 7:00 AM EST (12:00 UTC)
-    - cron: '0 12 * * *'
+    # Runs every day at 9:00 PM EDT (01:00 UTC)
+    - cron: '0 1 * * *'
   workflow_dispatch:   # allows manual trigger from GitHub UI
 
 jobs:
