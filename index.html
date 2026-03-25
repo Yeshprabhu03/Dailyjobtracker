@@ -22,12 +22,7 @@
       </div>
       <div class="header-right">
         <input type="text" id="searchBar" class="glass-input" placeholder="Search companies or titles..." />
-        <select id="filterScore" class="glass-select">
-          <option value="all">All Scores</option>
-          <option value="70">Match ≥ 70</option>
-          <option value="80">Match ≥ 80</option>
-          <option value="90">Match ≥ 90</option>
-        </select>
+        <button id="viewRegistry" class="glass-btn secondary">🏢 Registry</button>
         <button id="filterApply" class="glass-btn">🔥 Apply Now</button>
       </div>
     </header>
@@ -40,35 +35,77 @@
     </main>
   </div>
 
+  <!-- Registry Modal -->
+  <div id="registryModal" class="modal-overlay">
+    <div class="modal-content glass-panel">
+      <div class="modal-header">
+        <h2>Company Registry</h2>
+        <button id="closeRegistry" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="subtitle">Currently tracking <span id="regCount">0</span> boards</p>
+        <div id="registryGrid" class="registry-grid">
+          <!-- Companies injected here -->
+        </div>
+        
+        <div class="add-helper glass-panel">
+          <h3>Add New Company</h3>
+          <p>Since this is a static site, you must add the company to <code>companies.json</code> in your repo. Use this helper to generate the configuration:</p>
+          <div class="form-row">
+            <input type="text" id="newName" placeholder="Company Name" />
+            <select id="newAts">
+              <option value="greenhouse">Greenhouse</option>
+              <option value="workday_search">Workday</option>
+              <option value="lever">Lever</option>
+            </select>
+            <input type="text" id="newToken" placeholder="Board Token (Slug/ID)" />
+          </div>
+          <div id="configPreview" class="config-preview">
+            <code>Fill above to generate config...</code>
+          </div>
+          <button id="copyConfig" class="glass-btn small-btn">Copy to Clipboard</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     let allJobs = [];
+    let trackedCompanies = [];
 
-    async function loadJobs() {
+    async function fetchData() {
       try {
-        const response = await fetch('./jobs.json');
-        if (!response.ok) throw new Error("Could not find jobs.json");
-        const data = await response.json();
+        const [jobRes, compRes] = await Promise.all([
+          fetch('./jobs.json'),
+          fetch('./companies.json')
+        ]);
         
-        // Handle metadata telemetry
-        if (data.metadata) {
-          const meta = data.metadata;
-          const statusText = meta.status === 'running' ? `Scanning Progress: ${meta.scanned_count}/${meta.total_companies} companies` : `Scan Complete: ${meta.total_companies}/${meta.total_companies}`;
-          const lastDate = new Date(meta.last_updated);
-          document.getElementById('lastUpdated').innerText = `${statusText} &bull; Updated ${lastDate.toLocaleTimeString([], {hour:'numeric', minute:'2-digit'})}`;
+        if (jobRes.ok) {
+          const jobData = await jobRes.json();
+          if (jobData.metadata) {
+            const meta = jobData.metadata;
+            const statusText = meta.status === 'running' ? `Scanning Progress: ${meta.scanned_count}/${meta.total_companies} companies` : `Scan Complete: ${meta.total_companies}/${meta.total_companies}`;
+            const lastDate = new Date(meta.last_updated);
+            document.getElementById('lastUpdated').innerText = `${statusText} &bull; Updated ${lastDate.toLocaleTimeString([], {hour:'numeric', minute:'2-digit'})}`;
+          }
+          allJobs = jobData.jobs || jobData;
+          renderJobs(allJobs);
         }
-        
-        allJobs = data.jobs || data;
-        renderCompanies(allJobs);
+
+        if (compRes.ok) {
+          trackedCompanies = await compRes.json();
+          renderRegistry(trackedCompanies);
+        }
       } catch (error) {
-        document.getElementById('companyList').innerHTML = `<div class="error-state"><h2>Welcome to HireScope</h2><p>The automated GitHub Actions scanner is currently running. Jobs will appear here once JSON is updated!</p></div>`;
+        console.error("Fetch error:", error);
       }
     }
 
-    function renderCompanies(jobsToRender) {
+    function renderJobs(jobsToRender) {
       const container = document.getElementById('companyList');
       container.innerHTML = '';
       if (jobsToRender.length === 0) {
-        container.innerHTML = `<div class="error-state"><p>No jobs match your current filters.</p></div>`;
+        container.innerHTML = `<div class="error-state"><p>No jobs found yet. The scanner might be running!</p></div>`;
         return;
       }
       
@@ -86,89 +123,92 @@
 
       sortedCompanies.forEach(companyName => {
         const companyJobs = grouped[companyName];
-        
         const companyEl = document.createElement('div');
         companyEl.className = 'company-section glass-panel';
         
         const maxScore = Math.max(...companyJobs.map(j => j.score || 0));
         let scoreColor = maxScore >= 80 ? 'text-green' : (maxScore >= 60 ? 'text-yellow' : 'text-red');
         const hasApplyNow = companyJobs.some(j => j.apply_now);
-        const applyBadge = hasApplyNow ? '🔥' : '';
         
-        const headerHTML = `
+        companyEl.innerHTML = `
           <div class="company-header" onclick="this.parentElement.classList.toggle('expanded')">
             <div class="company-info">
-              <h2>${companyName} <span style="font-size:1rem;">${applyBadge}</span></h2>
-              <span class="job-count">${companyJobs.length} match${companyJobs.length !== 1 ? 'es' : ''}</span>
+              <h2>${companyName} ${hasApplyNow ? '🔥' : ''}</h2>
+              <span class="job-count">${companyJobs.length} matches</span>
             </div>
             <div class="company-actions">
               <div class="score-ring ${scoreColor}">${maxScore}<small>Max</small></div>
               <svg class="chevron" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </div>
           </div>
-        `;
-        
-        let jobsHTML = `
           <div class="jobs-container">
             <table class="jobs-table">
-              <thead>
-                <tr>
-                  <th width="70">Score</th>
-                  <th width="28%">Role & Location</th>
-                  <th width="52%">AI Rationale</th>
-                  <th width="100" style="text-align:right;">Action</th>
-                </tr>
-              </thead>
+              <thead><tr><th>Score</th><th>Role</th><th>AI Rationale</th><th style="text-align:right;">Action</th></tr></thead>
               <tbody>
+                ${companyJobs.map(j => `
+                  <tr>
+                    <td class="job-score ${j.score >= 80 ? 'text-green' : (j.score >= 60 ? 'text-yellow' : 'text-red')}">${j.score}</td>
+                    <td><div class="job-title">${j.title}</div><div class="job-meta">${j.location || 'Remote'}</div></td>
+                    <td class="job-reason">${j.match_reason}</td>
+                    <td style="text-align:right;"><a href="${j.url}" target="_blank" class="glow-btn small-btn">Apply →</a></td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
         `;
-        
-        companyJobs.forEach(job => {
-           let jColor = job.score >= 80 ? 'text-green' : (job.score >= 60 ? 'text-yellow' : 'text-red');
-           jobsHTML += `
-                <tr>
-                  <td class="job-score ${jColor}">${job.score}</td>
-                  <td>
-                    <div class="job-title">${job.title}</div>
-                    <div class="job-meta">${job.location || 'Remote'} &bull; ${job.posted_date || 'Recent'}</div>
-                  </td>
-                  <td class="job-reason">${job.match_reason}</td>
-                  <td style="text-align:right;">
-                    <a href="${job.url}" target="_blank" class="glow-btn small-btn">Apply →</a>
-                  </td>
-                </tr>
-           `;
-        });
-        
-        jobsHTML += '</tbody></table></div>';
-        
-        companyEl.innerHTML = headerHTML + jobsHTML;
         container.appendChild(companyEl);
       });
     }
 
-    let isApplyNowFilter = false;
-    document.getElementById('searchBar').addEventListener('input', applyFilters);
-    document.getElementById('filterScore').addEventListener('change', applyFilters);
-    document.getElementById('filterApply').addEventListener('click', (e) => {
-      isApplyNowFilter = !isApplyNowFilter;
-      e.target.classList.toggle('active', isApplyNowFilter);
-      applyFilters();
-    });
-
-    function applyFilters() {
-      const query = document.getElementById('searchBar').value.toLowerCase();
-      const scoreThresh = parseInt(document.getElementById('filterScore').value) || 0;
-      
-      const filtered = allJobs.filter(job => {
-        const matchesQuery = job.company.toLowerCase().includes(query) || job.title.toLowerCase().includes(query);
-        const matchesScore = job.score >= scoreThresh;
-        const matchesApply = isApplyNowFilter ? job.apply_now === true : true;
-        return matchesQuery && matchesScore && matchesApply;
-      });
-      renderCompanies(filtered);
+    function renderRegistry(companies) {
+      document.getElementById('regCount').innerText = companies.length;
+      const grid = document.getElementById('registryGrid');
+      grid.innerHTML = companies.map(c => `
+        <div class="reg-item">
+          <strong>${c.name}</strong>
+          <span>${c.ats} &bull; ${c.token}</span>
+        </div>
+      `).join('');
     }
 
-    loadJobs();
+    // Modal Events
+    document.getElementById('viewRegistry').onclick = () => document.getElementById('registryModal').classList.add('visible');
+    document.getElementById('closeRegistry').onclick = () => document.getElementById('registryModal').classList.remove('visible');
+
+    // Add Helper Logic
+    const updatePreview = () => {
+      const name = document.getElementById('newName').value || 'Company Name';
+      const ats = document.getElementById('newAts').value;
+      const token = document.getElementById('newToken').value || 'token';
+      const config = { name, ats, token };
+      document.getElementById('configPreview').innerHTML = `<code>${JSON.stringify(config, null, 2)}</code>`;
+    };
+
+    ['newName', 'newAts', 'newToken'].forEach(id => document.getElementById(id).oninput = updatePreview);
+
+    document.getElementById('copyConfig').onclick = () => {
+      const text = document.querySelector('#configPreview code').innerText;
+      navigator.clipboard.writeText(text);
+      alert("Config copied! Paste it into companies.json in your repo.");
+    }
+
+    // Filters
+    let isApplyNowFilter = false;
+    document.getElementById('searchBar').addEventListener('input', () => {
+      const query = document.getElementById('searchBar').value.toLowerCase();
+      const filtered = allJobs.filter(j => j.company.toLowerCase().includes(query) || j.title.toLowerCase().includes(query));
+      renderJobs(filtered);
+    });
+
+    document.getElementById('filterApply').onclick = (e) => {
+      isApplyNowFilter = !isApplyNowFilter;
+      e.target.classList.toggle('active', isApplyNowFilter);
+      const filtered = allJobs.filter(j => isApplyNowFilter ? j.apply_now : true);
+      renderJobs(filtered);
+    };
+
+    fetchData();
   </script>
 </body>
 </html>

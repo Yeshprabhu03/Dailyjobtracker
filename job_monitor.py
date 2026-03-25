@@ -1,9 +1,9 @@
 """
 Job Monitor Agent
 =================
-Scrapes 63+ finance/fintech companies for PM job postings daily,
+Scrapes 58+ finance/fintech companies for PM job postings daily,
 scores them against your resume using an LLM, deduplicates, and
-writes new matches to Google Sheets + sends an email alert.
+writes new matches to a JSON database for your dashboard.
 
 Setup:
   pip install requests gspread google-auth anthropic python-dotenv
@@ -16,7 +16,7 @@ Environment variables (.env):
   SENDGRID_API_KEY=...         # for email alerts (optional)
 """
 
-import os, json, time, hashlib, datetime, requests
+import os, json, time, hashlib, datetime, requests, subprocess
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -30,7 +30,7 @@ CREDS_PATH         = os.getenv("GOOGLE_CREDS_JSON", "creds.json")
 ALERT_EMAIL        = os.getenv("ALERT_EMAIL", "")
 SENDGRID_KEY       = os.getenv("SENDGRID_API_KEY", "")
 SEEN_IDS_FILE      = Path("seen_job_ids.json")
-MATCH_THRESHOLD    = 70   # min score (0-100) to write to sheet
+MATCH_THRESHOLD    = 50   # lowered to 50 so you catch more potential matches
 HEADERS            = {"User-Agent": "Mozilla/5.0 (compatible; JobMonitor/1.0)"}
 
 # ─── YOUR RESUME SUMMARY ─────────────────────────────────────────────────────
@@ -66,77 +66,18 @@ except FileNotFoundError:
     """
 
 # ─── COMPANY REGISTRY ────────────────────────────────────────────────────────
-# ATS type options: "greenhouse", "lever", "workday_search", "html", "custom"
-# For workday: board_token is the subdomain e.g. "goldmansachs" for
-#   https://goldmansachs.wd1.myworkdayjobs.com/...
-# For greenhouse: board_token is the slug e.g. "coinbase"
 
-COMPANIES = [
-    # ── Major Banks ─────────────────────────────────────────────────────────
-    {"name": "Goldman Sachs",       "ats": "greenhouse",     "token": "goldmansachs"},
-    {"name": "JPMorgan Chase",      "ats": "greenhouse",     "token": "jpmorgan"},
-    {"name": "Morgan Stanley",      "ats": "greenhouse",     "token": "morganstanley"},
-    {"name": "Bank of America",     "ats": "workday_search", "token": "bofa"},
-    {"name": "Wells Fargo",         "ats": "workday_search", "token": "wellsfargo"},
-    {"name": "Citigroup",           "ats": "greenhouse",     "token": "citi"},
-    {"name": "Capital One",         "ats": "greenhouse",     "token": "capitalone"},
-    {"name": "US Bancorp",          "ats": "workday_search", "token": "usbank"},
-    {"name": "PNC Financial",       "ats": "workday_search", "token": "pnc"},
-    {"name": "Truist Financial",    "ats": "workday_search", "token": "truist"},
-    {"name": "Citizens Financial",  "ats": "greenhouse",     "token": "citizensbank"},
-    {"name": "Huntington Bancshares","ats": "workday_search","token": "huntington"},
-    {"name": "Fifth Third Bancorp", "ats": "workday_search", "token": "53"},
-    {"name": "KeyCorp",             "ats": "workday_search", "token": "key"},
-    {"name": "Regions Financial",   "ats": "workday_search", "token": "regions"},
-    {"name": "Ally Financial",      "ats": "greenhouse",     "token": "ally"},
-    # ── Payments ─────────────────────────────────────────────────────────────
-    {"name": "Visa",                "ats": "workday_search", "token": "visa"},
-    {"name": "Mastercard",          "ats": "greenhouse",     "token": "mastercard"},
-    {"name": "American Express",    "ats": "workday_search", "token": "amex"},
-    {"name": "PayPal",              "ats": "greenhouse",     "token": "paypal"},
-    {"name": "Robinhood",           "ats": "greenhouse",     "token": "robinhood"},
-    {"name": "Coinbase",            "ats": "greenhouse",     "token": "coinbase"},
-    {"name": "Block (Square)",      "ats": "greenhouse",     "token": "block"},
-    {"name": "Corpay",              "ats": "greenhouse",     "token": "corpay"},
-    {"name": "Global Payments",     "ats": "workday_search", "token": "globalpayments"},
-    {"name": "Synchrony Financial", "ats": "workday_search", "token": "synchrony"},
-    # ── Fintech / Software ───────────────────────────────────────────────────
-    {"name": "Intuit",              "ats": "greenhouse",     "token": "intuit"},
-    {"name": "SoFi",                "ats": "greenhouse",     "token": "sofi"},
-    {"name": "Broadridge",          "ats": "workday_search", "token": "broadridge"},
-    {"name": "FIS",                 "ats": "workday_search", "token": "fidelitynis"},
-    {"name": "Fiserv",              "ats": "workday_search", "token": "fiserv"},
-    {"name": "ADP",                 "ats": "workday_search", "token": "adp"},
-    {"name": "Paychex",             "ats": "greenhouse",     "token": "paychex"},
-    # ── Asset Management / Alt Assets ────────────────────────────────────────
-    {"name": "BlackRock",           "ats": "greenhouse",     "token": "blackrock"},
-    {"name": "Blackstone",          "ats": "greenhouse",     "token": "blackstone"},
-    {"name": "KKR",                 "ats": "greenhouse",     "token": "kkr"},
-    {"name": "Apollo Global",       "ats": "greenhouse",     "token": "apolloglobal"},
-    {"name": "Ares Management",     "ats": "greenhouse",     "token": "aresmanagement"},
-    {"name": "Charles Schwab",      "ats": "workday_search", "token": "schwab"},
-    {"name": "BNY Mellon",          "ats": "workday_search", "token": "bnymellon"},
-    {"name": "Interactive Brokers", "ats": "greenhouse",     "token": "ibkr"},
-    {"name": "LPL Financial",       "ats": "greenhouse",     "token": "lpl"},
-    {"name": "Raymond James",       "ats": "workday_search", "token": "raymondjames"},
-    {"name": "Ameriprise",          "ats": "workday_search", "token": "ameriprise"},
-    # ── Data / Exchanges ─────────────────────────────────────────────────────
-    {"name": "S&P Global",          "ats": "workday_search", "token": "spglobal"},
-    {"name": "Moody's",             "ats": "greenhouse",     "token": "moodys"},
-    {"name": "CME Group",           "ats": "workday_search", "token": "cmegroup"},
-    {"name": "ICE",                 "ats": "workday_search", "token": "ice"},
-    {"name": "Nasdaq",              "ats": "workday_search", "token": "nasdaq"},
-    {"name": "Cboe",                "ats": "greenhouse",     "token": "cboe"},
-    {"name": "Equifax",             "ats": "workday_search", "token": "equifax"},
-    # ── Insurance ────────────────────────────────────────────────────────────
-    {"name": "Progressive",         "ats": "workday_search", "token": "progressive"},
-    {"name": "Marsh & McLennan",    "ats": "greenhouse",     "token": "marshmclennan"},
-    {"name": "Aon",                 "ats": "workday_search", "token": "aon"},
-    {"name": "Chubb",               "ats": "workday_search", "token": "chubb"},
-    {"name": "Travelers",           "ats": "workday_search", "token": "travelers"},
-    {"name": "Allstate",            "ats": "workday_search", "token": "allstate"},
-    {"name": "MetLife",             "ats": "workday_search", "token": "metlife"},
-]
+def load_companies():
+    """Load the company registry from companies.json."""
+    try:
+        with open("companies.json", "r") as f:
+            return json.load(f)
+    except Exception as e:
+        print(f"[Error] Could not load companies.json: {e}")
+        return []
+
+COMPANIES = load_companies()
+
 
 PM_KEYWORDS = [
     "product manager", "product management", "pm ", "associate pm",
@@ -272,6 +213,7 @@ def score_job_with_ai(job: dict) -> dict:
     Returns the job dict enriched with: score, match_reason, apply_now.
     """
     import google.generativeai as genai
+    import google.api_core.exceptions
     
     if not GEMINI_API_KEY:
         print("    [AI score error] GEMINI_API_KEY is not set.")
@@ -280,12 +222,11 @@ def score_job_with_ai(job: dict) -> dict:
         return job
 
     genai.configure(api_key=GEMINI_API_KEY)
-    # Using gemini-2.5-flash
     model = genai.GenerativeModel('gemini-2.5-flash')
 
     prompt = f"""You are a career advisor. Score how well this job posting matches the candidate's profile.
 
-CRITICAL RULE: The candidate operates strictly at the 0–5 years of experience level. You MUST heavily penalize (score < 50) and immediately reject (apply_now: false) ANY job that explicitly requires 6+ years of experience, or is explicitly a Director/VP/Group/Lead level role, REGARDLESS of how perfectly their skills match.
+CRITICAL RULE: The candidate operates at the 4-5 years of experience level. Reject (score < 40) ANY job that explicitly requires 7+ years of experience or is a Director/VP level role. However, "Senior Product Manager" roles requiring 3-5 years ARE A GOOD MATCH and should not be penalized. 
 
 CANDIDATE PROFILE:
 {RESUME_SUMMARY}
@@ -307,24 +248,27 @@ Return JSON only (no markdown):
   "location_type": "<remote/hybrid/onsite/unknown>"
 }}"""
 
-    try:
-        response = model.generate_content(prompt)
-        text = response.text.strip()
-        # Remove markdown codeblocks if they exist
-        if text.startswith("```json"): text = text[7:]
-        elif text.startswith("```"): text = text[3:]
-        if text.endswith("```"): text = text[:-3]
-        text = text.strip()
-        
-        result = json.loads(text)
-        job.update(result)
-    except Exception as e:
-        print(f"    [AI score error] {e}")
-        job.update({"score": 0, "match_reason": "AI scoring failed", "apply_now": False,
-                    "seniority": "unknown", "location_type": "unknown"})
+    for attempt in range(3):
+        try:
+            response = model.generate_content(prompt)
+            text = response.text.strip()
+            if text.startswith("```json"): text = text[7:]
+            elif text.startswith("```"): text = text[3:]
+            if text.endswith("```"): text = text[:-3]
+            text = text.strip()
+            
+            result = json.loads(text)
+            job.update(result)
+            return job
+        except google.api_core.exceptions.ResourceExhausted:
+            wait_time = (attempt + 1) * 30
+            print(f"    [Rate Limit] 429 Resource exhausted. Waiting {wait_time}s...")
+            time.sleep(wait_time)
+        except Exception as e:
+            print(f"    [AI score error] {e}")
+            break
+            
     return job
-
-
 # ─── DEDUPLICATION ───────────────────────────────────────────────────────────
 
 def load_seen_ids() -> set:
@@ -381,6 +325,17 @@ def write_to_json(jobs: list[dict], scanned: int = 0, total: int = 0, status: st
         }
         
         data_file.write_text(json.dumps(output, indent=2))
+        
+        # Incremental Git Push to update the dashboard "live"
+        try:
+            subprocess.run(["git", "add", "jobs.json", "seen_job_ids.json"], check=True, capture_output=True)
+            commit_msg = f"Live Update: {scanned}/{total} companies scanned"
+            subprocess.run(["git", "commit", "-m", commit_msg], check=True, capture_output=True)
+            subprocess.run(["git", "push"], check=True, capture_output=True)
+            print(f"  Live update pushed to GitHub ({scanned}/{total})")
+        except Exception as git_err:
+            pass # Silent failure if git is busy, results will sync on next loop
+
         if added > 0:
             print(f"✓ Appended {added} new jobs to jobs.json ({scanned}/{total})")
         else:
@@ -444,7 +399,7 @@ def main():
                         all_new.append(scored)
                     if scored.get("apply_now"):
                         apply_now.append(scored)
-                    time.sleep(0.5)  # gentle rate limiting
+                    time.sleep(5.0)  # Safe buffer (15 RPM limit = 4s per request)
 
             # Progress update (always save even if 0 jobs found for telemetry)
             company_high_score_jobs.sort(key=lambda x: x.get("score", 0), reverse=True)
