@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T01:58:48.840716",
+    "last_updated": "2026-03-25T01:58:58.708441",
     "scanned_count": 57,
     "total_companies": 58,
     "status": "running"
@@ -37,6 +37,22 @@
       "seniority": "mid",
       "location_type": "onsite",
       "fetch_date": "2026-03-25T01:23:36.028670"
+    },
+    {
+      "id": "wd_travelers_R-47180_18b78130",
+      "title": "Senior Analyst, Product Management - Small Commercial",
+      "location": "3 Locations",
+      "url": "https://travelers.wd5.myworkdayjobs.com/External/job//job/CT---Hartford/Senior-Analyst---Product-Management_R-47180",
+      "department": "",
+      "description": "",
+      "posted_date": "Posted 30+",
+      "company": "Travelers",
+      "score": 85,
+      "match_reason": "The candidate's 4.9 years of product management experience, strong analytical skills (SQL, Power BI, Looker), and background in platform reliability, risk, and governance align exceptionally well with a Senior Analyst, Product Management role, especially given the insurance domain.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "onsite",
+      "fetch_date": "2026-03-25T01:58:58.708441"
     },
     {
       "id": "gh_7736964",
