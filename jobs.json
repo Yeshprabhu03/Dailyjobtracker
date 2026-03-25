@@ -1,13 +1,29 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T08:48:45.237750",
+    "last_updated": "2026-03-25T08:48:56.644388",
     "scanned_count": 22,
     "total_companies": 58,
-    "matches_found": 2,
+    "matches_found": 3,
     "technical_failures": 19,
     "status": "running"
   },
   "jobs": [
+    {
+      "id": "gh_7736964",
+      "title": "Base Senior Product Manager, Trading Growth",
+      "location": "US - Remote Zone 1 (Job Requisitions Only)",
+      "url": "https://www.coinbase.com/careers/positions/7736964?gh_jid=7736964",
+      "department": "Product",
+      "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;Ready to be pushed beyond what you think you\u2019re capable of?&lt;/p&gt;\n&lt;p&gt;At Coinbase, our mission is to increase economic freedom in the world. It\u2019s a massive, ambitious opportunity that demands the best of us, every day, as we build the emerging onchain platform \u2014 and with it, the future global financial system.&lt;/p&gt;\n&lt;p&gt;To achieve our mission, we\u2019re seeking a very specific candidate. We want someone who is passionate about our mission and who believes in the power of crypto and blockchain technology to update the financial s",
+      "posted_date": "2026-03-24",
+      "company": "Coinbase",
+      "score": 92,
+      "match_reason": "Yeshwanth's 5 years of product management experience, including 3.5 years as a Senior Product Manager with a strong focus on platform reliability, analytics, and scaling for high-volume systems, aligns exceptionally well with the demands of this Senior Product Manager role at Coinbase.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "remote",
+      "fetch_date": "2026-03-25T08:48:56.644388"
+    },
     {
       "id": "wd_pnc_R212662_b95b2343",
       "title": "Digital Product Manager Lead",
