@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T09:13:21.237333",
-    "scanned_count": 9,
+    "last_updated": "2026-03-25T09:13:30.247920",
+    "scanned_count": 6,
     "total_companies": 58,
     "matches_found": 1,
-    "technical_failures": 8,
+    "technical_failures": 2,
     "status": "running"
   },
   "jobs": [
@@ -119,6 +119,22 @@
       "seniority": "senior",
       "location_type": "unknown",
       "fetch_date": "2026-03-25T09:13:03.480282"
+    },
+    {
+      "id": "link_138227d5",
+      "title": "2353 Results Found For \"Product Manager\" Jobs",
+      "location": "Check Portal",
+      "url": "https://jobs.citi.com/search-jobs/product%20manager/",
+      "department": "Various",
+      "description": "Found on Citigroup career landing page. Match quality estimated from title.",
+      "posted_date": "2026-03-25",
+      "company": "Citigroup",
+      "score": 85,
+      "match_reason": "The candidate's nearly 5 years of progressive product management experience, including a senior role and strong skills in analytics, platform reliability, and governance, are highly relevant and make them a strong candidate for a general Product Manager role at Citigroup.",
+      "apply_now": true,
+      "seniority": "mid",
+      "location_type": "unknown",
+      "fetch_date": "2026-03-25T09:13:30.247920"
     },
     {
       "id": "link_a147da59",
