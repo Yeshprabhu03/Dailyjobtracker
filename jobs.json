@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T09:08:00.574549",
+    "last_updated": "2026-03-25T09:08:16.174386",
     "scanned_count": 7,
     "total_companies": 58,
     "matches_found": 2,
@@ -39,6 +39,22 @@
       "seniority": "senior",
       "location_type": "onsite",
       "fetch_date": "2026-03-25T09:07:23.636009"
+    },
+    {
+      "id": "link_e935ce11",
+      "title": "Senior Associate, Product Management - Fraud Data Product Manager",
+      "location": "Check Portal",
+      "url": "https://www.capitalonecareers.com/search-jobs/product%20manager",
+      "department": "Various",
+      "description": "Found on Capital One career landing page. Match quality estimated from title.",
+      "posted_date": "2026-03-25",
+      "company": "Capital One",
+      "score": 88,
+      "match_reason": "The candidate's nearly five years of product management experience, including extensive work with analytics platforms, data observability, risk management, and automation, aligns exceptionally well with a Senior Associate, Fraud Data Product Manager role.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "unknown",
+      "fetch_date": "2026-03-25T09:08:16.174386"
     },
     {
       "id": "link_a45f3a13",
