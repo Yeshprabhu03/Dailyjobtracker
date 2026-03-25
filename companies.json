@@ -7,9 +7,9 @@
   },
   {
     "name": "JPMorgan Chase",
-    "ats": "jpmorgan",
-    "token": "",
-    "notes": "Specialized scraper for careers.jpmorgan.com"
+    "ats": "oracle_cloud",
+    "token": "jpmc",
+    "notes": "Oracle HCM Cloud at jpmc.fa.oraclecloud.com"
   },
   {
     "name": "Morgan Stanley",
@@ -125,9 +125,10 @@
   },
   {
     "name": "PayPal",
-    "ats": "eightfold",
+    "ats": "workday_search",
     "token": "paypal",
-    "notes": "Eightfold AI — paypal.eightfold.ai"
+    "path": "jobs",
+    "notes": "paypal.wd1.myworkdayjobs.com/jobs — switched from eightfold (403)"
   },
   {
     "name": "Robinhood",
@@ -231,9 +232,10 @@
   },
   {
     "name": "KKR",
-    "ats": "greenhouse",
-    "token": "kkrco",
-    "notes": "KKR Greenhouse slug is kkrco not kkr"
+    "ats": "workday_search",
+    "token": "kkr",
+    "path": "KKR_Careers",
+    "notes": "kkr.wd1.myworkdayjobs.com/KKR_Careers — KKR uses Workday not Greenhouse"
   },
   {
     "name": "Apollo Global",
@@ -243,9 +245,10 @@
   },
   {
     "name": "Ares Management",
-    "ats": "greenhouse",
+    "ats": "workday_search",
     "token": "aresmgmt",
-    "notes": "Ares greenhouse slug is aresmgmt"
+    "path": "External",
+    "notes": "aresmgmt.wd1.myworkdayjobs.com/External — confirmed Workday"
   },
   {
     "name": "Charles Schwab",
@@ -269,9 +272,10 @@
   },
   {
     "name": "LPL Financial",
-    "ats": "greenhouse",
+    "ats": "workday_search",
     "token": "lplfinancial",
-    "notes": "LPL greenhouse slug is lplfinancial not lpl"
+    "path": "External",
+    "notes": "lplfinancial.wd1.myworkdayjobs.com/External — confirmed Workday not Greenhouse"
   },
   {
     "name": "Raymond James",
