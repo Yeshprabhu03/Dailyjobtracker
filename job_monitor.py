@@ -108,7 +108,7 @@ def scrape_greenhouse(token: str) -> list[dict]:
         ]
     except Exception as e:
         print(f"  [greenhouse/{token}] error: {e}")
-        return []
+        raise e  # Propagate to failures counter
 
 
 def scrape_lever(token: str) -> list[dict]:
@@ -131,7 +131,7 @@ def scrape_lever(token: str) -> list[dict]:
         ]
     except Exception as e:
         print(f"  [lever/{token}] error: {e}")
-        return []
+        raise e  # Propagate to failures counter
 
 
 def scrape_workday_search(token: str, query: str = "product manager") -> list[dict]:
@@ -141,8 +141,8 @@ def scrape_workday_search(token: str, query: str = "product manager") -> list[di
     You may need to find the exact subdomain + path for each company.
     Pattern: https://{token}.wd1.myworkdayjobs.com/wday/cxs/{token}/External/jobs
     """
-    # Common Workday API endpoint pattern
-    for wd_domain in [f"{token}.wd1.myworkdayjobs.com", f"{token}.wd5.myworkdayjobs.com"]:
+    # Common Workday API endpoint patterns rotated by major banks
+    for wd_domain in [f"{token}.wd1.myworkdayjobs.com", f"{token}.wd5.myworkdayjobs.com", f"{token}.wd3.myworkdayjobs.com", f"{token}.wd10.myworkdayjobs.com"]:
         url = f"https://{wd_domain}/wday/cxs/{token}/External/jobs"
         payload = {
             "appliedFacets": {},
@@ -167,10 +167,12 @@ def scrape_workday_search(token: str, query: str = "product manager") -> list[di
                     }
                     for j in jobs
                 ]
-        except Exception as e:
+        except Exception:
             pass  # try next domain variant
-    print(f"  [workday/{token}] could not connect")
-    return []
+    
+    # If we get here, all variants failed
+    raise ConnectionError(f"Could not connect to any Workday portal for {token}")
+
 
 
 def filter_pm_jobs(jobs: list[dict]) -> list[dict]:

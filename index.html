@@ -76,9 +76,10 @@
 
     async function fetchData() {
       try {
+        const ts = new Date().getTime();
         const [jobRes, compRes] = await Promise.all([
-          fetch('./jobs.json'),
-          fetch('./companies.json')
+          fetch(`./jobs.json?v=${ts}`),
+          fetch(`./companies.json?v=${ts}`)
         ]);
         
         if (jobRes.ok) {

@@ -1,7 +1,7 @@
 [
-  {"name": "Goldman Sachs", "ats": "greenhouse", "token": "goldmansachs"},
-  {"name": "JPMorgan Chase", "ats": "greenhouse", "token": "jpmorgan"},
-  {"name": "Morgan Stanley", "ats": "greenhouse", "token": "morganstanley"},
+  {"name": "Goldman Sachs", "ats": "workday_search", "token": "goldmansachs"},
+  {"name": "JPMorgan Chase", "ats": "workday_search", "token": "jpmorgan"},
+  {"name": "Morgan Stanley", "ats": "workday_search", "token": "morganstanley"},
   {"name": "Bank of America", "ats": "workday_search", "token": "bankofamerica"},
   {"name": "Wells Fargo", "ats": "workday_search", "token": "wellsfargo"},
   {"name": "Citigroup", "ats": "greenhouse", "token": "citi"},
