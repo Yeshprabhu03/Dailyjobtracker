@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T08:54:37.516721",
+    "last_updated": "2026-03-25T08:54:43.534744",
     "scanned_count": 9,
     "total_companies": 58,
     "matches_found": 1,
@@ -695,6 +695,22 @@
       "seniority": "senior",
       "location_type": "onsite",
       "fetch_date": "2026-03-25T08:48:19.106906"
+    },
+    {
+      "id": "gh_7570377003",
+      "title": "Group Product Manager, Invest",
+      "location": "NY - New York City",
+      "url": "https://sofi.com/careers/job/7570377003?gh_jid=7570377003",
+      "department": "Product Management",
+      "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;a href=&quot;https://www.sofi.com/sofi-employee-applicant-privacy-notice/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Employee Applicant Privacy Notice&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Who we are:&lt;/strong&gt;&lt;/p&gt;\n&lt;div&gt;\n&lt;p&gt;Shape a brighter financial future with us.&lt;/p&gt;\n&lt;p&gt;Together with our members, we\u2019re changing the way people think about and interact with personal finance.&lt;/p&gt;\n&lt;p&gt;We\u2019re a next-generation financial services company and national bank using innovative",
+      "posted_date": "2026-03-24",
+      "company": "SoFi",
+      "score": 55,
+      "match_reason": "The 'Group Product Manager' title typically implies a seniority level above the candidate's 4 years 11 months of experience, making this a stretch role despite strong transferable product management skills and a relevant MBA.",
+      "apply_now": false,
+      "seniority": "senior",
+      "location_type": "onsite",
+      "fetch_date": "2026-03-25T08:54:43.326621"
     }
   ]
 }
