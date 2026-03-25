@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T08:52:52.327559",
-    "scanned_count": 9,
+    "last_updated": "2026-03-25T08:53:04.822345",
+    "scanned_count": 22,
     "total_companies": 58,
-    "matches_found": 1,
-    "technical_failures": 8,
+    "matches_found": 3,
+    "technical_failures": 19,
     "status": "running"
   },
   "jobs": [
@@ -183,6 +183,22 @@
       "seniority": "senior",
       "location_type": "onsite",
       "fetch_date": "2026-03-25T08:48:19.106906"
+    },
+    {
+      "id": "gh_7600266",
+      "title": "Senior Product Manager - Identity & Access, Multi-User",
+      "location": "US - Remote Zone 1 (Job Requisitions Only)",
+      "url": "https://www.coinbase.com/careers/positions/7600266?gh_jid=7600266",
+      "department": "Product",
+      "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;Ready to be pushed beyond what you think you\u2019re capable of?&lt;/p&gt;\n&lt;p&gt;At Coinbase, our mission is to increase economic freedom in the world. It\u2019s a massive, ambitious opportunity that demands the best of us, every day, as we build the emerging onchain platform \u2014 and with it, the future global financial system.&lt;/p&gt;\n&lt;p&gt;To achieve our mission, we\u2019re seeking a very specific candidate. We want someone who is passionate about our mission and who believes in the power of crypto and blockchain technology to update the financial s",
+      "posted_date": "2026-03-16",
+      "company": "Coinbase",
+      "score": 88,
+      "match_reason": "The candidate's extensive experience as a Senior Product Manager in platform reliability, analytics, and governance, with strong technical skills, aligns exceptionally well with the demands of a Senior Product Manager role focused on Identity & Access.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "remote",
+      "fetch_date": "2026-03-25T08:53:04.822345"
     },
     {
       "id": "gh_7592107",
