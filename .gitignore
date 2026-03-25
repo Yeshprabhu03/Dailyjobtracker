@@ -1,0 +1,5 @@
+.env
+creds.json
+*.pdf
+resume.txt
+__pycache__/

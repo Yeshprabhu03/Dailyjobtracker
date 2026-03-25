@@ -36,30 +36,34 @@ HEADERS            = {"User-Agent": "Mozilla/5.0 (compatible; JobMonitor/1.0)"}
 # ─── YOUR RESUME SUMMARY ─────────────────────────────────────────────────────
 # Paste a concise summary here. Keep it under ~400 words so it fits in context.
 
-RESUME_SUMMARY = """
-Name: Yeshwanth
-Role: Senior Product Manager / Associate PM candidate
-Experience: 4.5 years Senior PM at Quant Masters Technologies (ed-tech SaaS, 110K users);
-            PM Intern at Zetwerk (post-acquisition manufacturing integration, 2025);
-            MBA candidate Fordham Gabelli School of Business, graduating May 2026 (STEM, MIS track).
+try:
+    with open("resume.txt", "r") as f:
+        RESUME_SUMMARY = f.read().strip()
+except FileNotFoundError:
+    RESUME_SUMMARY = """
+    Name: Yeshwanth
+    Role: Senior Product Manager / Associate PM candidate
+    Experience: 4.5 years Senior PM at Quant Masters Technologies (ed-tech SaaS, 110K users);
+                PM Intern at Zetwerk (post-acquisition manufacturing integration, 2025);
+                MBA candidate Fordham Gabelli School of Business, graduating May 2026 (STEM, MIS track).
 
-Core skills:
-- Product strategy, roadmapping, OKRs, stakeholder management
-- Data: Power BI, Looker, SQL-level thinking, metrics frameworks
-- Technical: FastAPI, LangGraph, RAG systems, AI/ML product experience
-- Cross-functional leadership without authority, enterprise B2B, fintech/wealthtech interest
+    Core skills:
+    - Product strategy, roadmapping, OKRs, stakeholder management
+    - Data: Power BI, Looker, SQL-level thinking, metrics frameworks
+    - Technical: FastAPI, LangGraph, RAG systems, AI/ML product experience
+    - Cross-functional leadership without authority, enterprise B2B, fintech/wealthtech interest
 
-Target roles:
-- Associate PM, Senior PM, Product Lead at finance or fintech companies
-- Especially: AI-powered products, digital wealth management, payments, B2B banking platforms
-- Companies: Goldman Sachs (Ayco), JPMorgan, Morgan Stanley, Visa, Mastercard, PayPal,
-  Robinhood, Coinbase, Block, Capital One, Intuit, SoFi, Broadridge, FIS, and similar.
+    Target roles:
+    - Associate PM, Senior PM, Product Lead at finance or fintech companies
+    - Especially: AI-powered products, digital wealth management, payments, B2B banking platforms
+    - Companies: Goldman Sachs (Ayco), JPMorgan, Morgan Stanley, Visa, Mastercard, PayPal,
+      Robinhood, Coinbase, Block, Capital One, Intuit, SoFi, Broadridge, FIS, and similar.
 
-Not interested in:
-- Pure engineering PM roles with no strategy component
-- Hardware, manufacturing, or non-financial verticals
-- Junior/associate-only roles requiring < 2 years experience
-"""
+    Not interested in:
+    - Pure engineering PM roles with no strategy component
+    - Hardware, manufacturing, or non-financial verticals
+    - Junior/associate-only roles requiring < 2 years experience
+    """
 
 # ─── COMPANY REGISTRY ────────────────────────────────────────────────────────
 # ATS type options: "greenhouse", "lever", "workday_search", "html", "custom"
@@ -273,8 +277,8 @@ def score_job_with_ai(job: dict) -> dict:
         return job
 
     genai.configure(api_key=GEMINI_API_KEY)
-    # Using gemini-1.5-flash since it's fast and suitable for extraction/scoring
-    model = genai.GenerativeModel('gemini-1.5-flash')
+    # Using gemini-pro
+    model = genai.GenerativeModel('gemini-pro')
 
     prompt = f"""You are a career advisor. Score how well this job posting matches the candidate's profile.
 
