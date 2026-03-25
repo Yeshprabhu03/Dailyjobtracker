@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T08:57:53.819231",
-    "scanned_count": 22,
+    "last_updated": "2026-03-25T08:58:00.333433",
+    "scanned_count": 28,
     "total_companies": 58,
-    "matches_found": 3,
-    "technical_failures": 19,
+    "matches_found": 4,
+    "technical_failures": 23,
     "status": "running"
   },
   "jobs": [
@@ -39,6 +39,22 @@
       "seniority": "mid",
       "location_type": "remote",
       "fetch_date": "2026-03-25T08:50:18.976524"
+    },
+    {
+      "id": "gh_7647550003",
+      "title": "Security Product Lead \u2013 Threat Intelligence & Insider Risk",
+      "location": "CA - San Francisco",
+      "url": "https://sofi.com/careers/job/7647550003?gh_jid=7647550003",
+      "department": "Information Security",
+      "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;a href=&quot;https://www.sofi.com/sofi-employee-applicant-privacy-notice/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Employee Applicant Privacy Notice&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Who we are:&lt;/strong&gt;&lt;/p&gt;\n&lt;div&gt;\n&lt;p&gt;Shape a brighter financial future with us.&lt;/p&gt;\n&lt;p&gt;Together with our members, we\u2019re changing the way people think about and interact with personal finance.&lt;/p&gt;\n&lt;p&gt;We\u2019re a next-generation financial services company and national bank using innovative",
+      "posted_date": "2026-03-20",
+      "company": "SoFi",
+      "score": 92,
+      "match_reason": "The candidate's extensive experience in platform reliability, incident response, risk & governance, and building observability frameworks aligns exceptionally well with the demands of a Security Product Lead role focused on threat intelligence and insider risk.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "onsite",
+      "fetch_date": "2026-03-25T08:58:00.333433"
     },
     {
       "id": "gh_7679070",
