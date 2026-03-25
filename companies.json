@@ -1,46 +1,46 @@
 [
   {
     "name": "Goldman Sachs",
-    "ats": "goldman",
-    "token": "",
-    "notes": "Specialized scraper for higher.gs.com"
+    "ats": "career_link",
+    "token": "https://higher.gs.com/results?search=product+manager",
+    "notes": "Avature-backed site — no public API, scrape HTML results page"
   },
   {
     "name": "JPMorgan Chase",
-    "ats": "jpmorgan",
-    "token": "",
-    "notes": "Specialized scraper for careers.jpmorgan.com"
+    "ats": "career_link",
+    "token": "https://careers.jpmorgan.com/us/en/search-jobs?k=product+manager&location=United+States",
+    "notes": "API endpoint returns invalid JSON; scrape careers HTML page instead"
   },
   {
     "name": "Morgan Stanley",
     "ats": "career_link",
-    "token": "https://jobs.morganstanley.com/search?q=product+manager&l=United+States",
-    "notes": "jobs.morganstanley.com — taleo migrated to this"
+    "token": "https://www.morganstanley.com/careers/career-opportunities-search#q=product%20manager&t=CareerOpportunities",
+    "notes": "MS careers search page"
   },
   {
     "name": "Bank of America",
     "ats": "career_link",
     "token": "https://careers.bankofamerica.com/en-us/search-jobs/product%20manager/united-states/872/false/1/false/0/0/0/0",
-    "notes": "Custom ATS"
+    "notes": "Custom ATS — URL may need updating if 404 persists"
   },
   {
     "name": "Wells Fargo",
     "ats": "workday_search",
-    "token": "wellsfargo",
+    "token": "wf",
     "path": "WellsFargoJobs",
-    "notes": "wellsfargo.wd1.myworkdayjobs.com/WellsFargoJobs"
+    "notes": "wf.wd1.myworkdayjobs.com/WellsFargoJobs — token is 'wf' not 'wellsfargo'"
   },
   {
     "name": "Citigroup",
     "ats": "career_link",
     "token": "https://jobs.citi.com/search-jobs/product%20manager/287/1",
-    "notes": "Citi uses Taleo at jobs.citi.com"
+    "notes": "Citi uses Taleo at jobs.citi.com — WORKING"
   },
   {
     "name": "Capital One",
     "ats": "career_link",
     "token": "https://www.capitalonecareers.com/search-jobs/product%20manager/4732/1",
-    "notes": "Capital One custom careers site"
+    "notes": "Capital One custom careers site — WORKING"
   },
   {
     "name": "US Bancorp",
@@ -61,13 +61,13 @@
     "ats": "workday_search",
     "token": "truist",
     "path": "External",
-    "notes": "truist.wd5.myworkdayjobs.com/External"
+    "notes": "truist.wd5.myworkdayjobs.com/External — connects but 0 PM results"
   },
   {
     "name": "Citizens Financial",
-    "ats": "oracle_cloud",
-    "token": "hcgn.fa.us2",
-    "notes": "Oracle HCM Cloud"
+    "ats": "career_link",
+    "token": "https://jobs.citizensbank.com/search-jobs",
+    "notes": "Oracle Cloud token was malformed; fallback to career_link"
   },
   {
     "name": "Huntington Bancshares",
@@ -86,9 +86,9 @@
   {
     "name": "KeyCorp",
     "ats": "workday_search",
-    "token": "key",
-    "path": "Key_External_Career_Site",
-    "notes": "key.wd5.myworkdayjobs.com/Key_External_Career_Site"
+    "token": "keybank",
+    "path": "External_Career_Site",
+    "notes": "keybank.wd5.myworkdayjobs.com/External_Career_Site — token is 'keybank' not 'key'"
   },
   {
     "name": "Regions Financial",
@@ -108,26 +108,27 @@
     "name": "Visa",
     "ats": "smartrecruiters",
     "token": "Visa",
-    "notes": "Visa uses SmartRecruiters"
+    "notes": "SmartRecruiters — WORKING"
   },
   {
     "name": "Mastercard",
     "ats": "workday_search",
     "token": "mastercard",
-    "path": "External",
-    "notes": "mastercard.wd1.myworkdayjobs.com/External"
+    "path": "CorporateCareers",
+    "notes": "mastercard.wd1.myworkdayjobs.com/CorporateCareers — path is 'CorporateCareers' not 'External'"
   },
   {
     "name": "American Express",
     "ats": "eightfold",
     "token": "aexp",
-    "notes": "Eightfold AI — aexp.eightfold.ai"
+    "notes": "aexp.eightfold.ai — WORKING"
   },
   {
     "name": "PayPal",
-    "ats": "eightfold",
+    "ats": "workday_search",
     "token": "paypal",
-    "notes": "Eightfold AI — paypal.eightfold.ai"
+    "path": "jobs",
+    "notes": "paypal.wd1.myworkdayjobs.com/jobs — eightfold returns 403"
   },
   {
     "name": "Robinhood",
@@ -145,7 +146,7 @@
     "name": "Block (Square / Cash App)",
     "ats": "greenhouse",
     "token": "block",
-    "notes": "Returns results but 0 PM titles — may need broader keywords"
+    "notes": "Connects but 0 PM titles found"
   },
   {
     "name": "Corpay",
@@ -172,7 +173,7 @@
     "name": "Intuit",
     "ats": "smartrecruiters",
     "token": "Intuit",
-    "notes": "Intuit uses SmartRecruiters"
+    "notes": "SmartRecruiters — returns 0 PM results (Intuit may not post via SR)"
   },
   {
     "name": "SoFi",
@@ -185,7 +186,7 @@
     "ats": "workday_search",
     "token": "broadridge",
     "path": "External",
-    "notes": "broadridge.wd1.myworkdayjobs.com/External"
+    "notes": "broadridge.wd1.myworkdayjobs.com/External — WORKING"
   },
   {
     "name": "FIS",
@@ -220,58 +221,57 @@
     "ats": "workday_search",
     "token": "blackrock",
     "path": "BlackRock_Professional",
-    "notes": "blackrock.wd1.myworkdayjobs.com/BlackRock_Professional"
+    "notes": "blackrock.wd1.myworkdayjobs.com/BlackRock_Professional — WORKING"
   },
   {
     "name": "Blackstone",
     "ats": "workday_search",
     "token": "blackstone",
     "path": "Blackstone_Careers",
-    "notes": "blackstone.wd1.myworkdayjobs.com/Blackstone_Careers"
+    "notes": "blackstone.wd1.myworkdayjobs.com/Blackstone_Careers — WORKING"
   },
   {
     "name": "KKR",
     "ats": "greenhouse",
-    "token": "kkrco",
-    "notes": "KKR Greenhouse slug is kkrco not kkr"
+    "token": "kkr",
+    "notes": "boards.greenhouse.io/kkr — token is 'kkr' not 'kkrco'"
   },
   {
     "name": "Apollo Global",
     "ats": "greenhouse",
     "token": "apollo",
-    "notes": "Apollo greenhouse slug is apollo"
+    "notes": "WORKING"
   },
   {
     "name": "Ares Management",
-    "ats": "greenhouse",
+    "ats": "workday_search",
     "token": "aresmgmt",
-    "notes": "Ares greenhouse slug is aresmgmt"
+    "path": "External",
+    "notes": "aresmgmt.wd1.myworkdayjobs.com/External — not Greenhouse"
   },
   {
     "name": "Charles Schwab",
-    "ats": "workday_search",
-    "token": "schwab",
-    "path": "Schwab_External",
-    "notes": "schwab.wd5.myworkdayjobs.com/Schwab_External"
+    "ats": "career_link",
+    "token": "https://career-schwab.icims.com/jobs/search?ss=1&searchRelation=keyword_all&searchKeyword=product+manager",
+    "notes": "Schwab uses iCIMS not Workday"
   },
   {
     "name": "BNY Mellon",
-    "ats": "workday_search",
-    "token": "bnymellon",
-    "path": "External",
-    "notes": "bnymellon.wd1.myworkdayjobs.com/External"
+    "ats": "oracle_cloud",
+    "token": "eofe.fa.us2",
+    "notes": "eofe.fa.us2.oraclecloud.com — Oracle HCM Cloud"
   },
   {
     "name": "Interactive Brokers",
     "ats": "greenhouse",
     "token": "ibkr",
-    "notes": "WORKING but 0 PM titles"
+    "notes": "Connects but 0 PM titles"
   },
   {
     "name": "LPL Financial",
     "ats": "greenhouse",
-    "token": "lplfinancial",
-    "notes": "LPL greenhouse slug is lplfinancial not lpl"
+    "token": "lpl",
+    "notes": "Correct slug is 'lpl' not 'lplfinancial'"
   },
   {
     "name": "Raymond James",
@@ -298,15 +298,15 @@
     "name": "Moody's",
     "ats": "workday_search",
     "token": "moodyscorporation",
-    "path": "Campus",
-    "notes": "moodyscorporation.wd1.myworkdayjobs.com/Campus"
+    "path": "External",
+    "notes": "moodyscorporation.wd1.myworkdayjobs.com/External — try External instead of Campus"
   },
   {
     "name": "CME Group",
     "ats": "workday_search",
     "token": "cmegroup",
     "path": "CME_Careers",
-    "notes": "cmegroup.wd1.myworkdayjobs.com/CME_Careers"
+    "notes": "cmegroup.wd1.myworkdayjobs.com/CME_Careers — WORKING"
   },
   {
     "name": "ICE",
@@ -334,7 +334,7 @@
     "ats": "workday_search",
     "token": "equifax",
     "path": "External",
-    "notes": "WORKING — equifax.wd5.myworkdayjobs.com/External"
+    "notes": "equifax.wd5.myworkdayjobs.com/External — WORKING"
   },
   {
     "name": "Progressive",
@@ -348,7 +348,7 @@
     "ats": "workday_search",
     "token": "mmc",
     "path": "MMC",
-    "notes": "mmc.wd5.myworkdayjobs.com/MMC"
+    "notes": "mmc.wd5.myworkdayjobs.com/MMC — WORKING"
   },
   {
     "name": "Aon",
@@ -369,14 +369,14 @@
     "ats": "workday_search",
     "token": "travelers",
     "path": "External",
-    "notes": "travelers.wd5.myworkdayjobs.com/External"
+    "notes": "travelers.wd5.myworkdayjobs.com/External — WORKING"
   },
   {
     "name": "Allstate",
     "ats": "workday_search",
     "token": "allstate",
     "path": "Allstate_Careers",
-    "notes": "allstate.wd5.myworkdayjobs.com/Allstate_Careers"
+    "notes": "allstate.wd5.myworkdayjobs.com/Allstate_Careers — WORKING"
   },
   {
     "name": "MetLife",

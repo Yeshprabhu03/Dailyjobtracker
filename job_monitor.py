@@ -293,10 +293,17 @@ def scrape_goldman(query: str = "product manager") -> list[dict]:
 
 
 def scrape_oracle_cloud(token: str, query: str = "product manager") -> list[dict]:
-    """Specialized scraper for Oracle Cloud Recruiting (used by JPM)."""
-    # Pattern: https://{token}.fa.oraclecloud.com/hcmRestApi/resources/latest/recruitingJobPostings
-    # For JPM: jpmc
-    url = f"https://{token}.fa.oraclecloud.com/hcmRestApi/resources/latest/recruitingJobPostings"
+    """Specialized scraper for Oracle Cloud Recruiting.
+    Token can be a short name (e.g. 'jpmc') or a full subdomain prefix (e.g. 'eofe.fa.us2').
+    """
+    # If token already contains 'oraclecloud', use as-is; if it has dots, it's already a full prefix
+    if "oraclecloud" in token:
+        host = token
+    elif "." in token:
+        host = f"{token}.oraclecloud.com"
+    else:
+        host = f"{token}.fa.oraclecloud.com"
+    url = f"https://{host}/hcmRestApi/resources/latest/recruitingJobPostings"
     params = {
         "limit": 50,
         "q": f"title LIKE '%{query}%' OR unformattedDescription LIKE '%{query}%'",
@@ -311,7 +318,7 @@ def scrape_oracle_cloud(token: str, query: str = "product manager") -> list[dict
                 "id":         f"oc_{j['Id']}",
                 "title":      j.get("Title", ""),
                 "location":   j.get("PrimaryLocation", ""),
-                "url":        f"https://{token}.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/{j['Id']}",
+                "url":        f"https://{host}/hcmUI/CandidateExperience/en/sites/CX_1/job/{j['Id']}",
                 "department": j.get("Organization", ""),
                 "description": j.get("unformattedDescription", "")[:800],
                 "posted_date": j.get("PostedDate", "")[:10],
