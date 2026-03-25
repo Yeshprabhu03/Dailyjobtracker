@@ -24,7 +24,7 @@ load_dotenv()
 
 # ─── CONFIG ──────────────────────────────────────────────────────────────────
 
-ANTHROPIC_API_KEY  = os.getenv("ANTHROPIC_API_KEY")
+GEMINI_API_KEY  = os.getenv("GEMINI_API_KEY")
 SHEETS_ID          = os.getenv("GOOGLE_SHEETS_ID", "15ijkCUdXizBrd5Ux7Y2J497aUu3yktCIRHuxPyxdeC0")
 CREDS_PATH         = os.getenv("GOOGLE_CREDS_JSON", "creds.json")
 ALERT_EMAIL        = os.getenv("ALERT_EMAIL", "")
@@ -261,11 +261,20 @@ def fetch_jobs_for_company(company: dict) -> list[dict]:
 
 def score_job_with_ai(job: dict) -> dict:
     """
-    Calls Claude to score the job against your resume.
+    Calls Gemini to score the job against your resume.
     Returns the job dict enriched with: score, match_reason, apply_now.
     """
-    import anthropic
-    client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
+    import google.generativeai as genai
+    
+    if not GEMINI_API_KEY:
+        print("    [AI score error] GEMINI_API_KEY is not set.")
+        job.update({"score": 0, "match_reason": "API Key missing", "apply_now": False,
+                    "seniority": "unknown", "location_type": "unknown"})
+        return job
+
+    genai.configure(api_key=GEMINI_API_KEY)
+    # Using gemini-1.5-flash since it's fast and suitable for extraction/scoring
+    model = genai.GenerativeModel('gemini-1.5-flash')
 
     prompt = f"""You are a career advisor. Score how well this job posting matches the candidate's profile.
 
@@ -290,12 +299,14 @@ Return JSON only (no markdown):
 }}"""
 
     try:
-        msg = client.messages.create(
-            model="claude-sonnet-4-20250514",
-            max_tokens=300,
-            messages=[{"role": "user", "content": prompt}]
-        )
-        text = msg.content[0].text.strip()
+        response = model.generate_content(prompt)
+        text = response.text.strip()
+        # Remove markdown codeblocks if they exist
+        if text.startswith("```json"): text = text[7:]
+        elif text.startswith("```"): text = text[3:]
+        if text.endswith("```"): text = text[:-3]
+        text = text.strip()
+        
         result = json.loads(text)
         job.update(result)
     except Exception as e:
