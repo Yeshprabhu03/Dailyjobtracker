@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "last_updated": "2026-03-25T09:13:30.247920",
-    "scanned_count": 6,
+    "last_updated": "2026-03-25T09:13:37.390397",
+    "scanned_count": 9,
     "total_companies": 58,
     "matches_found": 1,
-    "technical_failures": 2,
+    "technical_failures": 8,
     "status": "running"
   },
   "jobs": [
@@ -119,6 +119,22 @@
       "seniority": "senior",
       "location_type": "unknown",
       "fetch_date": "2026-03-25T09:13:03.480282"
+    },
+    {
+      "id": "wd_pnc_R215523_a08da31d",
+      "title": "Digital Product Manager Lead Senior",
+      "location": "4 Locations",
+      "url": "https://pnc.wd5.myworkdayjobs.com/External/job//job/PA---Pittsburgh-15222/Digital-Product-Manager-Lead-Senior_R215523-1",
+      "department": "",
+      "description": "",
+      "posted_date": "Posted 5 D",
+      "company": "PNC Financial",
+      "score": 85,
+      "match_reason": "The candidate's nearly 5 years of product management experience, including 3.5 years as a Senior Product Manager, strong background in platform reliability, data analytics, and demonstrated leadership, aligns exceptionally well with the 'Digital Product Manager Lead Senior' role.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "onsite",
+      "fetch_date": "2026-03-25T09:13:37.375246"
     },
     {
       "id": "link_138227d5",
