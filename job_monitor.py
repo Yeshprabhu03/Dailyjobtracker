@@ -1,14 +1,9 @@
 """
-Job Monitor Agent — Fixed Version
-===================================
-Key fixes in this version:
-  1. Workday scraper now uses per-company "path" field from companies.json
-  2. Added SmartRecruiters scraper (for Visa, Intuit)
-  3. Added JPMorgan scraper (careers.jpmorgan.com JSON API)
-  4. Added Goldman Sachs scraper (higher.gs.com)
-  5. Expanded PM_KEYWORDS to catch more titles
-  6. Fixed LPL, KKR, Apollo, Ares greenhouse slugs
-  7. Node.js deprecation warning fix (see workflow file)
+Job Monitor — Daily PM Job Scanner
+====================================
+ATS scrapers: Greenhouse, Workday, SmartRecruiters, Eightfold,
+              Oracle Cloud HCM, Goldman Sachs (higher.gs.com), career_link HTML
+Scoring: Gemini (google-genai SDK) against candidate resume profile
 """
 
 import os, json, time, re, hashlib, datetime, requests, subprocess
@@ -306,31 +301,6 @@ def scrape_eightfold(token: str, query: str = "product manager") -> list[dict]:
         print(f"  [eightfold/{token}] error: {e}")
         raise
 
-
-def scrape_jpmorgan(query: str = "product manager") -> list[dict]:
-    """JPMorgan Chase careers JSON API."""
-    url = "https://careers.jpmorgan.com/api/jobs/search"
-    params = {"q": query, "location": "United States", "page": 1, "pageSize": 50, "lang": "en"}
-    try:
-        r = requests.get(url, params=params, headers=HEADERS, timeout=15)
-        r.raise_for_status()
-        data = r.json()
-        jobs = data.get("jobs", data.get("results", []))
-        return [
-            {
-                "id":          f"jpm_{j.get('jobId', hashlib.md5(j.get('title','').encode()).hexdigest()[:8])}",
-                "title":       j.get("title", ""),
-                "location":    j.get("location", {}).get("cityStateCountry", "") if isinstance(j.get("location"), dict) else j.get("location", ""),
-                "url":         f"https://careers.jpmorgan.com/us/en/jobs/{j.get('jobId', '')}",
-                "department":  j.get("businessArea", ""),
-                "description": j.get("jobDescription", "")[:600] if j.get("jobDescription") else "",
-                "posted_date": j.get("postDate", "")[:10],
-            }
-            for j in jobs
-        ]
-    except Exception as e:
-        print(f"  [jpmorgan] error: {e}")
-        raise
 
 
 def scrape_goldman(query: str = "product manager") -> list[dict]:

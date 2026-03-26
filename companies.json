@@ -19,9 +19,10 @@
   },
   {
     "name": "Bank of America",
-    "ats": "career_link",
-    "token": "https://careers.bankofamerica.com/en-us/search-jobs/product%20manager/united-states/872/false/1/false/0/0/0/0",
-    "notes": "Custom ATS"
+    "ats": "workday_search",
+    "token": "bankofamerica",
+    "path": "Global_Experienced_Professional",
+    "notes": "bankofamerica.wd1.myworkdayjobs.com/Global_Experienced_Professional"
   },
   {
     "name": "Wells Fargo",
