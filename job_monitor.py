@@ -33,16 +33,22 @@ try:
         RESUME_SUMMARY = f.read().strip()
 except FileNotFoundError:
     RESUME_SUMMARY = """
-Name: Yeshwanth
-Role: Senior Product Manager / Associate PM candidate
-Experience: 4.5 years Senior PM at Quant Masters Technologies (ed-tech SaaS, 110K users);
-            PM Intern at Zetwerk (post-acquisition manufacturing integration, 2025);
-            MBA candidate Fordham Gabelli School of Business, graduating May 2026 (STEM, MIS track).
-Core skills: Product strategy, roadmapping, OKRs, stakeholder management, Power BI, Looker,
-             SQL, FastAPI, LangGraph, RAG systems, AI/ML product experience, B2B fintech/wealthtech.
-Target roles: Associate PM, Senior PM, Product Lead at finance or fintech companies.
-Especially: AI products, digital wealth management, payments, B2B banking platforms.
-Not interested in: Pure engineering PM roles, hardware, or junior roles requiring <2 years.
+Name: Santiago Fernández de Valderrama
+Role: Head of Applied AI / AI Solutions Architect
+Experience: AI practitioner who built career-ops (2.8k GitHub stars), an AI-powered job search
+            pipeline using Claude Code, LLM orchestration, and Playwright automation.
+            Deep hands-on experience designing and deploying LLM systems, RAG pipelines,
+            AI agents, and conversational AI platforms at production scale.
+Core skills: LLM engineering, RAG systems, AI agents, prompt engineering,
+             Claude/GPT/Gemini APIs, Python, Node.js, Go, Playwright, enterprise AI strategy,
+             conversational AI platforms, AI evaluation frameworks, n8n/Make automation.
+Target roles: Head of Applied AI, Applied AI Engineer, AI Solutions Architect,
+              Forward Deployed AI Engineer, Staff/Senior AI Engineer, AI Lead.
+Especially: Conversational AI, contact center AI, LLM infrastructure, AI automation,
+            AI-native B2B SaaS, no-code/low-code AI platforms.
+Compensation: $150K-200K USD target, minimum $120K.
+Preferences: Remote or hybrid, US-based roles.
+Not interested in: Java/.NET backend, blockchain, junior/intern roles (<2 years), non-AI roles.
 """
 
 def load_companies():
@@ -55,13 +61,25 @@ def load_companies():
 
 COMPANIES = load_companies()
 
-# Expanded keywords — catches "product associate", "digital PM", etc.
+# Role title keywords — catches AI/ML engineer, solutions architect, etc.
 PM_KEYWORDS = [
-    "product manager", "product management", " pm ", "associate pm",
-    "senior pm", "principal pm", "staff pm", "vp product", "director of product",
-    "director, product", "product lead", "group product manager", "head of product",
-    "product owner", "product associate", "product analyst", "digital product",
-    "vp, product", "product vice president", "chief product",
+    "ai engineer", "ml engineer", "machine learning engineer",
+    "llm engineer", "llm specialist", "llm researcher",
+    "applied ai", "applied ml", "applied machine learning",
+    "solutions architect", "forward deployed engineer", "forward deployed",
+    "head of ai", "head of applied ai", "vp of ai", "vp ai",
+    "ai architect", "ai lead", "ai manager", "ai director",
+    "artificial intelligence engineer", "generative ai",
+    "conversational ai", "ai platform engineer",
+    "deep learning engineer", "machine learning",
+    "ai product engineer", "staff ai", "principal ai",
+    "senior machine learning", "senior ai engineer",
+]
+
+# Title keywords that disqualify a role (from career-ops portals.yml)
+NEGATIVE_KEYWORDS = [
+    "java developer", ".net developer", "blockchain", "junior", "intern", "internship",
+    "data entry", "hr coordinator", "recruiter", "sales representative",
 ]
 
 # ─── SCRAPERS ────────────────────────────────────────────────────────────────
@@ -90,7 +108,7 @@ def scrape_greenhouse(token: str) -> list[dict]:
 
 
 def scrape_workday_search(token: str, path: str = "External",
-                          query: str = "product manager") -> list[dict]:
+                          query: str = "AI engineer") -> list[dict]:
     """
     Try multiple Workday domain variants with the correct path per company.
     Pattern: https://{token}.wd1.myworkdayjobs.com/wday/cxs/{token}/External/jobs
@@ -130,7 +148,7 @@ def scrape_workday_search(token: str, path: str = "External",
     raise ConnectionError(f"Could not connect to any Workday portal for {token}")
 
 
-def scrape_smartrecruiters(token: str, query: str = "product manager") -> list[dict]:
+def scrape_smartrecruiters(token: str, query: str = "AI engineer") -> list[dict]:
     """
     SmartRecruiters public job search API.
     Used by Visa, Intuit, and others.
@@ -167,7 +185,7 @@ def scrape_smartrecruiters(token: str, query: str = "product manager") -> list[d
 
 
 def scrape_workday_search(token: str, path: str = "External",
-                          query: str = "product manager") -> list[dict]:
+                          query: str = "AI engineer") -> list[dict]:
     """
     Try multiple Workday domain variants with the correct path per company.
     Pattern: https://{token}.wd1.myworkdayjobs.com/wday/cxs/{token}/{path}/jobs
@@ -214,7 +232,7 @@ def scrape_workday_search(token: str, path: str = "External",
     raise ConnectionError(f"Could not connect to any Workday portal for {token}")
 
 
-def scrape_goldman(query: str = "product manager") -> list[dict]:
+def scrape_goldman(query: str = "AI engineer") -> list[dict]:
     """Goldman Sachs careers — tries JSON API then falls back to HTML scrape."""
     url = "https://higher.gs.com/api/jobs/search"
     params = {"q": query, "page": 1, "pageSize": 50}
@@ -248,7 +266,7 @@ def scrape_goldman(query: str = "product manager") -> list[dict]:
             raise e
 
 
-def scrape_smartrecruiters(token: str, query: str = "product manager") -> list[dict]:
+def scrape_smartrecruiters(token: str, query: str = "AI engineer") -> list[dict]:
     """SmartRecruiters public job search API. Used by Visa, Intuit, and others."""
     url = f"https://api.smartrecruiters.com/v1/companies/{token}/postings"
     params = {"q": query, "limit": 100, "offset": 0, "country": "us"}
@@ -275,7 +293,7 @@ def scrape_smartrecruiters(token: str, query: str = "product manager") -> list[d
         raise
 
 
-def scrape_eightfold(token: str, query: str = "product manager") -> list[dict]:
+def scrape_eightfold(token: str, query: str = "AI engineer") -> list[dict]:
     """Scraper for Eightfold AI (Amex, PayPal)."""
     domain_map = {"aexp": "aexp.com", "paypal": "paypal.com"}
     domain = domain_map.get(token, f"{token}.com")
@@ -303,7 +321,7 @@ def scrape_eightfold(token: str, query: str = "product manager") -> list[dict]:
 
 
 
-def scrape_goldman(query: str = "product manager") -> list[dict]:
+def scrape_goldman(query: str = "AI engineer") -> list[dict]:
     """Goldman Sachs careers at higher.gs.com."""
     url = "https://higher.gs.com/api/jobs/search"
     params = {"q": query, "page": 1, "pageSize": 50}
@@ -329,7 +347,7 @@ def scrape_goldman(query: str = "product manager") -> list[dict]:
         raise
 
 
-def scrape_oracle_cloud(token: str, query: str = "product manager") -> list[dict]:
+def scrape_oracle_cloud(token: str, query: str = "AI engineer") -> list[dict]:
     """Specialized scraper for Oracle Cloud Recruiting (used by JPM)."""
     # Pattern: https://{token}.fa.oraclecloud.com/hcmRestApi/resources/latest/recruitingJobPostings
     # For JPM: jpmc
@@ -363,7 +381,7 @@ def scrape_oracle_cloud(token: str, query: str = "product manager") -> list[dict
         raise
 
 
-def scrape_eightfold(token: str, query: str = "product manager") -> list[dict]:
+def scrape_eightfold(token: str, query: str = "AI engineer") -> list[dict]:
     """Scraper for Eightfold AI (Amex, PayPal)."""
     # Token is the subdomain (e.g. 'aexp')
     # Domain is usually {token}.com but some differ. Supporting common ones.
@@ -495,9 +513,10 @@ def filter_pm_jobs(jobs: list[dict]) -> list[dict]:
     for j in jobs:
         title_lower = j.get("title", "").lower()
         location    = j.get("location", "")
-        is_pm = any(kw in title_lower for kw in PM_KEYWORDS)
+        is_target  = any(kw in title_lower for kw in PM_KEYWORDS)
+        is_excluded = any(kw in title_lower for kw in NEGATIVE_KEYWORDS)
         is_us = is_us_location(location)
-        if is_pm and is_us:
+        if is_target and not is_excluded and is_us:
             results.append(j)
     return results
 
@@ -529,7 +548,7 @@ def fetch_jobs_for_company(company: dict) -> list[dict]:
     pm_jobs = filter_pm_jobs(jobs)
     for j in pm_jobs:
         j["company"] = name
-    print(f"    → {len(pm_jobs)} PM jobs (from {len(jobs)} total)")
+    print(f"    → {len(pm_jobs)} AI/ML jobs (from {len(jobs)} total)")
     return pm_jobs
 
 
@@ -547,8 +566,9 @@ def score_job_with_ai(job: dict) -> dict:
 
     prompt = f"""You are a career advisor. Score this job against the candidate's profile.
 
-RULE: Reject (score < 40) any role requiring 7+ years or Director/VP level unless the candidate
-clearly qualifies. Senior PM roles requiring 3-5 years ARE a good match.
+RULE: Reject (score < 40) any role that is pure Java/.NET backend, blockchain, junior, or intern.
+Senior/Staff/Principal AI Engineer, Head of AI, and Solutions Architect roles ARE strong matches.
+VP/Director AI roles may also qualify — do not auto-reject based on seniority.
 
 CANDIDATE PROFILE:
 {RESUME_SUMMARY}
@@ -684,7 +704,7 @@ def send_email_alert(top_jobs: list[dict]):
         msg = Mail(
             from_email="jobmonitor@yourdomain.com",
             to_emails=ALERT_EMAIL,
-            subject=f"[Job Monitor] {len(top_jobs)} new PM jobs to apply for",
+            subject=f"[Job Monitor] {len(top_jobs)} new AI/ML jobs to apply for",
             plain_text_content=body,
         )
         sg.send(msg)
