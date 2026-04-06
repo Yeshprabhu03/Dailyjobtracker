@@ -1,178 +1,393 @@
 [
   {
-    "name": "Anthropic",
-    "ats": "greenhouse",
-    "token": "anthropic",
-    "notes": "boards.greenhouse.io/anthropic — WORKING"
+    "name": "Goldman Sachs",
+    "ats": "goldman",
+    "token": "",
+    "notes": "Specialized scraper for higher.gs.com"
   },
   {
-    "name": "OpenAI",
-    "ats": "greenhouse",
-    "token": "openai",
-    "notes": "boards.greenhouse.io/openai — WORKING"
+    "name": "JPMorgan Chase",
+    "ats": "oracle_cloud",
+    "token": "jpmc",
+    "notes": "Oracle HCM Cloud at jpmc.fa.oraclecloud.com"
   },
   {
-    "name": "Cohere",
-    "ats": "greenhouse",
-    "token": "cohere",
-    "notes": "boards.greenhouse.io/cohere — WORKING"
+    "name": "Morgan Stanley",
+    "ats": "career_link",
+    "token": "https://jobs.morganstanley.com/search?q=product+manager&l=United+States",
+    "notes": "jobs.morganstanley.com — taleo migrated to this"
   },
   {
-    "name": "Mistral AI",
-    "ats": "greenhouse",
-    "token": "mistralai",
-    "notes": "boards.greenhouse.io/mistralai — verify slug"
-  },
-  {
-    "name": "ElevenLabs",
-    "ats": "greenhouse",
-    "token": "elevenlabs",
-    "notes": "boards.greenhouse.io/elevenlabs — verify slug"
-  },
-  {
-    "name": "Deepgram",
-    "ats": "greenhouse",
-    "token": "deepgram",
-    "notes": "boards.greenhouse.io/deepgram — verify slug"
-  },
-  {
-    "name": "Vapi",
-    "ats": "greenhouse",
-    "token": "vapi",
-    "notes": "boards.greenhouse.io/vapi — may use Ashby, verify"
-  },
-  {
-    "name": "PolyAI",
-    "ats": "greenhouse",
-    "token": "polyai",
-    "notes": "boards.greenhouse.io/polyai — verify slug"
-  },
-  {
-    "name": "Parloa",
-    "ats": "greenhouse",
-    "token": "parloa",
-    "notes": "boards.greenhouse.io/parloa — may use Lever, verify"
-  },
-  {
-    "name": "Ada",
-    "ats": "greenhouse",
-    "token": "adasupport",
-    "notes": "boards.greenhouse.io/adasupport — verify slug"
-  },
-  {
-    "name": "Sierra",
-    "ats": "greenhouse",
-    "token": "sierra",
-    "notes": "boards.greenhouse.io/sierra — verify slug"
-  },
-  {
-    "name": "Decagon",
-    "ats": "greenhouse",
-    "token": "decagon",
-    "notes": "boards.greenhouse.io/decagon — verify slug"
-  },
-  {
-    "name": "Talkdesk",
-    "ats": "greenhouse",
-    "token": "talkdesk",
-    "notes": "boards.greenhouse.io/talkdesk — verify slug"
-  },
-  {
-    "name": "Cognigy",
-    "ats": "greenhouse",
-    "token": "cognigy",
-    "notes": "boards.greenhouse.io/cognigy — may use Lever, verify"
-  },
-  {
-    "name": "n8n",
-    "ats": "greenhouse",
-    "token": "n8n",
-    "notes": "boards.greenhouse.io/n8n — may use Lever, verify"
-  },
-  {
-    "name": "Zapier",
-    "ats": "greenhouse",
-    "token": "zapier",
-    "notes": "boards.greenhouse.io/zapier — WORKING"
-  },
-  {
-    "name": "Make.com",
-    "ats": "greenhouse",
-    "token": "make",
-    "notes": "boards.greenhouse.io/make — verify slug"
-  },
-  {
-    "name": "Retool",
-    "ats": "greenhouse",
-    "token": "retool",
-    "notes": "boards.greenhouse.io/retool — WORKING"
-  },
-  {
-    "name": "Airtable",
-    "ats": "greenhouse",
-    "token": "airtable",
-    "notes": "boards.greenhouse.io/airtable — WORKING"
-  },
-  {
-    "name": "Salesforce",
+    "name": "Bank of America",
     "ats": "workday_search",
-    "token": "salesforce",
-    "path": "External",
-    "notes": "salesforce.wd1.myworkdayjobs.com — verify path"
+    "token": "bankofamerica",
+    "path": "Global_Experienced_Professional",
+    "notes": "bankofamerica.wd1.myworkdayjobs.com/Global_Experienced_Professional"
   },
   {
-    "name": "Twilio",
-    "ats": "greenhouse",
-    "token": "twilio",
-    "notes": "boards.greenhouse.io/twilio — WORKING"
-  },
-  {
-    "name": "Genesys",
+    "name": "Wells Fargo",
     "ats": "workday_search",
-    "token": "genesys",
+    "token": "wellsfargo",
+    "path": "WellsFargoJobs",
+    "notes": "wellsfargo.wd1.myworkdayjobs.com/WellsFargoJobs"
+  },
+  {
+    "name": "Citigroup",
+    "ats": "career_link",
+    "token": "https://jobs.citi.com/search-jobs/product%20manager/287/1",
+    "notes": "Citi uses Taleo at jobs.citi.com"
+  },
+  {
+    "name": "Capital One",
+    "ats": "career_link",
+    "token": "https://www.capitalonecareers.com/search-jobs/product%20manager/4732/1",
+    "notes": "Capital One custom careers site"
+  },
+  {
+    "name": "US Bancorp",
+    "ats": "workday_search",
+    "token": "usbank",
+    "path": "USBankCareers",
+    "notes": "usbank.wd5.myworkdayjobs.com/USBankCareers"
+  },
+  {
+    "name": "PNC Financial",
+    "ats": "workday_search",
+    "token": "pnc",
     "path": "External",
-    "notes": "genesys.wd1.myworkdayjobs.com — verify path"
+    "notes": "pnc.wd5.myworkdayjobs.com/External — WORKING"
   },
   {
-    "name": "Gong",
-    "ats": "greenhouse",
-    "token": "gongio",
-    "notes": "boards.greenhouse.io/gongio — verify slug"
+    "name": "Truist Financial",
+    "ats": "workday_search",
+    "token": "truist",
+    "path": "External",
+    "notes": "truist.wd5.myworkdayjobs.com/External"
   },
   {
-    "name": "Temporal",
-    "ats": "greenhouse",
-    "token": "temporal",
-    "notes": "boards.greenhouse.io/temporal — verify slug"
+    "name": "Citizens Financial",
+    "ats": "oracle_cloud",
+    "token": "hcgn.fa.us2",
+    "notes": "Oracle HCM Cloud"
   },
   {
-    "name": "Arize AI",
-    "ats": "greenhouse",
-    "token": "arize",
-    "notes": "boards.greenhouse.io/arize — verify slug"
+    "name": "Huntington Bancshares",
+    "ats": "workday_search",
+    "token": "hban",
+    "path": "HNBcareers",
+    "notes": "hban.wd5.myworkdayjobs.com/HNBcareers"
   },
   {
-    "name": "Langfuse",
-    "ats": "greenhouse",
-    "token": "langfuse",
-    "notes": "boards.greenhouse.io/langfuse — may use Lever, verify"
+    "name": "Fifth Third Bancorp",
+    "ats": "workday_search",
+    "token": "53",
+    "path": "FifthThird",
+    "notes": "53.wd1.myworkdayjobs.com/FifthThird"
   },
   {
-    "name": "Attio",
-    "ats": "greenhouse",
-    "token": "attio",
-    "notes": "boards.greenhouse.io/attio — verify slug"
+    "name": "KeyCorp",
+    "ats": "workday_search",
+    "token": "key",
+    "path": "Key_External_Career_Site",
+    "notes": "key.wd5.myworkdayjobs.com/Key_External_Career_Site"
   },
   {
-    "name": "Tinybird",
-    "ats": "greenhouse",
-    "token": "tinybird",
-    "notes": "boards.greenhouse.io/tinybird — verify slug"
+    "name": "Regions Financial",
+    "ats": "workday_search",
+    "token": "regions",
+    "path": "External",
+    "notes": "regions.wd5.myworkdayjobs.com/External"
   },
   {
-    "name": "RunPod",
+    "name": "Ally Financial",
+    "ats": "workday_search",
+    "token": "ally",
+    "path": "ally_jobs",
+    "notes": "ally.wd5.myworkdayjobs.com/ally_jobs"
+  },
+  {
+    "name": "Visa",
+    "ats": "smartrecruiters",
+    "token": "Visa",
+    "notes": "Visa uses SmartRecruiters"
+  },
+  {
+    "name": "Mastercard",
+    "ats": "workday_search",
+    "token": "mastercard",
+    "path": "External",
+    "notes": "mastercard.wd1.myworkdayjobs.com/External"
+  },
+  {
+    "name": "American Express",
+    "ats": "eightfold",
+    "token": "aexp",
+    "notes": "Eightfold AI — aexp.eightfold.ai"
+  },
+  {
+    "name": "PayPal",
+    "ats": "workday_search",
+    "token": "paypal",
+    "path": "jobs",
+    "notes": "paypal.wd1.myworkdayjobs.com/jobs — switched from eightfold (403)"
+  },
+  {
+    "name": "Robinhood",
     "ats": "greenhouse",
-    "token": "runpod",
-    "notes": "boards.greenhouse.io/runpod — verify slug"
+    "token": "robinhood",
+    "notes": "WORKING"
+  },
+  {
+    "name": "Coinbase",
+    "ats": "greenhouse",
+    "token": "coinbase",
+    "notes": "WORKING"
+  },
+  {
+    "name": "Block (Square / Cash App)",
+    "ats": "greenhouse",
+    "token": "block",
+    "notes": "Returns results but 0 PM titles — may need broader keywords"
+  },
+  {
+    "name": "Corpay",
+    "ats": "workday_search",
+    "token": "corpay",
+    "path": "External",
+    "notes": "corpay.wd1.myworkdayjobs.com/External"
+  },
+  {
+    "name": "Global Payments",
+    "ats": "workday_search",
+    "token": "globalpayments",
+    "path": "GPN_External_Careers",
+    "notes": "globalpayments.wd1.myworkdayjobs.com/GPN_External_Careers"
+  },
+  {
+    "name": "Synchrony Financial",
+    "ats": "workday_search",
+    "token": "synchrony",
+    "path": "Careers",
+    "notes": "synchrony.wd5.myworkdayjobs.com/Careers"
+  },
+  {
+    "name": "Intuit",
+    "ats": "smartrecruiters",
+    "token": "Intuit",
+    "notes": "Intuit uses SmartRecruiters"
+  },
+  {
+    "name": "SoFi",
+    "ats": "greenhouse",
+    "token": "sofi",
+    "notes": "WORKING"
+  },
+  {
+    "name": "Broadridge",
+    "ats": "workday_search",
+    "token": "broadridge",
+    "path": "External",
+    "notes": "broadridge.wd1.myworkdayjobs.com/External"
+  },
+  {
+    "name": "FIS",
+    "ats": "workday_search",
+    "token": "fis",
+    "path": "FISExternalCareerSite",
+    "notes": "fis.wd1.myworkdayjobs.com/FISExternalCareerSite"
+  },
+  {
+    "name": "Fiserv",
+    "ats": "workday_search",
+    "token": "fiserv",
+    "path": "External",
+    "notes": "fiserv.wd5.myworkdayjobs.com/External"
+  },
+  {
+    "name": "ADP",
+    "ats": "workday_search",
+    "token": "adp",
+    "path": "careers",
+    "notes": "adp.wd5.myworkdayjobs.com/careers"
+  },
+  {
+    "name": "Paychex",
+    "ats": "workday_search",
+    "token": "paychex",
+    "path": "External",
+    "notes": "paychex.wd5.myworkdayjobs.com/External"
+  },
+  {
+    "name": "BlackRock",
+    "ats": "workday_search",
+    "token": "blackrock",
+    "path": "BlackRock_Professional",
+    "notes": "blackrock.wd1.myworkdayjobs.com/BlackRock_Professional"
+  },
+  {
+    "name": "Blackstone",
+    "ats": "workday_search",
+    "token": "blackstone",
+    "path": "Blackstone_Careers",
+    "notes": "blackstone.wd1.myworkdayjobs.com/Blackstone_Careers"
+  },
+  {
+    "name": "KKR",
+    "ats": "workday_search",
+    "token": "kkr",
+    "path": "KKR_Careers",
+    "notes": "kkr.wd1.myworkdayjobs.com/KKR_Careers — KKR uses Workday not Greenhouse"
+  },
+  {
+    "name": "Apollo Global",
+    "ats": "greenhouse",
+    "token": "apollo",
+    "notes": "Apollo greenhouse slug is apollo"
+  },
+  {
+    "name": "Ares Management",
+    "ats": "workday_search",
+    "token": "aresmgmt",
+    "path": "External",
+    "notes": "aresmgmt.wd1.myworkdayjobs.com/External — confirmed Workday"
+  },
+  {
+    "name": "Charles Schwab",
+    "ats": "workday_search",
+    "token": "schwab",
+    "path": "Schwab_External",
+    "notes": "schwab.wd5.myworkdayjobs.com/Schwab_External"
+  },
+  {
+    "name": "BNY Mellon",
+    "ats": "workday_search",
+    "token": "bnymellon",
+    "path": "External",
+    "notes": "bnymellon.wd1.myworkdayjobs.com/External"
+  },
+  {
+    "name": "Interactive Brokers",
+    "ats": "greenhouse",
+    "token": "ibkr",
+    "notes": "WORKING but 0 PM titles"
+  },
+  {
+    "name": "LPL Financial",
+    "ats": "workday_search",
+    "token": "lplfinancial",
+    "path": "External",
+    "notes": "lplfinancial.wd1.myworkdayjobs.com/External — confirmed Workday not Greenhouse"
+  },
+  {
+    "name": "Raymond James",
+    "ats": "workday_search",
+    "token": "raymondjames",
+    "path": "external",
+    "notes": "raymondjames.wd5.myworkdayjobs.com/external"
+  },
+  {
+    "name": "Ameriprise",
+    "ats": "workday_search",
+    "token": "ameriprise",
+    "path": "External",
+    "notes": "ameriprise.wd5.myworkdayjobs.com/External"
+  },
+  {
+    "name": "S&P Global",
+    "ats": "workday_search",
+    "token": "spgi",
+    "path": "Careers",
+    "notes": "spgi.wd1.myworkdayjobs.com/Careers"
+  },
+  {
+    "name": "Moody's",
+    "ats": "workday_search",
+    "token": "moodyscorporation",
+    "path": "Campus",
+    "notes": "moodyscorporation.wd1.myworkdayjobs.com/Campus"
+  },
+  {
+    "name": "CME Group",
+    "ats": "workday_search",
+    "token": "cmegroup",
+    "path": "CME_Careers",
+    "notes": "cmegroup.wd1.myworkdayjobs.com/CME_Careers"
+  },
+  {
+    "name": "ICE",
+    "ats": "workday_search",
+    "token": "intercontinentalexchange",
+    "path": "ICECareers",
+    "notes": "intercontinentalexchange.wd1.myworkdayjobs.com/ICECareers"
+  },
+  {
+    "name": "Nasdaq",
+    "ats": "workday_search",
+    "token": "nasdaq",
+    "path": "nasdaq_careers",
+    "notes": "nasdaq.wd1.myworkdayjobs.com/nasdaq_careers"
+  },
+  {
+    "name": "Cboe",
+    "ats": "workday_search",
+    "token": "cboe",
+    "path": "External",
+    "notes": "cboe.wd5.myworkdayjobs.com/External"
+  },
+  {
+    "name": "Equifax",
+    "ats": "workday_search",
+    "token": "equifax",
+    "path": "External",
+    "notes": "WORKING — equifax.wd5.myworkdayjobs.com/External"
+  },
+  {
+    "name": "Progressive",
+    "ats": "workday_search",
+    "token": "progressive",
+    "path": "External",
+    "notes": "progressive.wd5.myworkdayjobs.com/External"
+  },
+  {
+    "name": "Marsh & McLennan",
+    "ats": "workday_search",
+    "token": "mmc",
+    "path": "MMC",
+    "notes": "mmc.wd5.myworkdayjobs.com/MMC"
+  },
+  {
+    "name": "Aon",
+    "ats": "workday_search",
+    "token": "aon",
+    "path": "AonCareers",
+    "notes": "aon.wd5.myworkdayjobs.com/AonCareers"
+  },
+  {
+    "name": "Chubb",
+    "ats": "workday_search",
+    "token": "chubb",
+    "path": "External_Career_Site",
+    "notes": "chubb.wd1.myworkdayjobs.com/External_Career_Site"
+  },
+  {
+    "name": "Travelers",
+    "ats": "workday_search",
+    "token": "travelers",
+    "path": "External",
+    "notes": "travelers.wd5.myworkdayjobs.com/External"
+  },
+  {
+    "name": "Allstate",
+    "ats": "workday_search",
+    "token": "allstate",
+    "path": "Allstate_Careers",
+    "notes": "allstate.wd5.myworkdayjobs.com/Allstate_Careers"
+  },
+  {
+    "name": "MetLife",
+    "ats": "workday_search",
+    "token": "metlife",
+    "path": "careers",
+    "notes": "metlife.wd1.myworkdayjobs.com/careers"
   }
 ]
