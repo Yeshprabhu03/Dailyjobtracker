@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "last_updated": "2026-04-09T03:46:28.829265",
+    "last_updated": "2026-04-10T03:59:32.037742",
     "scanned_count": 29,
     "total_companies": 29,
-    "matches_found": 42,
+    "matches_found": 44,
     "technical_failures": 0,
     "status": "complete"
   },
@@ -359,6 +359,38 @@
       "seniority": "senior",
       "location_type": "onsite",
       "fetch_date": "2026-03-25T09:40:59.769015"
+    },
+    {
+      "id": "gh_7155492",
+      "title": "Principal Machine Learning & Data Engineer ",
+      "location": "Remote - US",
+      "url": "https://job-boards.greenhouse.io/twilio/jobs/7155492",
+      "department": "Engineering",
+      "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;Who we are&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;At Twilio, we\u2019re shaping the future of communications, all from the comfort of our homes. We deliver innovative solutions to&lt;a class=&quot;c-link&quot; href=&quot;https://customers.twilio.com/&quot; target=&quot;_blank&quot; data-stringify-link=&quot;https://customers.twilio.com/&quot; data-sk=&quot;tooltip_parent&quot;&gt;&amp;nbsp;hundreds of thousands of businesses&amp;nbsp;&lt;/a&gt;and empower millions of developers worldwide to craft personalized customer experience",
+      "posted_date": "2026-04-09",
+      "company": "Twilio",
+      "score": 90,
+      "match_reason": "This Principal Machine Learning & Data Engineer role at Twilio aligns very strongly with Santiago's deep expertise in LLM engineering, conversational AI platforms, and production-scale AI systems, particularly given Twilio's focus on communications and customer experience, and the remote US location is a perfect match.",
+      "apply_now": true,
+      "seniority": "director",
+      "location_type": "remote",
+      "fetch_date": "2026-04-10T03:59:27.441039"
+    },
+    {
+      "id": "gh_7066029",
+      "title": "Senior Manager, Machine Learning",
+      "location": "Remote - US",
+      "url": "https://job-boards.greenhouse.io/twilio/jobs/7066029",
+      "department": "Engineering",
+      "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;Who we are&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;At Twilio, we\u2019re shaping the future of communications, all from the comfort of our homes. We deliver innovative solutions to&lt;a class=&quot;c-link&quot; href=&quot;https://customers.twilio.com/&quot; target=&quot;_blank&quot; data-stringify-link=&quot;https://customers.twilio.com/&quot; data-sk=&quot;tooltip_parent&quot;&gt;&amp;nbsp;hundreds of thousands of businesses&amp;nbsp;&lt;/a&gt;and empower millions of developers worldwide to craft personalized customer experience",
+      "posted_date": "2026-04-09",
+      "company": "Twilio",
+      "score": 90,
+      "match_reason": "The Senior Manager, Machine Learning role at Twilio is an excellent fit, leveraging the candidate's deep expertise in conversational AI, LLM systems, and AI agent development for personalized customer experiences, with a perfect match on remote US location and seniority.",
+      "apply_now": true,
+      "seniority": "director",
+      "location_type": "remote",
+      "fetch_date": "2026-04-10T03:59:27.441039"
     },
     {
       "id": "ef_aexp_40665541",
