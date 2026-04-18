@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "last_updated": "2026-04-17T04:11:35.296021",
+    "last_updated": "2026-04-18T03:47:57.746745",
     "scanned_count": 29,
     "total_companies": 29,
-    "matches_found": 45,
+    "matches_found": 47,
     "technical_failures": 0,
     "status": "complete"
   },
@@ -361,6 +361,22 @@
       "fetch_date": "2026-03-25T09:40:59.769015"
     },
     {
+      "id": "gh_5192104008",
+      "title": "Global Leader, Applied AI Architects, Beneficial Deployments",
+      "location": "New York City, NY",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5192104008",
+      "department": "Sales",
+      "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;h2&gt;&lt;strong&gt;About Anthropic&lt;/strong&gt;&lt;/h2&gt;\n&lt;p&gt;Anthropic\u2019s mission is to create reliable, interpretable, and steerable AI systems. We want AI to be safe and beneficial for our users and for society as a whole. Our team is a quickly growing group of committed researchers, engineers, policy experts, and business leaders working together to build beneficial AI systems.&lt;/p&gt;&lt;/div&gt;&lt;h2 class=&quot;heading&quot;&gt;&lt;strong&gt;About Anthropic:&lt;/strong&gt;&lt;/h2&gt;\n&lt;p&gt;Anthropic&#39;s mission is to create ",
+      "posted_date": "2026-04-17",
+      "company": "Anthropic",
+      "score": 90,
+      "match_reason": "The role title, company (Anthropic, maker of Claude), and responsibilities of an Applied AI Architect in a sales department perfectly align with Santiago's Head of Applied AI/AI Solutions Architect experience, deep LLM engineering skills, and target roles.",
+      "apply_now": true,
+      "seniority": "director",
+      "location_type": "onsite",
+      "fetch_date": "2026-04-18T03:47:44.153843"
+    },
+    {
       "id": "gh_7155492",
       "title": "Principal Machine Learning & Data Engineer ",
       "location": "Remote - US",
@@ -503,6 +519,22 @@
       "seniority": "senior",
       "location_type": "onsite",
       "fetch_date": "2026-03-25T09:42:07.919989"
+    },
+    {
+      "id": "gh_5192805008",
+      "title": "Solutions Architect, Applied AI (Commercial)",
+      "location": "New York City, NY",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5192805008",
+      "department": "Sales",
+      "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;h2&gt;&lt;strong&gt;About Anthropic&lt;/strong&gt;&lt;/h2&gt;\n&lt;p&gt;Anthropic\u2019s mission is to create reliable, interpretable, and steerable AI systems. We want AI to be safe and beneficial for our users and for society as a whole. Our team is a quickly growing group of committed researchers, engineers, policy experts, and business leaders working together to build beneficial AI systems.&lt;/p&gt;&lt;/div&gt;&lt;h2 class=&quot;heading&quot;&gt;&lt;strong&gt;About the role:&lt;/strong&gt;&lt;/h2&gt;\n&lt;p&gt;As an Applied AI team member at Anthro",
+      "posted_date": "2026-04-17",
+      "company": "Anthropic",
+      "score": 85,
+      "match_reason": "The Solutions Architect role at Anthropic aligns perfectly with Santiago's Head of Applied AI experience, deep expertise in LLM systems, Claude API integration, and enterprise AI strategy, despite being an onsite role.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "onsite",
+      "fetch_date": "2026-04-18T03:47:44.153843"
     },
     {
       "id": "gh_7702644",
