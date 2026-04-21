@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "last_updated": "2026-04-20T04:19:16.900912",
+    "last_updated": "2026-04-21T04:11:26.209360",
     "scanned_count": 29,
     "total_companies": 29,
-    "matches_found": 47,
+    "matches_found": 48,
     "technical_failures": 0,
     "status": "complete"
   },
@@ -71,6 +71,22 @@
       "seniority": "senior",
       "location_type": "onsite",
       "fetch_date": "2026-04-06T02:39:57.141754"
+    },
+    {
+      "id": "gh_7061880",
+      "title": "Staff Machine Learning Engineer",
+      "location": "Remote - US",
+      "url": "https://job-boards.greenhouse.io/twilio/jobs/7061880",
+      "department": "Engineering",
+      "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;Who we are&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;At Twilio, we\u2019re shaping the future of communications, all from the comfort of our homes. We deliver innovative solutions to&lt;a class=&quot;c-link&quot; href=&quot;https://customers.twilio.com/&quot; target=&quot;_blank&quot; data-stringify-link=&quot;https://customers.twilio.com/&quot; data-sk=&quot;tooltip_parent&quot;&gt;&amp;nbsp;hundreds of thousands of businesses&amp;nbsp;&lt;/a&gt;and empower millions of developers worldwide to craft personalized customer experience",
+      "posted_date": "2026-04-20",
+      "company": "Twilio",
+      "score": 95,
+      "match_reason": "The Staff Machine Learning Engineer role at Twilio aligns perfectly with Santiago's senior AI/LLM engineering expertise, his interest in conversational AI and AI automation, and his preference for a remote, US-based position.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "remote",
+      "fetch_date": "2026-04-21T04:11:20.907996"
     },
     {
       "id": "gh_4796935101",
