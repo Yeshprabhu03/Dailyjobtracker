@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "last_updated": "2026-04-23T04:12:28.362978",
+    "last_updated": "2026-04-24T04:17:21.853629",
     "scanned_count": 29,
     "total_companies": 29,
-    "matches_found": 48,
+    "matches_found": 50,
     "technical_failures": 0,
     "status": "complete"
   },
@@ -377,6 +377,22 @@
       "fetch_date": "2026-03-25T09:40:59.769015"
     },
     {
+      "id": "gh_7059734",
+      "title": "Machine Learning Engineer",
+      "location": "Remote - US",
+      "url": "https://job-boards.greenhouse.io/twilio/jobs/7059734",
+      "department": "Engineering",
+      "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;Who we are&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;At Twilio, we\u2019re shaping the future of communications, all from the comfort of our homes. We deliver innovative solutions to&lt;a class=&quot;c-link&quot; href=&quot;https://customers.twilio.com/&quot; target=&quot;_blank&quot; data-stringify-link=&quot;https://customers.twilio.com/&quot; data-sk=&quot;tooltip_parent&quot;&gt;&amp;nbsp;hundreds of thousands of businesses&amp;nbsp;&lt;/a&gt;and empower millions of developers worldwide to craft personalized customer experience",
+      "posted_date": "2026-04-23",
+      "company": "Twilio",
+      "score": 90,
+      "match_reason": "The role at Twilio, focusing on communications and personalized customer experience, aligns perfectly with Santiago's expertise in conversational AI, LLM systems, and enterprise AI strategy for B2B SaaS, and is a remote US-based position.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "remote",
+      "fetch_date": "2026-04-24T04:17:16.968254"
+    },
+    {
       "id": "gh_5192104008",
       "title": "Global Leader, Applied AI Architects, Beneficial Deployments",
       "location": "New York City, NY",
@@ -535,6 +551,22 @@
       "seniority": "senior",
       "location_type": "onsite",
       "fetch_date": "2026-03-25T09:42:07.919989"
+    },
+    {
+      "id": "gh_5198108008",
+      "title": "Research Engineer, Machine Learning (RL Velocity)",
+      "location": "San Francisco, CA",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5198108008",
+      "department": "AI Research & Engineering",
+      "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;h2&gt;&lt;strong&gt;About Anthropic&lt;/strong&gt;&lt;/h2&gt;\n&lt;p&gt;Anthropic\u2019s mission is to create reliable, interpretable, and steerable AI systems. We want AI to be safe and beneficial for our users and for society as a whole. Our team is a quickly growing group of committed researchers, engineers, policy experts, and business leaders working together to build beneficial AI systems.&lt;/p&gt;&lt;/div&gt;&lt;h2 class=&quot;heading&quot;&gt;&lt;strong&gt;About the role&lt;/strong&gt;&lt;/h2&gt;\n&lt;p&gt;The RL Velocity team owns the efficienc",
+      "posted_date": "2026-04-23",
+      "company": "Anthropic",
+      "score": 85,
+      "match_reason": "This role at Anthropic aligns exceptionally well with Santiago's deep expertise in production-scale LLM engineering, AI agents, and RAG pipelines, offering a significant opportunity in cutting-edge AI research, despite the onsite location preference.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "onsite",
+      "fetch_date": "2026-04-24T04:16:48.233310"
     },
     {
       "id": "gh_5192805008",
