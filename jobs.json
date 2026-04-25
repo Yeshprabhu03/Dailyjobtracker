@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "last_updated": "2026-04-24T04:17:21.853629",
+    "last_updated": "2026-04-25T03:51:43.122653",
     "scanned_count": 29,
     "total_companies": 29,
-    "matches_found": 50,
+    "matches_found": 51,
     "technical_failures": 0,
     "status": "complete"
   },
@@ -71,6 +71,22 @@
       "seniority": "senior",
       "location_type": "onsite",
       "fetch_date": "2026-04-06T02:39:57.141754"
+    },
+    {
+      "id": "gh_5197538008",
+      "title": "Manager of Applied AI Architecture, Enterprise Tech (Cyber)",
+      "location": "San Francisco, CA",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5197538008",
+      "department": "Applied AI",
+      "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;h2&gt;&lt;strong&gt;About Anthropic&lt;/strong&gt;&lt;/h2&gt;\n&lt;p&gt;Anthropic\u2019s mission is to create reliable, interpretable, and steerable AI systems. We want AI to be safe and beneficial for our users and for society as a whole. Our team is a quickly growing group of committed researchers, engineers, policy experts, and business leaders working together to build beneficial AI systems.&lt;/p&gt;&lt;/div&gt;&lt;div&gt;\n&lt;h2&gt;&lt;strong&gt;About the Role:&amp;nbsp;&lt;/strong&gt;&lt;/h2&gt;\n&lt;p&gt;As the manager of the Applied AI Architect",
+      "posted_date": "2026-04-24",
+      "company": "Anthropic",
+      "score": 95,
+      "match_reason": "The role directly aligns with Santiago's expertise as an AI Solutions Architect, specializing in LLM systems, RAG, and AI agents, perfectly matching his target roles and skills at a leading AI company like Anthropic.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "onsite",
+      "fetch_date": "2026-04-25T03:51:31.782553"
     },
     {
       "id": "gh_7061880",
