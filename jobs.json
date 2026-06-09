@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "last_updated": "2026-06-08T05:49:05.346868",
+    "last_updated": "2026-06-09T05:04:58.988620",
     "scanned_count": 29,
     "total_companies": 29,
-    "matches_found": 54,
+    "matches_found": 56,
     "technical_failures": 0,
     "status": "complete"
   },
@@ -441,6 +441,22 @@
       "fetch_date": "2026-03-25T09:40:59.769015"
     },
     {
+      "id": "gh_8461582002",
+      "title": "Senior Partner Solutions Architect",
+      "location": "Remote - US",
+      "url": "https://job-boards.greenhouse.io/airtable/jobs/8461582002",
+      "department": "Customer Success & Services",
+      "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;Airtable is the no-code app platform that empowers people closest to the work to accelerate their most critical business processes. More than 500,000 organizations, including 80% of the Fortune 100, rely on Airtable to transform how work gets done.&lt;/p&gt;&lt;/div&gt;&lt;p&gt;As one of Airtable&#39;s Partner Solutions Architects, you will serve as a critical technical bridge between our partner ecosystem and Enterprise clients. You&#39;ll work at the intersection of our Professional Services, Partner, Product and Account teams to design and",
+      "posted_date": "2026-06-08",
+      "company": "Airtable",
+      "score": 90,
+      "match_reason": "The Senior Partner Solutions Architect role at Airtable aligns perfectly with Santiago's target of an AI Solutions Architect at a no-code/low-code AI platform, with strong matches in seniority, location, and his deep experience in AI automation and enterprise AI strategy.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "remote",
+      "fetch_date": "2026-06-09T05:04:47.753276"
+    },
+    {
       "id": "gh_7059734",
       "title": "Machine Learning Engineer",
       "location": "Remote - US",
@@ -759,6 +775,22 @@
       "seniority": "mid",
       "location_type": "remote",
       "fetch_date": "2026-03-25T09:44:06.275226"
+    },
+    {
+      "id": "gh_8462421002",
+      "title": "Senior Partner Solutions Architect",
+      "location": "Remote - US",
+      "url": "https://job-boards.greenhouse.io/airtable/jobs/8462421002",
+      "department": "Customer Success & Services",
+      "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;Airtable is the no-code app platform that empowers people closest to the work to accelerate their most critical business processes. More than 500,000 organizations, including 80% of the Fortune 100, rely on Airtable to transform how work gets done.&lt;/p&gt;&lt;/div&gt;&lt;h1&gt;&lt;strong&gt;What you&#39;ll do&lt;/strong&gt;&lt;/h1&gt;\n&lt;p&gt;&lt;em&gt;Solution Architecture &amp;amp; Design&lt;/em&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Collaborate with Engagement Managers, Partner Success Managers and partner teams to validate scope and design",
+      "posted_date": "2026-06-08",
+      "company": "Airtable",
+      "score": 80,
+      "match_reason": "The Senior Partner Solutions Architect role at Airtable, a no-code platform, aligns exceptionally well with Santiago's expertise in AI automation and specific interest in no-code/low-code AI platforms and Solutions Architect roles, with a perfect match on location and seniority.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "remote",
+      "fetch_date": "2026-06-09T05:04:47.753276"
     },
     {
       "id": "gh_5183021008",
