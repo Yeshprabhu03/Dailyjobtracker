@@ -1,13 +1,29 @@
 {
   "metadata": {
-    "last_updated": "2026-06-17T06:09:18.751446",
+    "last_updated": "2026-06-18T05:54:30.376327",
     "scanned_count": 29,
     "total_companies": 29,
-    "matches_found": 56,
+    "matches_found": 57,
     "technical_failures": 0,
     "status": "complete"
   },
   "jobs": [
+    {
+      "id": "gh_8597941002",
+      "title": "Senior Solutions Architect- West Coast",
+      "location": "Remote - US",
+      "url": "https://job-boards.greenhouse.io/airtable/jobs/8597941002",
+      "department": "Customer Success & Services",
+      "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;Airtable is the no-code app platform that empowers people closest to the work to accelerate their most critical business processes. More than 500,000 organizations, including 80% of the Fortune 100, rely on Airtable to transform how work gets done.&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;mb1&quot;&gt;Work is being redesigned, and Airtable is built for that moment: the same platform humans run their most critical workflows on is where agents now operate alongside them. Professional Services is where that redesign happens.&lt;/div&gt;\n&lt;div ",
+      "posted_date": "2026-06-17",
+      "company": "Airtable",
+      "score": 100,
+      "match_reason": "This Senior Solutions Architect role at Airtable is an exceptional fit, directly aligning with Santiago's target roles and deep expertise in AI agents, automation, LLM orchestration, and no-code/low-code AI platforms, as indicated by the description of 'agents now operating alongside humans' on their no-code platform.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "remote",
+      "fetch_date": "2026-06-18T05:54:19.435722"
+    },
     {
       "id": "gh_8487502002",
       "title": "Senior Solutions Architect",
