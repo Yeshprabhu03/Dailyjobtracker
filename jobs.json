@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "last_updated": "2026-07-21T04:13:59.958611",
+    "last_updated": "2026-07-22T04:15:33.372587",
     "scanned_count": 29,
     "total_companies": 29,
-    "matches_found": 63,
+    "matches_found": 64,
     "technical_failures": 0,
     "status": "complete"
   },
@@ -935,6 +935,22 @@
       "seniority": "mid",
       "location_type": "remote",
       "fetch_date": "2026-03-25T09:44:44.745146"
+    },
+    {
+      "id": "gh_5364804008",
+      "title": "Machine Learning Infrastructure Engineer, Safeguards Research",
+      "location": "San Francisco, CA",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5364804008",
+      "department": "AI Research & Engineering",
+      "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;h2&gt;&lt;strong&gt;About Anthropic&lt;/strong&gt;&lt;/h2&gt;\n&lt;p&gt;Anthropic\u2019s mission is to create reliable, interpretable, and steerable AI systems. We want AI to be safe and beneficial for our users and for society as a whole. Our team is a quickly growing group of committed researchers, engineers, policy experts, and business leaders working together to build beneficial AI systems.&lt;/p&gt;&lt;/div&gt;&lt;h2&gt;&lt;strong&gt;About the role&lt;/strong&gt;&lt;/h2&gt;\n&lt;p&gt;Anthropic&#39;s Safeguards team builds the systems that detect an",
+      "posted_date": "2026-07-21",
+      "company": "Anthropic",
+      "score": 75,
+      "match_reason": "This role at Anthropic is an excellent technical match for Santiago's deep expertise in LLM engineering, production-scale AI, LLM infrastructure, and AI evaluation, specifically aligning with his experience in building AI systems and working with Claude APIs, although the role is onsite in San Francisco versus his preference for remote/hybrid.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "onsite",
+      "fetch_date": "2026-07-22T04:15:22.603120"
     },
     {
       "id": "gh_4952051008",
