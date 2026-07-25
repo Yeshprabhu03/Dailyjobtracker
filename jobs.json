@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "last_updated": "2026-07-24T04:12:24.438455",
+    "last_updated": "2026-07-25T04:08:41.580290",
     "scanned_count": 29,
     "total_companies": 29,
-    "matches_found": 64,
+    "matches_found": 65,
     "technical_failures": 0,
     "status": "complete"
   },
@@ -55,6 +55,22 @@
       "seniority": "senior",
       "location_type": "remote",
       "fetch_date": "2026-04-06T02:40:18.217325"
+    },
+    {
+      "id": "gh_7926891",
+      "title": "Sr AI Architect - Conversational AI",
+      "location": "Remote - US",
+      "url": "https://job-boards.greenhouse.io/twilio/jobs/7926891",
+      "department": "Engineering",
+      "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;Who we are&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;At Twilio, we\u2019re shaping the future of communications, all from the comfort of our homes. We deliver innovative solutions to&lt;a class=&quot;c-link&quot; href=&quot;https://customers.twilio.com/&quot; target=&quot;_blank&quot; data-stringify-link=&quot;https://customers.twilio.com/&quot; data-sk=&quot;tooltip_parent&quot;&gt;&amp;nbsp;hundreds of thousands of businesses&amp;nbsp;&lt;/a&gt;and empower millions of developers worldwide to craft personalized customer experience",
+      "posted_date": "2026-07-24",
+      "company": "Twilio",
+      "score": 98,
+      "match_reason": "The 'Sr AI Architect - Conversational AI' role at Twilio is an outstanding match for Santiago's expertise in production-scale conversational AI platforms, LLM systems, and his target as an AI Solutions Architect, with a perfect remote US location.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "remote",
+      "fetch_date": "2026-07-25T04:08:37.329134"
     },
     {
       "id": "gh_7716287",
