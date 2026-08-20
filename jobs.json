@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "last_updated": "2026-08-19T02:17:03.310938",
+    "last_updated": "2026-08-20T02:16:30.108057",
     "scanned_count": 29,
     "total_companies": 29,
-    "matches_found": 68,
+    "matches_found": 70,
     "technical_failures": 0,
     "status": "complete"
   },
@@ -71,6 +71,22 @@
       "seniority": "senior",
       "location_type": "remote",
       "fetch_date": "2026-04-06T02:40:18.217325"
+    },
+    {
+      "id": "gh_5387827008",
+      "title": "Applied AI Architect, Startups",
+      "location": "New York City, NY, San Francisco, CA",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5387827008",
+      "department": "Applied AI",
+      "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;h2&gt;&lt;strong&gt;About Anthropic&lt;/strong&gt;&lt;/h2&gt;\n&lt;p&gt;Anthropic\u2019s mission is to create reliable, interpretable, and steerable AI systems. We want AI to be safe and beneficial for our users and for society as a whole. Our team is a quickly growing group of committed researchers, engineers, policy experts, and business leaders working together to build beneficial AI systems.&lt;/p&gt;&lt;/div&gt;&lt;h2&gt;&lt;strong&gt;About the role&lt;/strong&gt;&lt;/h2&gt;\n&lt;p&gt;As an Applied AI Architect on the Startups team at Anthropic, you",
+      "posted_date": "2026-08-19",
+      "company": "Anthropic",
+      "score": 98,
+      "match_reason": "Santiago's extensive experience in LLM engineering, RAG, AI agents, and conversational AI platforms, particularly with Claude APIs, makes him an exceptional fit for an Applied AI Architect role at Anthropic focusing on startups.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "hybrid",
+      "fetch_date": "2026-08-20T02:16:14.726183"
     },
     {
       "id": "gh_7926891",
@@ -743,6 +759,22 @@
       "seniority": "mid",
       "location_type": "remote",
       "fetch_date": "2026-03-25T09:40:17.325560"
+    },
+    {
+      "id": "gh_5391012008",
+      "title": "Pre-Sales Program Lead, Forward Deployed Engineering",
+      "location": "San Francisco, CA",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5391012008",
+      "department": "Applied AI",
+      "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;h2&gt;&lt;strong&gt;About Anthropic&lt;/strong&gt;&lt;/h2&gt;\n&lt;p&gt;Anthropic\u2019s mission is to create reliable, interpretable, and steerable AI systems. We want AI to be safe and beneficial for our users and for society as a whole. Our team is a quickly growing group of committed researchers, engineers, policy experts, and business leaders working together to build beneficial AI systems.&lt;/p&gt;&lt;/div&gt;&lt;h2&gt;&lt;strong&gt;About the role&lt;/strong&gt;&lt;/h2&gt;\n&lt;p&gt;We&#39;re looking for our first Pre-Sales Program Lead to build t",
+      "posted_date": "2026-08-19",
+      "company": "Anthropic",
+      "score": 88,
+      "match_reason": "This Pre-Sales Program Lead role at Anthropic, a company whose technology Santiago directly uses, is an exceptional fit for his deep expertise in LLM engineering, production deployments, and his target roles of Forward Deployed AI Engineer and AI Solutions Architect.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "onsite",
+      "fetch_date": "2026-08-20T02:16:14.726183"
     },
     {
       "id": "gh_5116927008",
