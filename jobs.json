@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "last_updated": "2026-08-28T12:30:04.913288",
+    "last_updated": "2026-08-29T07:39:43.529566",
     "scanned_count": 29,
     "total_companies": 29,
-    "matches_found": 77,
+    "matches_found": 78,
     "technical_failures": 0,
     "status": "complete"
   },
@@ -903,6 +903,22 @@
       "seniority": "senior",
       "location_type": "onsite",
       "fetch_date": "2026-03-25T09:42:07.919989"
+    },
+    {
+      "id": "gh_5406982008",
+      "title": "Applied AI Architect, Startups",
+      "location": "San Francisco, CA",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5406982008",
+      "department": "Applied AI",
+      "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;h2&gt;&lt;strong&gt;About Anthropic&lt;/strong&gt;&lt;/h2&gt;\n&lt;p&gt;Anthropic\u2019s mission is to create reliable, interpretable, and steerable AI systems. We want AI to be safe and beneficial for our users and for society as a whole. Our team is a quickly growing group of committed researchers, engineers, policy experts, and business leaders working together to build beneficial AI systems.&lt;/p&gt;&lt;/div&gt;&lt;h2&gt;&lt;strong&gt;About the role&lt;/strong&gt;&lt;/h2&gt;\n&lt;p&gt;As an Applied AI Architect on the Startups team at Anthropic, you",
+      "posted_date": "2026-08-28",
+      "company": "Anthropic",
+      "score": 85,
+      "match_reason": "The Applied AI Architect role at Anthropic is an exceptional match for Santiago's Head of Applied AI/AI Solutions Architect experience, deep LLM engineering skills (including specific Claude Code usage), and target roles, with the primary caveat being the onsite San Francisco location.",
+      "apply_now": true,
+      "seniority": "senior",
+      "location_type": "onsite",
+      "fetch_date": "2026-08-29T07:39:29.103544"
     },
     {
       "id": "gh_5390894008",
